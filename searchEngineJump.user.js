@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.0
+// @version        5.29.1
 // @created        2011-07-02
 // @lastUpdated    2022-11-05
 
@@ -47,7 +47,7 @@
 // @match          *://*.fnd.io/*
 // @match          *://*.forfrigg.com/*
 // @match          *://*.forvo.com/*
-// @match          *://*.github.com/search*
+// @match          *://*.github.com/*
 // @include        *://*.google.tld/*
 // @match          *://*.huaban.com/*
 // @match          *://*.ifeng.com/*
@@ -3573,7 +3573,7 @@
       iInput = {};
       iInput.textContent = selectText;
       if (sejContainer) {
-        sejContainer.style.top = "0px";
+        sejContainer.style.top = "1em";
         return;
       }
       selectSearchMode = true;
@@ -3683,11 +3683,10 @@
                       position: relative;
                       z-index: 2;
                       padding: 0;
-                      // line-height: 1.5;
                       font-size: 13px;
                       font-family: arial,sans-serif;
                       transform-origin: top center;
-                      animation: sejopen 0.2s;
+                      animation: sejopen 0.3s;
                       color:var(--font-color-qxin);
                       background: var(--background-color-qxin);
                       backdrop-filter: blur(2em);
@@ -3695,38 +3694,29 @@
                       width: fit-content !important;
                       border-radius: 0.7em;
                       overflow: hidden;
-                      box-shadow: 0.1em 0.2em 0.7em rgb(0 0 0 / 15%);
+                      box-shadow: 0.2em 0.2em 0.7em rgb(0 0 0 / 15%);
                       height: fit-content;
+                      flex-wrap: wrap;
                   }
                   /* 滑词搜索样式 */
                   #sej-container.selectSearch{
                       position:fixed;
-                      top:0;
-                      left:0;
-                      right:0;
+                      top:1em;
+                      left:2em;
                       z-index: 99999;
-                      text-align: center;
                       transition: 0.3s;
-                      background: #ffffffba;
-                      backdrop-filter: blur(25px);
-                      padding: 5px 0;
-                      box-shadow: 2px 2px 10px #eee;
-                  }
-                  .selectSearch .sej-engine{
-                      margin-left:5px;
+                      background: #ffffffc0;
                   }
                   #sej-expanded-category {
                       font-weight: bold;
                   }
-  
                   .sej-engine {
                       padding: 0 1em;
                       transition: background-color 0.2s ease-out;
                       font-size: 13px;
                       font-family: arial,sans-serif;
                       display: inline-flex;
-                      justify-content: space-between;
-                      min-width: 3.6em;
+                      gap: 0.5em;
                       align-items: center;
                       height: 2.6em;
                       text-decoration: none;

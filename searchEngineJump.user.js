@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.28.1
+// @version        5.29.0
 // @created        2011-07-02
 // @lastUpdated    2022-11-05
 
@@ -961,11 +961,11 @@
         engineList: "video",
         enabled: true,
         fixedTop: 60,
-        style: "width:1140px;margin:0 auto;",
+        style: "width:1140px;margin:1em auto;z-index: 11;position:sticky;top:70px;",
         insertIntoDoc: {
           keyword: "css;#keywords",
-          target: "css;.site_head_simple",
-          where: "afterEnd",
+          target: "css;#search_container > div.wrapper > div.wrapper_main",
+          where: "afterBegin",
         },
       },
       {
@@ -1004,7 +1004,7 @@
       },
       {
         name: "一听音乐",
-        url: /^https?:\/\/so\.1ting\.com\/all\.do/,
+        url: /^https?:\/\/so\.1ting\.com\/song/i,
         enabled: true,
         engineList: "music",
         style:
@@ -1037,19 +1037,19 @@
       },
       {
         name: "QQ音乐",
-        url: /^https?:\/\/s\.music\.qq\.com/i,
+        url: /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
         enabled: true,
         engineList: "music",
         style:
           "\
-            border-bottom: 1px solid #2B6DAE;\
-            border-top: 1px solid #2B6DAE;\
-            text-align: center;\
+            margin: 1em auto;\
+            position: sticky;\
+            top: 68px;\
           ",
         insertIntoDoc: {
-          keyword: "css;#keyword",
-          target: "css;.mod_soso",
-          where: "afterEnd",
+          keyword: "css;#app>div>div.mod_search>div.mod_search_input>input",
+          target: "css;#app > div > div.main > div > div",
+          where: "afterBegin",
         },
       },
       {
@@ -1060,7 +1060,6 @@
         fixedTop: 80,
         style:
           "\
-            text-align: center;\
             margin:auto;\
           ",
         insertIntoDoc: {
@@ -1428,7 +1427,9 @@
           "\
             margin:1em 0 0 0;\
             width: 100% !important;\
-            text-align: center;\
+            justify-content: center;\
+            position: sticky;\
+            top: 55px;\
             z-index: 99;\
           ",
         insertIntoDoc: {
@@ -1613,32 +1614,35 @@
         fixedTop: 48,
         style:
           "\
-            // border-bottom: 1px solid #E5E5E5;\
-            // border-top: 1px solid #E5E5E5;\
-            // text-align: center;\
+            width: auto !important;\
+            position: sticky;\
+            top:70px;\
+            margin: 1em 0 0.6em 15em;\
+            z-index: 10;\
           ",
         insertIntoDoc: {
-          keyword: "css;.searchInp_form",
-          target: "css;#pl_common_searchTop",
-          where: "afterEnd",
+          keyword: "css;.woo-input-main",
+          target: "css;.m-main .woo-box-flex",
+          where: "beforeBegin",
         },
       },
       {
         name: "百度贴吧",
-        url: /^https?:\/\/tieba\.baidu\.com\/f\/search/i,
+        url: /^https?:\/\/tieba\.baidu\.com/i,
         enabled: true,
         engineList: "sociality",
         style:
           "\
-            border-top: 1px solid #e5e5e5;\
-            text-align: center;\
-            border-bottom: 1px solid #e5e5e5;\
-            margin-bottom: 1px;\
+            position: fixed;\
+            top: 60px;\
+            left: 4em;\
+            max-width: 16.8em;\
+            flex-wrap: wrap;\
           ",
         insertIntoDoc: {
           keyword: "css;#wd1",
-          target: "css;.s_container.clearfix",
-          where: "beforeBegin",
+          target: "css;#head",
+          where: "afterEnd",
         },
       },
       {
@@ -1666,14 +1670,13 @@
         engineList: "sociality",
         style:
           "\
-            border-top: 1px solid #e5e5e5;\
-            text-align: center;\
-            border-bottom: 1px solid #e5e5e5;\
-            margin-bottom: 1px;\
+            margin: -1em 0 1em 7em;\
+            position: sticky;\
+            top: 0.1em;\
           ",
         insertIntoDoc: {
-          keyword: "css;#inp",
-          target: "css;#db-global-nav",
+          keyword: "css;#content > div > div.article > div.mod-search > form > fieldset > div.inp > input",
+          target: "css;#content > div > div.article > div.mod-search",
           where: "afterEnd",
         },
       },
@@ -1687,14 +1690,14 @@
         style:
           "\
             text-align: center;\
-            margin:auto;\
-            top:0px;\
+            position: sticky;\
+            top:62px;\
             z-index:99999;\
           ",
         insertIntoDoc: {
           keyword: "css;input#kw",
-          target: "css;#head_wr",
-          where: "afterEnd",
+          target: "css;#container",
+          where: "afterBegin",
         },
       },
       {
@@ -1704,8 +1707,11 @@
         engineList: "scholar",
         style:
           "\
-            z-index:999;\
+            z-index:1001;\
             position:relative;\
+            margin: 1em 0 0.5em 3.5em;\
+            position: sticky;\
+            top: 0.1em;\
           ",
         insertIntoDoc: {
           target: "css;#gs_ab",
@@ -1715,20 +1721,22 @@
       },
       {
         name: "cnki",
-        url: /^http:\/\/search\.cnki\.net\/search\.aspx/i,
+        url: /^https?:\/\/kns\.cnki\.net\/kns8\/defaultresult\/index/i,
         enabled: true,
         engineList: "scholar",
         style:
           "\
-            padding-left:15px;\
             border-top:1px solid #D9E1F7;\
             border-bottom:1px solid #D9E1F7;\
-            margin-top:-1px;\
+            width: auto !important;\
+            margin:0.6em 0 0.5em 465px;\
+            position: sticky;\
+            top: 0.1em;\
           ",
         insertIntoDoc: {
-          keyword: "css;#txtSearchKey",
-          target: "css;.main",
-          where: "afterBegin",
+          keyword: "css;#txt_search.search-input",
+          target: "css;.search-box",
+          where: "afterEnd",
         },
       },
       {
@@ -1752,18 +1760,20 @@
       {
         name: "万方",
         enabled: true,
-        url: /^https?:\/\/s\.g\.wanfangdata\.com\.cn\/Paper\.aspx/i,
+        url: /^https?:\/\/s\.wanfangdata\.com\.cn\/Paper/i,
         engineList: "scholar",
         style:
           "\
-            border-bottom:1px solid #E5E5E5;\
-            border-top:1px solid #E5E5E5;\
             z-index:999;\
-            position:relative;\
+            width: 1200px !important;\
+            margin: 1em auto 1em;\
+            position:sticky;\
+            top: 0.1em;\
+            justify-content: center;\
           ",
         insertIntoDoc: {
-          keyword: "css;#queryBox",
-          target: "css;#content",
+          keyword: "css;input.search-input",
+          target: "css;.me-container.container-wrapper",
           where: "beforeBegin",
         },
       },
@@ -1847,7 +1857,7 @@
       {
         name: "GitHub",
         enabled: true,
-        url: /^https?:\/\/github\.com\/search/,
+        url: /^https?:\/\/github\.com\/search/i,
         engineList: "mine",
         style:
           "\
@@ -2572,7 +2582,7 @@
     };
     engineList.scholar[3] = {
       name: "万方",
-      url: "http://s.g.wanfangdata.com.cn/Paper.aspx?q=%s",
+      url: "https://s.wanfangdata.com.cn/Paper?q=%s",
       favicon:
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJ0lEQVQ4jdWSvY4BURhAPwoS8TuTqESC3lN4DZGYVqGTaPQa4g1UYjqxdN5EoURI/CQ0M9/ZYnYya9fsRrHFFqe5Jzm5936ftEXatog9EZm+ii1iy1xkQbUKlgXNpodlQb0O8TjUao/O940GJJPIRGRKr4fCd0wTXa2eO4BK5SPQ6XiHqh6Ans+oYaCz2aPz/e0GpdJfBk4nL7BcPn+C60K5/MsNTBMdj9HDAd1uA3Y7dLOBYvGHwPWKFgqoSCiI/BC4XNB8HrUsdDRCB4OA4RDt98EwwgOcz2guFzpG/sEYXwp0uziuq59x73d1DEOdxUK/Osd11XUcDfag1UKPx2DO+z2s194nhuwB/h7MRd6IxSCbhXTaI5OBVAoiEUgkHp1PKgXRKO8NfBp7UCxd2QAAAABJRU5ErkJggg==",
     };
@@ -2989,7 +2999,7 @@
           enabled: true,
           engineList: "web",
           fixedTop: 50,
-          style: "margin-left: 140px;z-index:3001;",
+          style: "margin: 1em 0 0 135px;position:sticky;top:55px;z-index:3001;",
           insertIntoDoc: {
             keyword: "//input[@name='q']",
             target: "css;#tabs-wrap",
@@ -6293,6 +6303,7 @@
     /^https?:\/\/www\.iciba\.com\/word\?/,
     /^https?:\/\/neeva\.com\/search\?/i,
     /^https?:\/\/s\.taobao\.com\/search/,
+    /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
   ];
 
   // var hashListTag = hashList.some(function hashUrl(element, index, array){

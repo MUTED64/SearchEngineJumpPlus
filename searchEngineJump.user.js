@@ -2,10 +2,10 @@
 // @name           searchEngineJump 搜索引擎快捷跳转
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED(修改)
 // @contributor    MUTED
-// @description    方便的在各个搜索引擎之间跳转,增加可视化设置菜单,能更友好的自定义设置,修复百度搜索样式丢失的问题
-// @version        5.27.0
+// @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
+// @version        5.28.0
 // @created        2011-07-02
-// @lastUpdated    2022-11-04
+// @lastUpdated    2022-11-05
 
 // @namespace      https://greasyfork.org/zh-CN/scripts/27752-searchenginejump
 // @homepage       https://github.com/MUTED64/forkSearchEngineJump
@@ -117,7 +117,6 @@
 // @match          *://*.douyin.com/*
 // @match          *谷歌.ml/*
 // @match          *xn--flw351e.ml/*
-// @match        *://**/*
 
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -159,19 +158,19 @@
         //  给引擎列表的样式
         style:
           "\
-                    z-index: 100;\
-                    margin-top:15px;\
-                    margin-bottom:5px;\
-                    position:sticky;\
-                    top: 57px;\
-                    ",
+            z-index: 100;\
+            margin-top:15px;\
+            margin-bottom:5px;\
+            position:sticky;\
+            top: 57px;\
+          ",
         // 给引擎列表的样式 （“style_ACBaidu” 可选,是为了兼容 “AC Baidu” 脚本）
         style_ACBaidu:
           "\
-                    text-align: center;\
-                    z-index: 100;\
-                    margin-top:5px;\
-                ",
+            text-align: center;\
+            z-index: 100;\
+            margin-top:5px;\
+          ",
         // 插入文档,相关
         // target 将引擎跳转工具栏插入到文档的某个元素
         // (请使用xpath匹配,比如: '//*[@id="subform_ctrl"]'  或者 css匹配(请加上 'css;' 的前缀),比如: 'css;#subform_ctrl' );
@@ -203,16 +202,16 @@
         engineList: "web",
         style:
           "\
-                    margin-left: 142px;\
-                    z-index: 100;\
-                    margin-top:5px;\
-                ",
+            margin-left: 142px;\
+            z-index: 100;\
+            margin-top:5px;\
+          ",
         style_ACBaidu:
           "\
-                    text-align: center;\
-                    z-index: 100;\
-                    margin-top:5px;\
-                ",
+            text-align: center;\
+            z-index: 100;\
+            margin-top:5px;\
+          ",
         insertIntoDoc: {
           target: "css;#appbar",
           keyword: function () {
@@ -234,20 +233,20 @@
         fixedTopWhere: "beforeEnd",
         style:
           "\
-                    margin-top:8px;\
-                    z-index: 101;\
-                    margin-left: 133px;\
-                ",
+            margin-top:8px;\
+            z-index: 101;\
+            margin-left: 133px;\
+          ",
         style_ACBaidu:
           "\
-                    margin-top: 8px;\
-                    margin-bottom: -5px;\
-                    z-index: 99;\
-                    text-align: center;\
-                    padding-left:0px !important;\
-                    background: rgba(248,248,248,0.4);\
-                    backdrop-filter: blur(10px);\
-                ",
+            margin-top: 8px;\
+            margin-bottom: -5px;\
+            z-index: 99;\
+            text-align: center;\
+            padding-left:0px !important;\
+            background: rgba(248,248,248,0.4);\
+            backdrop-filter: blur(10px);\
+          ",
         insertIntoDoc: {
           keyword: "css;input#kw",
           target: "css;#wrapper_wrapper",
@@ -263,20 +262,20 @@
         engineList: "web",
         style:
           "\
-                    margin-top: 0.5em;\
-                    margin-left: 160px;\
-                    position: sticky;\
-                    top: 0.5em;\
-                ",
+            margin-top: 1em;\
+            margin-left: 160px;\
+            position: sticky;\
+            top: 0.5em;\
+          ",
         style_ACBaidu:
           "\
-                    text-align: center;\
-                    margin-left: -120px;\
-                    margin-right: 0px;\
-                    margin-bottom:-10px;\
-                    position: sticky;\
-                    top: 0.5em;\
-                ",
+            text-align: center;\
+            margin-left: -120px;\
+            margin-right: 0px;\
+            margin-bottom:-10px;\
+            position: sticky;\
+            top: 0.5em;\
+          ",
         insertIntoDoc: {
           keyword: "css;#sb_form_q",
           target: "css;#b_content",
@@ -289,8 +288,8 @@
         enabled: true,
         engineList: "web",
         style: "\
-                    margin-top:5px;\
-                ",
+                margin-top:5px;\
+               ",
         insertIntoDoc: {
           keyword: '//input[@name="q"]',
           target: "css;.results--main",
@@ -304,8 +303,8 @@
         enabled: true,
         fixedTop: 54,
         style: "\
-                    margin-left:122px;\
-                ",
+                margin-left:122px;\
+               ",
         insertIntoDoc: {
           keyword: "css;#yschsp",
           target: "css;#horizontal-bar",
@@ -319,13 +318,13 @@
         enabled: true,
         style:
           "\
-                    margin-left:0px;\
-                    width:1050px;\
-                    display:flex;\
-                    -webkit-box-orient: vertical;\
-                    -webkit-box-direction: normal;\
-                    margin: auto;\
-                ",
+            margin-left:0px;\
+            width:1050px;\
+            display:flex;\
+            -webkit-box-orient: vertical;\
+            -webkit-box-direction: normal;\
+            margin: auto;\
+          ",
         insertIntoDoc: {
           keyword: '//input[@name="p"]',
           target: "css;.Header__inner",
@@ -340,9 +339,9 @@
         fixedTop: 52,
         style:
           "\
-                    margin-left:-10px;\
-                    margin-bottom:10px;\
-                ",
+            margin-left:-10px;\
+            margin-bottom:10px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#yschsp",
           target: "css;#results",
@@ -356,9 +355,9 @@
         enabled: true,
         style:
           "\
-                    margin-left:-10px;\
-                    margin-bottom:10px;\
-                ",
+            margin-left:-10px;\
+            margin-bottom:10px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#q",
           target: "css;#categories",
@@ -373,17 +372,17 @@
         fixedTop: 60,
         style:
           "\
-                        top:-46px;\
-                        z-index:99;\
-                        margin-left:-5px;\
-                ",
+            top:-46px;\
+            z-index:99;\
+            margin-left:-5px;\
+          ",
         style_ACBaidu:
           "\
-                        top:-46px;\
-                        z-index:99;\
-                        margin-left:60px;\
-                        padding-left: 0px !important;\
-                ",
+            top:-46px;\
+            z-index:99;\
+            margin-left:60px;\
+            padding-left: 0px !important;\
+          ",
         insertIntoDoc: {
           keyword: "css;#upquery",
           target: "css;#wrapper",
@@ -399,8 +398,8 @@
         fixedTop: 96,
         class: "main__center",
         style: "\
-                    margin:1em 0;\
-                ",
+                margin:1em 0;\
+               ",
         insertIntoDoc: {
           keyword: "css;.input__control",
           target: "css;.main__center",
@@ -415,10 +414,10 @@
         engineList: "web",
         style:
           "\
-                    margin-left: 142px;\
-                    z-index: 100;\
-                    margin-top:5px;\
-                ",
+            margin-left: 142px;\
+            z-index: 100;\
+            margin-top:5px;\
+          ",
         insertIntoDoc: {
           target: "css;#appbar",
           keyword: '//input[@name="q"]',
@@ -433,8 +432,8 @@
         engineList: "web",
         fixedTop: 103,
         style: "\
-                    z-index: 100;\
-                ",
+                z-index: 100;\
+               ",
         insertIntoDoc: {
           target: "css;.layout-web__mainline",
           keyword: '//input[@name="query"]',
@@ -452,10 +451,10 @@
         nightMode: true,
         style:
           "\
-                    z-index: 100;\
-                    margin-left: 135px;\
-                    color:#ccc;\
-                ",
+            z-index: 100;\
+            margin-left: 135px;\
+            color:#ccc;\
+          ",
         insertIntoDoc: {
           target: "css;.layout-web__header",
           keyword: '//input[@name="query"]',
@@ -471,9 +470,9 @@
         engineList: "web",
         style:
           "\
-                    z-index: 100;\
-                    margin-top: 20px;\
-                ",
+            z-index: 100;\
+            margin-top: 20px;\
+          ",
         insertIntoDoc: {
           target: "css;.search-types",
           // keyword: 'css;input.gsc-input',
@@ -488,11 +487,11 @@
         engineList: "web",
         style:
           "\
-                    margin-left: -10px;\
-                    margin-top: -20px;\
-                    z-index:1;\
-                    background-color:#fff;\
-                ",
+            margin-left: -10px;\
+            margin-top: -20px;\
+            z-index:1;\
+            background-color:#fff;\
+          ",
         insertIntoDoc: {
           target: "css;.mainline",
           keyword: '//input[@name="q"]',
@@ -507,16 +506,16 @@
         fixedTop: 111,
         style:
           "\
-                    margin-left: 50px;\
-                    z-index: -99999;\
-                    margin-top:5px;\
-                ",
+            margin-left: 50px;\
+            z-index: -99999;\
+            margin-top:5px;\
+          ",
         style_ACBaidu:
           "\
-                    text-align: center;\
-                    z-index: -99999;\
-                    margin-top:5px;\
-                ",
+            text-align: center;\
+            z-index: -99999;\
+            margin-top:5px;\
+          ",
         insertIntoDoc: {
           target: "css;.input-with-suggestion",
           keyword: function () {
@@ -536,8 +535,8 @@
         engineList: "web",
         class: "container-80",
         style: "\
-                    z-index:1;\
-                ",
+                z-index:1;\
+               ",
         insertIntoDoc: {
           target: "css;#search-main",
           keyword: '//input[@name="q"]',
@@ -552,8 +551,8 @@
         engineList: "web",
         fixedTop: 80,
         style: "\
-                    z-index:1;\
-                ",
+                z-index:1;\
+               ",
         insertIntoDoc: {
           target: "css;#search header",
           keyword: '//input[@name="q"]',
@@ -570,9 +569,9 @@
         enabled: true,
         style:
           "\
-                    text-align: center;\
-                    background: #fff;\
-                ",
+            text-align: center;\
+            background: #fff;\
+          ",
         insertIntoDoc: {
           keyword: "css;#query",
           target: "css;.navbar-wrapper",
@@ -587,9 +586,9 @@
         fixedTop: 56,
         style:
           "\
-                    padding-left: 120px;\
-                    margin: 5px 0 -10px 0px;\
-                ",
+            padding-left: 120px;\
+            margin: 5px 0 -10px 0px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#query",
           target: "css;.header-wrapper",
@@ -604,10 +603,10 @@
         fixedTop: 96,
         style:
           "\
-                    margin-bottom: 6px;\
-                    margin-top:-16px;\
-                    padding:0;\
-                ",
+            margin-bottom: 6px;\
+            margin-top:-16px;\
+            padding:0;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var str = document.querySelector("#kw").value;
@@ -624,11 +623,11 @@
         enabled: true,
         style:
           "\
-                    border-top: 1px solid #e5e5e5;\
-                    border-bottom: 1px solid #e5e5e5;\
-                    margin-bottom: 1px;\
-                    margin-left:112px;\
-                ",
+            border-top: 1px solid #e5e5e5;\
+            border-bottom: 1px solid #e5e5e5;\
+            margin-bottom: 1px;\
+            margin-left:112px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#kw",
           target: "css;#header",
@@ -642,11 +641,11 @@
         enabled: true,
         style:
           "\
-                        position: fixed;\
-                        margin: 1em auto;\
-                        left: 0;\
-                        right: 0;\
-                ",
+            position: fixed;\
+            margin: 1em auto;\
+            left: 0;\
+            right: 0;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var url = window.location.href.substring(
@@ -666,22 +665,22 @@
         fixedTop: 52,
         style:
           "\
-                    margin: 10px auto 0px;\
-                    width:1000px !important;\
-                    z-index:19;\
-                    background: #fff;\
-                    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);  \
-                ",
+            margin: 10px auto 0px;\
+            width:1000px !important;\
+            z-index:19;\
+            background: #fff;\
+            box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);  \
+          ",
         // 兼容“知乎排版优化”
         // https://greasyfork.org/zh-CN/scripts/21659
         style_ZhihuChenglinz:
           "\
-                    margin: 10px auto 0px;\
-                    width:654px;\
-                    z-index:19;\
-                    background: #fff;\
-                    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);  \
-                ",
+            margin: 10px auto 0px;\
+            width:654px;\
+            z-index:19;\
+            background: #fff;\
+            box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);  \
+          ",
         insertIntoDoc: {
           keyword: "css;.Input",
           target: "css;.Search-container",
@@ -696,11 +695,11 @@
         enabled: true,
         style:
           "\
-                    border-top: 1px solid #e5e5e5;\
-                    text-align: center;\
-                    border-bottom: 1px solid #e5e5e5;\
-                    margin-bottom: 1px;\
-                ",
+            border-top: 1px solid #e5e5e5;\
+            text-align: center;\
+            border-bottom: 1px solid #e5e5e5;\
+            margin-bottom: 1px;\
+          ",
         insertIntoDoc: {
           keyword: "css;.ac_input",
           target: "css;.bk-head",
@@ -714,11 +713,11 @@
         enabled: true,
         style:
           "\
-                    border-top: 1px solid #e5e5e5;\
-                    text-align: center;\
-                    border-bottom: 1px solid #e5e5e5;\
-                    margin-bottom: 1px;\
-                ",
+            border-top: 1px solid #e5e5e5;\
+            text-align: center;\
+            border-bottom: 1px solid #e5e5e5;\
+            margin-bottom: 1px;\
+          ",
         insertIntoDoc: {
           keyword: "css;.ac_input",
           target: "css;.bk-head",
@@ -732,12 +731,12 @@
         enabled: true,
         style:
           "\
-                    text-align: center;\
-                    margin:0 auto;\
-                    padding-top:1px;\
-                    border-top:1px solid #00000;\
-                    border-bottom:1px solid #D9E1F7;\
-                ",
+            text-align: center;\
+            margin:0 auto;\
+            padding-top:1px;\
+            border-top:1px solid #00000;\
+            border-bottom:1px solid #D9E1F7;\
+          ",
         insertIntoDoc: {
           keyword: "css;#topsearch",
           target: "css;.doc_hd_mini",
@@ -752,10 +751,10 @@
         fixedTop: 55,
         style:
           "\
-                      margin: auto;\
-                      width: 1000px;\
-                      z-index:99;\
-                   ",
+            margin: auto;\
+            width: 1000px;\
+            z-index:99;\
+          ",
         insertIntoDoc: {
           keyword: "css;#upquery",
           target: "css;#header",
@@ -818,10 +817,10 @@
         fixedTop: 54,
         style:
           "\
-                    width:1190px;\
-                    margin:0 auto;\
-                    z-index:99999;\
-                ",
+            width:1190px;\
+            margin:0 auto;\
+            z-index:99999;\
+          ",
         insertIntoDoc: {
           keyword: "css;#headq",
           target: "css;.sk_container",
@@ -835,11 +834,11 @@
         engineList: "video",
         style:
           "\
-                    padding-left: 10px;\
-                    border-top: 1px solid #FC6500;\
-                    border-bottom: 1px solid #FC6500;\
-                    text-align: center;\
-                ",
+            padding-left: 10px;\
+            border-top: 1px solid #FC6500;\
+            border-bottom: 1px solid #FC6500;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#headq",
           target: "css;body > .sk_container",
@@ -854,10 +853,9 @@
         // fixedTop:62,
         style:
           "\
-                    width:980px;\
-                    margin:10px auto 10px;\
-                    text-align:center;\
-                ",
+            width:980px;\
+            margin:10px auto 10px;\
+          ",
         insertIntoDoc: {
           // keyword: 'css;#search-keyword',   //旧
           // target: 'css;.filter-wrap',     //旧
@@ -888,12 +886,12 @@
         fixedTop: 46,
         style:
           "\
-                    width:980px;\
-                    margin: -30px 0 10px 0;\
-                    text-align:center;\
-                    position:sticky;\
-                    top: 65px;\
-                ",
+            width:980px;\
+            margin: -30px 0 10px 0;\
+            text-align:center;\
+            position:sticky;\
+            top: 65px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#search-text--standalone",
           target: "css;.search__main__container",
@@ -908,13 +906,15 @@
         fixedTop: 56,
         style:
           "\
-                    z-index:9;\
-                    margin-top: 70px;\
-                    margin-bottom: -50px;\
-                    margin-left: 300px;\
-                    text-align: center;\
-                    backgroud:#fff;\
-                ",
+            z-index:9;\
+            margin-top: 70px;\
+            margin-bottom: -50px;\
+            margin-left: 300px;\
+            text-align: center;\
+            backgroud:#fff;\
+            position:sticky;\
+            top: 60px;\
+          ",
         insertIntoDoc: {
           keyword: "css;input#search",
           target: "css;#page-manager",
@@ -928,10 +928,10 @@
         engineList: "video",
         style:
           "\
-                    border-top: 1px solid #E8E8E8;\
-                    border-bottom: 1px solid #E8E8E8;\
-                    text-align: center;\
-                ",
+            border-top: 1px solid #E8E8E8;\
+            border-bottom: 1px solid #E8E8E8;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#search_united",
           target: "css;.tagListBox",
@@ -946,9 +946,9 @@
         fixedTop: 60,
         style:
           "\
-                        margin:0 auto;\
-                        width:1180px;\
-                        ",
+            margin:0 auto;\
+            width:1180px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#data-widget-searchword",
           target: "css;.mod_search_header",
@@ -975,9 +975,9 @@
         enabled: true,
         style:
           " \
-                    width:1140px;\
-                    margin:-10px auto 10px;,\
-                    ",
+            width:1140px;\
+            margin:-10px auto 10px;,\
+          ",
         insertIntoDoc: {
           keyword: '//input[@name="searchword"]',
           target: "css;.head",
@@ -993,9 +993,9 @@
         engineList: "music",
         style:
           "\
-                    border-top: 0px solid #0064C4;\
-                    margin-bottom: 5px;\
-                ",
+            border-top: 0px solid #0064C4;\
+            margin-bottom: 5px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#ww",
           target: "css;.nav-wrapper",
@@ -1009,11 +1009,11 @@
         engineList: "music",
         style:
           "\
-                    text-align: center;\
-                    border-bottom: 1px solid #13B310;\
-                    border-top: 1px solid #13B310;\
-                    margin:auto;\
-                ",
+            text-align: center;\
+            border-bottom: 1px solid #13B310;\
+            border-top: 1px solid #13B310;\
+            margin:auto;\
+          ",
         insertIntoDoc: {
           keyword: "css;#keyword",
           target: "css;.nav",
@@ -1027,9 +1027,8 @@
         engineList: "music",
         style:
           "\
-                    border-top: 1px solid #93D3FF;\
-                    text-align: center;\
-                ",
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#search_text",
           target: "css;.search_result",
@@ -1043,10 +1042,10 @@
         engineList: "music",
         style:
           "\
-                    border-bottom: 1px solid #2B6DAE;\
-                    border-top: 1px solid #2B6DAE;\
-                    text-align: center;\
-                ",
+            border-bottom: 1px solid #2B6DAE;\
+            border-top: 1px solid #2B6DAE;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#keyword",
           target: "css;.mod_soso",
@@ -1061,9 +1060,9 @@
         fixedTop: 80,
         style:
           "\
-                    text-align: center;\
-                    margin:auto;\
-                    ",
+            text-align: center;\
+            margin:auto;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             return decodeURI(document.URL.match(/s=(.+?)(&|$)/)[1]);
@@ -1079,10 +1078,10 @@
         engineList: "music",
         style:
           "\
-                    border-bottom: 1px solid #2B6DAE;\
-                    border-top: 1px solid #2B6DAE;\
-                    text-align: center;\
-                    ",
+            border-bottom: 1px solid #2B6DAE;\
+            border-top: 1px solid #2B6DAE;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var url = window.location.href.substring(
@@ -1103,9 +1102,10 @@
         engineList: "image",
         fixedTop: 70, //关闭关联联想的情况下
         // fixedTop:135,  //
-        style: "\
-                    margin-left:127px;\
-                    ",
+        style:
+          "\
+            margin-left:127px;\
+          ",
         insertIntoDoc: {
           keyword: "css;input#kw",
           target: "css;.s_tab",
@@ -1120,9 +1120,9 @@
         fixedTop: 52,
         style:
           "\
-                    margin-left:136px;\
-                    padding: 10px 5px 1px 22px;\
-                    ",
+            margin-left:136px;\
+            padding: 10px 5px 1px 22px;\
+          ",
         insertIntoDoc: {
           keyword: "css;input[name=q]",
           // target: 'css;#ucs',
@@ -1136,9 +1136,10 @@
         url: /^https?:\/\/.*\.bing\.com\/images\/search/i,
         enabled: true,
         engineList: "image",
-        style: "\
-                    margin:0 0 0 160px;\
-                    ",
+        style:
+          "\
+            margin:0 0 0 160px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#sb_form_q",
           target: "css;#rfPaneIn",
@@ -1152,11 +1153,11 @@
         enabled: true,
         style:
           "\
-                    z-index:1999;\
-                    width:100%;\
-                    border-top:1px solid #EBF1FF;\
-                    border-bottom:0px solid #EBF1FF;\
-                    ",
+            z-index:1999;\
+            width:100%;\
+            border-top:1px solid #EBF1FF;\
+            border-bottom:0px solid #EBF1FF;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var input = document.getElementById("autosuggest-input");
@@ -1180,10 +1181,10 @@
         enabled: true,
         style:
           "\
-                    margin: 0 auto;\
-                    text-align: center;\
-                    font-family: 微软雅黑;\
-                   ",
+            margin: 0 auto;\
+            text-align: center;\
+            font-family: 微软雅黑;\
+          ",
         insertIntoDoc: {
           keyword: "css;input[name=word]",
           target: "css;body",
@@ -1197,9 +1198,9 @@
         enabled: true,
         style:
           "\
-                    border-top:1px solid #EBF1FF;\
-                    text-align: center;\
-                    ",
+            border-top:1px solid #EBF1FF;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#query",
           target: "css;#search_switch",
@@ -1213,9 +1214,9 @@
         enabled: true,
         style:
           "\
-                    text-align: center;\
-                    margin-top:-11px;\
-                    ",
+            text-align: center;\
+            margin-top:-11px;\
+          ",
         insertIntoDoc: {
           keyword: '//input[@name="q"]',
           target: "css;.headerContainer",
@@ -1231,9 +1232,9 @@
         enabled: true,
         style:
           "\
-                    text-align: center;\
-                    z-index: 9999;\
-                    ",
+            text-align: center;\
+            z-index: 9999;\
+          ",
         insertIntoDoc: {
           keyword: "css;.inputbox",
           target: "css;#SearchResults",
@@ -1245,9 +1246,10 @@
         url: /^https?:\/\/share\.dmhy\.org\/topics\/list\?keyword\=/i,
         engineList: "download",
         enabled: true,
-        style: "\
-                    text-align: center;\
-                    ",
+        style:
+          "\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#keyword",
           target: "css;.table.clear",
@@ -1272,9 +1274,9 @@
         enabled: true,
         style:
           "\
-                    border-bottom: 1px solid #00AFFF;\
-                    text-align: center;\
-                    ",
+            border-bottom: 1px solid #00AFFF;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: '//input[@name="q"]',
           target: "css;.Header",
@@ -1288,11 +1290,11 @@
         enabled: true,
         style:
           "\
-                    border-bottom: 0px solid #CAD9EA;\
-                    border-top: 0px solid #CAD9EA;\
-                    text-align: center;\
-                    top: -20px;\
-                ",
+            border-bottom: 0px solid #CAD9EA;\
+            border-top: 0px solid #CAD9EA;\
+            text-align: center;\
+            top: -20px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#sn",
           target: "css;.navbar.navbar-inverse",
@@ -1306,9 +1308,10 @@
         url: /^https?:\/\/translate\.google(?:\.\D{1,4}){1,2}/i,
         enabled: true,
         engineList: "translate",
-        style: "\
-                    margin:10px 0px 0px 0px;\
-                ",
+        style:
+          "\
+            margin:10px 0px 0px 0px;\
+          ",
         insertIntoDoc: {
           keyword: "css;.D5aOJc ",
           target: "css;.MOkH4e ",
@@ -1320,9 +1323,10 @@
         url: /^https?:\/\/fanyi\.baidu\.com/i,
         enabled: true,
         engineList: "translate",
-        style: "\
-                    margin: -20px 0 10px 0;\
-                ",
+        style:
+          "\
+            margin: -20px 0 10px 0;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             return document.querySelector("#baidu_translate_input").value;
@@ -1338,10 +1342,10 @@
         engineList: "translate",
         style:
           "\
-                    padding-left:15px;\
-                    margin-top:6px;\
-                    margin-left: 148px;\
-                ",
+            padding-left:15px;\
+            margin-top:6px;\
+            margin-left: 148px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#sb_form_q",
           target: "css;#b_header",
@@ -1355,8 +1359,8 @@
         engineList: "translate",
         fixedTop: 64,
         style: "\
-                    margin:auto;\
-                ",
+                margin:auto;\
+               ",
         insertIntoDoc: {
           keyword: "css;#query",
           target: "css;#container",
@@ -1371,10 +1375,10 @@
         fixedTop: 64,
         style:
           "\
-                    padding-left:0px;\
-                    margin-top:2px;\
-                    text-align:center;\
-                ",
+            padding-left:0px;\
+            margin-top:2px;\
+            text-align:center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#query",
           target: "css;.c-topbar-wrapper",
@@ -1388,9 +1392,9 @@
         engineList: "translate",
         style:
           "\
-                    z-index : 99;\
-                    text-align : center;\
-                   ",
+            z-index : 99;\
+            text-align : center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#q",
           target: "css;.main",
@@ -1405,8 +1409,8 @@
         engineList: "translate",
         fixedTop: 122,
         style: "\
-                    z-index : 0;\
-                ",
+                z-index : 0;\
+                  ",
         insertIntoDoc: {
           keyword: '//input[@type="search"]',
           target: "css;.Search_input__1qgiU",
@@ -1422,11 +1426,11 @@
         engineList: "shopping",
         style:
           "\
-                    margin:1em 0 0 0;\
-                    width: 100% !important;\
-                    text-align: center;\
-                    z-index: 99;\
-                ",
+            margin:1em 0 0 0;\
+            width: 100% !important;\
+            text-align: center;\
+            z-index: 99;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var input = document.querySelector("#q");
@@ -1451,13 +1455,13 @@
         fixedTop: 37,
         style:
           "\
-                    z-index:9999;\
-                    margin: 2px auto -10px;\
-                    left:0;\
-                    right:0;\
-                    text-align:center;\
-                    position:absolute;\
-                ",
+            z-index:9999;\
+            margin: 2px auto -10px;\
+            left:0;\
+            right:0;\
+            text-align:center;\
+            position:absolute;\
+          ",
         insertIntoDoc: {
           keyword: "css;#mq",
           target: "css;.headerCon",
@@ -1472,9 +1476,9 @@
         fixedTop: 34,
         style:
           "\
-                    margin: 10px auto -10px;\
-                    text-align:center;\
-                ",
+            margin: 10px auto -10px;\
+            text-align:center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#mq",
           target: "css;.headerCon",
@@ -1488,9 +1492,9 @@
         engineList: "shopping",
         style:
           "\
-                    text-align:center; \
-                    margin: 1em auto -0.5em auto;\
-                    ",
+            text-align:center; \
+            margin: 1em auto -0.5em auto;\
+          ",
         insertIntoDoc: {
           keyword: "css;#key",
           //target: 'css;#o-header-2013',
@@ -1505,12 +1509,12 @@
         engineList: "shopping",
         style:
           "\
-                    border-bottom: 1px solid #E5E5E5;\
-                    border-top: 1px solid #E5E5E5;\
-                    margin: 1em auto;\
-                    width: 1390px !important;\
-                    text-align: center;\
-                ",
+            border-bottom: 1px solid #E5E5E5;\
+            border-top: 1px solid #E5E5E5;\
+            margin: 1em auto;\
+            width: 1390px !important;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#searchKeywordsHidden",
           target: "css;.ng-header",
@@ -1524,10 +1528,10 @@
         engineList: "shopping",
         style:
           "\
-                    border-bottom: 1px solid #E5E5E5;\
-                    border-top: 1px solid #E5E5E5;\
-                    text-align: center;\
-                ",
+            border-bottom: 1px solid #E5E5E5;\
+            border-top: 1px solid #E5E5E5;\
+            text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;#keyword",
           target: "css;#global_top_bar",
@@ -1543,9 +1547,9 @@
         fixedTop: 40,
         style:
           "\
-                    width: 100% !important;\
-                    margin: 0 auto 1em auto;\
-                ",
+            width: 100% !important;\
+            margin: 0 auto 1em auto;\
+          ",
         insertIntoDoc: {
           keyword: "css;#J_search_input",
           target: "css;#feed-wrap",
@@ -1559,8 +1563,8 @@
         enabled: true,
         engineList: "shopping",
         style: "\
-                 margin:2px 0 -10px 0;\
-             ",
+                margin:2px 0 -10px 0;\
+               ",
         insertIntoDoc: {
           keyword: "css;#twotabsearchtextbox",
           target: "css;.sg-row",
@@ -1576,8 +1580,8 @@
         fixedTop: 88,
         class: "tab-container",
         style: "\
-                 margin:-10px auto 5px;\
-             ",
+                margin:-10px auto 5px;\
+               ",
         insertIntoDoc: {
           keyword: '//input[@name="keywords"]',
           target: "css;.header-container",
@@ -1591,8 +1595,8 @@
         enabled: true,
         engineList: "shopping",
         style: "\
-                 text-align:center;\
-             ",
+                text-align:center;\
+               ",
         insertIntoDoc: {
           keyword: '//input[@name="key"]',
           target: "css;#resultcomment",
@@ -1609,10 +1613,10 @@
         fixedTop: 48,
         style:
           "\
-                    // border-bottom: 1px solid #E5E5E5;\
-                    // border-top: 1px solid #E5E5E5;\
-                    // text-align: center;\
-                ",
+            // border-bottom: 1px solid #E5E5E5;\
+            // border-top: 1px solid #E5E5E5;\
+            // text-align: center;\
+          ",
         insertIntoDoc: {
           keyword: "css;.searchInp_form",
           target: "css;#pl_common_searchTop",
@@ -1626,11 +1630,11 @@
         engineList: "sociality",
         style:
           "\
-                    border-top: 1px solid #e5e5e5;\
-                    text-align: center;\
-                    border-bottom: 1px solid #e5e5e5;\
-                    margin-bottom: 1px;\
-                ",
+            border-top: 1px solid #e5e5e5;\
+            text-align: center;\
+            border-bottom: 1px solid #e5e5e5;\
+            margin-bottom: 1px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#wd1",
           target: "css;.s_container.clearfix",
@@ -1644,11 +1648,11 @@
         engineList: "sociality",
         style:
           "\
-                    border-top: 1px solid #e5e5e5;\
-                    text-align: center;\
-                    border-bottom: 1px solid #e5e5e5;\
-                    margin-bottom: 1px;\
-                ",
+            border-top: 1px solid #e5e5e5;\
+            text-align: center;\
+            border-bottom: 1px solid #e5e5e5;\
+            margin-bottom: 1px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#inp-query",
           target: "css;.nav-secondary",
@@ -1662,11 +1666,11 @@
         engineList: "sociality",
         style:
           "\
-                    border-top: 1px solid #e5e5e5;\
-                    text-align: center;\
-                    border-bottom: 1px solid #e5e5e5;\
-                    margin-bottom: 1px;\
-                ",
+            border-top: 1px solid #e5e5e5;\
+            text-align: center;\
+            border-bottom: 1px solid #e5e5e5;\
+            margin-bottom: 1px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#inp",
           target: "css;#db-global-nav",
@@ -1682,11 +1686,11 @@
         engineList: "scholar",
         style:
           "\
-                    text-align: center;\
-                    margin:auto;\
-                    top:0px;\
-                    z-index:99999;\
-                    ",
+            text-align: center;\
+            margin:auto;\
+            top:0px;\
+            z-index:99999;\
+          ",
         insertIntoDoc: {
           keyword: "css;input#kw",
           target: "css;#head_wr",
@@ -1700,9 +1704,9 @@
         engineList: "scholar",
         style:
           "\
-                    z-index:999;\
-                    position:relative;\
-                ",
+            z-index:999;\
+            position:relative;\
+          ",
         insertIntoDoc: {
           target: "css;#gs_ab",
           keyword: '//input[@name="q"]',
@@ -1716,11 +1720,11 @@
         engineList: "scholar",
         style:
           "\
-                    padding-left:15px;\
-                    border-top:1px solid #D9E1F7;\
-                    border-bottom:1px solid #D9E1F7;\
-                    margin-top:-1px;\
-                    ",
+            padding-left:15px;\
+            border-top:1px solid #D9E1F7;\
+            border-bottom:1px solid #D9E1F7;\
+            margin-top:-1px;\
+          ",
         insertIntoDoc: {
           keyword: "css;#txtSearchKey",
           target: "css;.main",
@@ -1734,11 +1738,11 @@
         engineList: "scholar",
         style:
           "\
-                    border-bottom:1px solid #E5E5E5;\
-                    border-top:1px solid #E5E5E5;\
-                    z-index:999;\
-                    position:relative;\
-                    ",
+            border-bottom:1px solid #E5E5E5;\
+            border-top:1px solid #E5E5E5;\
+            z-index:999;\
+            position:relative;\
+          ",
         insertIntoDoc: {
           keyword: "css;#txt_1_value1",
           target: "css;#TopSearchBar",
@@ -1752,11 +1756,11 @@
         engineList: "scholar",
         style:
           "\
-                    border-bottom:1px solid #E5E5E5;\
-                    border-top:1px solid #E5E5E5;\
-                    z-index:999;\
-                    position:relative;\
-                    ",
+            border-bottom:1px solid #E5E5E5;\
+            border-top:1px solid #E5E5E5;\
+            z-index:999;\
+            position:relative;\
+          ",
         insertIntoDoc: {
           keyword: "css;#queryBox",
           target: "css;#content",
@@ -1770,10 +1774,10 @@
         engineList: "scholar",
         style:
           "\
-                    border-bottom:1px solid #E5E5E5;\
-                    border-top:1px solid #E5E5E5;\
-                    position:relative;\
-                    ",
+            border-bottom:1px solid #E5E5E5;\
+            border-top:1px solid #E5E5E5;\
+            position:relative;\
+          ",
         insertIntoDoc: {
           keyword: "css;#SearchTerm1",
           target: "css;#findFieldOuter",
@@ -1787,10 +1791,10 @@
         engineList: "scholar",
         style:
           "\
-                    border-bottom:1px solid #E5E5E5;\
-                    border-top:1px solid #E5E5E5;\
-                    position:relative;\
-                    ",
+            border-bottom:1px solid #E5E5E5;\
+            border-top:1px solid #E5E5E5;\
+            position:relative;\
+          ",
         insertIntoDoc: {
           keyword: "css;#query",
           target: "css;#content",
@@ -1804,10 +1808,10 @@
         engineList: "scholar",
         style:
           "\
-                    border-bottom:1px solid #E5E5E5;\
-                    border-top:1px solid #E5E5E5;\
-                    position:relative;\
-                   ",
+            border-bottom:1px solid #E5E5E5;\
+            border-top:1px solid #E5E5E5;\
+            position:relative;\
+          ",
         insertIntoDoc: {
           keyword: "css;#searchBox",
           target: "css;.tabs-search-results",
@@ -1823,12 +1827,12 @@
         engineList: "mine",
         style:
           "\
-                    border-bottom:1px solid #E5E5E5;\
-                    border-top:1px solid #E5E5E5;\
-                    position:relative;\
-                    text-align:center;\
-                    margin: 0 auto 2em;\
-                   ",
+            border-bottom:1px solid #E5E5E5;\
+            border-top:1px solid #E5E5E5;\
+            position:relative;\
+            text-align:center;\
+            margin: 0 auto 2em;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var url = window.location.href.substring(
@@ -1847,12 +1851,12 @@
         engineList: "mine",
         style:
           "\
-                    margin: 1em 8px;\
-                    text-align:center;\
-                    position: sticky;\
-                    width: 100% !important;\
-                    top: 0.5em;\
-                   ",
+            margin: 1em 8px;\
+            text-align:center;\
+            position: sticky;\
+            width: 100% !important;\
+            top: 0.5em;\
+          ",
         insertIntoDoc: {
           keyword: '//input[@name="q"]',
           target: "css;.col-12.px-2.py-2.py-md-3.d-lg-none.d-flex",
@@ -1866,9 +1870,9 @@
         engineList: "mine",
         style:
           "\
-                    position:relative;\
-                    text-align:center;\
-                   ",
+            position:relative;\
+            text-align:center;\
+          ",
         insertIntoDoc: {
           keyword: function () {
             var url = window.location.href.substring(
@@ -1890,11 +1894,11 @@
         engineList: "web",
         style:
           "\
-                    text-align:center;\
-                    position:fixed;\
-                    z-index:99999;\
-                    top:0;\
-                   ",
+            text-align:center;\
+            position:fixed;\
+            z-index:99999;\
+            top:0;\
+          ",
         insertIntoDoc: {
           target: "css;.searchbox-results",
           // keyword: '//input[@name="search"]',
@@ -1911,9 +1915,9 @@
         fixedTop: 75,
         style:
           "\
-                    margin-left:146px;\
-                    z-index:99999;\
-                   ",
+            margin-left:146px;\
+            z-index:99999;\
+          ",
         insertIntoDoc: {
           target: "css;.result-content",
           // keyword: '//input[@name="search"]',
@@ -1931,9 +1935,9 @@
         fixedTopColor: "rgb(22 23 34)",
         style:
           "\
-                    margin:-10px 0 0 -6px;\
-                    z-index:99999;\
-                   ",
+             margin:-10px 0 0 -6px;\
+             z-index:99999;\
+          ",
         insertIntoDoc: {
           target: "css;.CHUUyANc",
           // keyword: '//input[@name="search"]',
@@ -1944,19 +1948,19 @@
           where: "beforeEnd",
         },
         stylish: `.J122YuOM{padding-top:14px}
-                    body {
-                        --font-color-qxin:#ccc;
-                        --background-color-qxin: #161722;
-                        --background-avtive-color-qxin: #424242;
-                        --background-active-enable-qxin:#274144;
-                        --background-active-disable-qxin:#583535;
-                        --background-hover-color-qxin: #424242;
-                        --trigger-shown-qxin: #424242 !important;
-                        --sej-drop-list-background-qxin:rgba(0,0,0,0.8);
-                        --background-btn-qxin:#292f36;
-                        --background-setting-qxin: #161722;
-                    }
-                    `,
+          body {
+            --font-color-qxin:#ccc;
+            --background-color-qxin: #161722;
+            --background-avtive-color-qxin: #424242;
+            --background-active-enable-qxin:#274144;
+            --background-active-disable-qxin:#583535;
+            --background-hover-color-qxin: #424242;
+            --trigger-shown-qxin: #424242 !important;
+            --sej-drop-list-background-qxin:rgba(0,0,0,0.8);
+            --background-btn-qxin:#292f36;
+            --background-setting-qxin: #161722;
+          }
+        `,
       },
       //  用户补充: kidzgy
       //  https://greasyfork.org/zh-CN/scripts/27752/discussions/90497
@@ -1968,10 +1972,10 @@
         fixedTop: 56,
         style:
           "\
-                    width:1250px;\
-                    margin: 0 auto;\
-                    padding-left: 15px;\
-                ",
+                      width:1250px;\
+                      margin: 0 auto;\
+                      padding-left: 15px;\
+                  ",
         insertIntoDoc: {
           keyword: "css;#searchKey",
           target: "css;.app-nheader",
@@ -1988,10 +1992,10 @@
         fixedTop: 73,
         style:
           "\
-                    top:80px;\
-                    margin: 0 auto;\
-                    width:1248px;\
-                ",
+                      top:80px;\
+                      margin: 0 auto;\
+                      width:1248px;\
+                  ",
         insertIntoDoc: {
           keyword: "css;#header-company-search",
           target: "css;.tyc-header",
@@ -2007,8 +2011,8 @@
         enabled: true,
         url: /^https?:\/\/127\.0\.0\.1:8090\/./,
         style: "\
-                    margin:150px;\
-                ",
+                      margin:150px;\
+                  ",
         insertIntoDoc: {
           keyword: function () {
             return false;
@@ -3636,181 +3640,171 @@
       let styleText = "";
       // 配色
       styleText += `
-                body {
-                    --font-color-qxin:#333;
-                    --background-color-qxin: #ffffffe0;
-                    --background-avtive-color-qxin: #ccc;
-                    --background-active-enable-qxin:#cff9ff;
-                    --background-active-disable-qxin:#ffa2a2;
-                    --background-hover-color-qxin: #EAEAEA;
-                    --trigger-shown-qxin: #DEEDFF !important;
-                    --sej-drop-list-background-qxin:rgba(255,255,255,0.8);
-                    --background-btn-qxin:#EFF4F8;
-                    --background-setting-qxin:#fff;
-                }
-                body[qxintheme="dark"] {
-                    --font-color-qxin:#BDC1BC;
-                    --background-color-qxin: #202124;
-                    --background-avtive-color-qxin: #424242;
-                    --background-active-enable-qxin:#274144;
-                    --background-active-disable-qxin:#583535;
-                    --background-hover-color-qxin: #424242;
-                    --trigger-shown-qxin: #424242 !important;
-                    --sej-drop-list-background-qxin:#202124e0;
-                    --background-btn-qxin:#292f36;
-                    --background-setting-qxin:#202124;
-                }
-                `;
+                  body {
+                      --font-color-qxin:#333;
+                      --background-color-qxin: #ffffffe0;
+                      --background-avtive-color-qxin: #ccc;
+                      --background-active-enable-qxin:#cff9ff;
+                      --background-active-disable-qxin:#ffa2a2;
+                      --background-hover-color-qxin: #EAEAEA;
+                      --trigger-shown-qxin: #DEEDFF !important;
+                      --sej-drop-list-background-qxin:rgba(255,255,255,0.8);
+                      --background-btn-qxin:#EFF4F8;
+                      --background-setting-qxin:#fff;
+                  }
+                  body[qxintheme="dark"] {
+                      --font-color-qxin:#BDC1BC;
+                      --background-color-qxin: #202124;
+                      --background-avtive-color-qxin: #424242;
+                      --background-active-enable-qxin:#274144;
+                      --background-active-disable-qxin:#583535;
+                      --background-hover-color-qxin: #424242;
+                      --trigger-shown-qxin: #424242 !important;
+                      --sej-drop-list-background-qxin:#202124e0;
+                      --background-btn-qxin:#292f36;
+                      --background-setting-qxin:#202124;
+                  }
+                  `;
       // 搜索列表的样式
       styleText += `
-                #sej-container {
-                    display: block;
-                    position: relative;
-                    z-index: 2;
-                    padding: 0;
-                    line-height: 1.5;
-                    font-size: 13px;
-                    font-family: arial,sans-serif;
-                    transform-origin: top center;
-                    animation: sejopen 0.2s;
-                    color:var(--font-color-qxin);
-                    background: var(--background-color-qxin);
-                    backdrop-filter: blur(2em);
-                    // transition:0.3s;
-                    width: fit-content !important;
-                    border-radius: 0.7em;
-                    overflow: hidden;
-                    box-shadow: 0.1em 0.2em 0.7em rgb(0 0 0 / 15%);
-                    height: fit-content;
-                }
-                /* 滑词搜索样式 */
-                #sej-container.selectSearch{
-                    position:fixed;
-                    top:0;
-                    left:0;
-                    right:0;
-                    z-index: 99999;
-                    text-align: center;
-                    transition: 0.3s;
-                    background: #ffffffba;
-                    backdrop-filter: blur(25px);
-                    padding: 5px 0;
-                    box-shadow: 2px 2px 10px #eee;
-                }
-                .selectSearch .sej-engine{
-                    margin-left:5px;
-                }
-                #sej-expanded-category {
-                    font-weight: bold;
-                }
-
-                .sej-engine {
-                    line-height: 2em;
-                    display: inline-block;
-                    padding: 0 0.7em;
-                    text-decoration: none;
-                    transition: background-color 0.15s ease-in-out;
-                    font-size: 13px;
-                    font-family: arial,sans-serif;
-                }
-                .sej-drop-list a:visited,
-                .sej-drop-list a:hover,
-                .sej-engine a:visited,
-                .sej-engine a:hover,
-                #sej-container a:link,
-                #sej-container a:visited,
-                #sej-container a:hover{
-                    color:var(--font-color-qxin);
-                }
-                .sej-engine:hover {
-                    background-color: var(--background-hover-color-qxin);
-                    text-decoration: none;
-                }
-                .sej-drop-list > .sej-engine:hover {
-                    // background-color: #DEEDFF;
-                    background-color: var(--background-hover-color-qxin);
-                }
-                .sej-drop-list > .sej-engine {
-                    display: block;
-                    padding-top: 4px;
-                    padding-bottom: 4px;
-                    margin: 0;
-                    top: 0px;
-                }
-
-                .sej-engine-icon {
-                    display: inline-block;
-                    width: 16px;
-                    height: 16px;
-                    border: none;
-                    padding: 0;
-                    margin: 0 0.3em 0 0;
-                    vertical-align: text-bottom;
-                    box-sizing:unset;
-                }
-
-                .sej-drop-list {
-                    position: absolute;
-                    display: none;
-                    opacity: 0.2;
-                    top: -10000px;
-                    left: 0;
-                    min-width: 90px;
-                    text-align: left;
-                    font-size: 1em;
-                    -moz-box-shadow: 1px 1px 5px #999;
-                    -webkit-box-shadow: 2px 2px 5px #999;
-                    box-shadow: 2px 2px 5px #999;
-                    // background-color: rgba(255,255,255,.8);
-                    background-color: var(--sej-drop-list-background-qxin);
-                    backdrop-filter: blur(2em);
-                    transition: opacity 0.2s ease-in-out,
-                        top 0.2s ease-in-out;
-                    overflow: hidden;
-                    border-radius: 0.6em;
-                }
-                .sej-drop-list-trigger{
-                    height: 2.5em;
-                    line-height: 2.5em;
-                }
-
-                @keyframes sejopen {
-                    0% {
-                        transform: scale(1, 0.1);
-                        opacity: 0;
-                    }
-                    100% {
-                        transform: scale(1, 1);
-                        opacity: 1;
-                    }
-                }
-                @keyframes iqxinsejopen {
-                    0% {
-                        transform: scale(0.01, 0.01);
-                        opacity: 0;
-                    }
-                    100% {
-                        transform: scale(1, 1);
-                        opacity: 1;
-                    }
-                }
-            `;
+                  #sej-container {
+                      display: flex;
+                      align-items: center;
+                      position: relative;
+                      z-index: 2;
+                      padding: 0;
+                      // line-height: 1.5;
+                      font-size: 13px;
+                      font-family: arial,sans-serif;
+                      transform-origin: top center;
+                      animation: sejopen 0.2s;
+                      color:var(--font-color-qxin);
+                      background: var(--background-color-qxin);
+                      backdrop-filter: blur(2em);
+                      // transition:0.3s;
+                      width: fit-content !important;
+                      border-radius: 0.7em;
+                      overflow: hidden;
+                      box-shadow: 0.1em 0.2em 0.7em rgb(0 0 0 / 15%);
+                      height: fit-content;
+                  }
+                  /* 滑词搜索样式 */
+                  #sej-container.selectSearch{
+                      position:fixed;
+                      top:0;
+                      left:0;
+                      right:0;
+                      z-index: 99999;
+                      text-align: center;
+                      transition: 0.3s;
+                      background: #ffffffba;
+                      backdrop-filter: blur(25px);
+                      padding: 5px 0;
+                      box-shadow: 2px 2px 10px #eee;
+                  }
+                  .selectSearch .sej-engine{
+                      margin-left:5px;
+                  }
+                  #sej-expanded-category {
+                      font-weight: bold;
+                  }
+  
+                  .sej-engine {
+                      padding: 0 1em;
+                      transition: background-color 0.2s ease-out;
+                      font-size: 13px;
+                      font-family: arial,sans-serif;
+                      display: inline-flex;
+                      justify-content: space-between;
+                      min-width: 3.6em;
+                      align-items: center;
+                      height: 2.6em;
+                      text-decoration: none;
+                  }
+                  .sej-drop-list a:visited,
+                  .sej-drop-list a:hover,
+                  .sej-engine a:visited,
+                  .sej-engine a:hover,
+                  #sej-container a:link,
+                  #sej-container a:visited,
+                  #sej-container a:hover{
+                      color:var(--font-color-qxin);
+                  }
+                  .sej-engine:hover {
+                      background-color: var(--background-hover-color-qxin);
+                      text-decoration: none;
+                  }
+                  .sej-drop-list > .sej-engine:hover {
+                      // background-color: #DEEDFF;
+                      background-color: var(--background-hover-color-qxin);
+                  }
+                  .sej-drop-list > .sej-engine {
+                      display: flex;
+                      justify-content: flex-start;
+                      gap: 1em;
+                  }
+  
+                  .sej-engine-icon {
+                      width: 16px;
+                  }
+  
+                  .sej-drop-list {
+                      position: absolute;
+                      display: none;
+                      opacity: 0.2;
+                      top: -10000px;
+                      left: 0;
+                      min-width: 90px;
+                      text-align: left;
+                      font-size: 1em;
+                      -moz-box-shadow: 1px 1px 5px #999;
+                      -webkit-box-shadow: 2px 2px 5px #999;
+                      box-shadow: 2px 2px 5px #999;
+                      // background-color: rgba(255,255,255,.8);
+                      background-color: var(--sej-drop-list-background-qxin);
+                      backdrop-filter: blur(2em);
+                      transition: opacity 0.2s ease-out,
+                          top 0.2s ease-out;
+                      overflow: hidden;
+                      border-radius: 0.6em;
+                  }
+                  @keyframes sejopen {
+                      0% {
+                          transform: scale(1, 0.1);
+                          opacity: 0;
+                      }
+                      100% {
+                          transform: scale(1, 1);
+                          opacity: 1;
+                      }
+                  }
+                  @keyframes iqxinsejopen {
+                      0% {
+                          transform: scale(0.01, 0.01);
+                          opacity: 0;
+                      }
+                      100% {
+                          transform: scale(1, 1);
+                          opacity: 1;
+                      }
+                  }
+              `;
 
       // 工具列表动画
       if (!getSettingData.transtion) {
         styleText += `
-                    .sej-engine,
-                    .sej-drop-list-trigger,
-                    .sej-drop-list{
-                        transition:none!important;
-                    }
-                    #sej-container{
-                        animation:none!important;
-                    }
-                    .sej-drop-list {
-                        backdrop-filter:none!important;
-                        }
-                 `;
+                      .sej-engine,
+                      .sej-drop-list-trigger,
+                      .sej-drop-list{
+                          transition:none!important;
+                      }
+                      #sej-container{
+                          animation:none!important;
+                      }
+                      .sej-drop-list {
+                          backdrop-filter:none!important;
+                          }
+                   `;
       }
       // 隐藏箭头
       // if(getSettingData.icon){
@@ -4964,20 +4958,20 @@
         // newDiv.style.cssText = "top:"+(e.screenY-120) +"px;left:"+(e.screenX-140) +"px;";
         newDiv.style.cssText = "top:43%;opacity:0.1;";
         var innerHTML = `
-                    <span>标&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp题 : </span><input id="iqxin-newTitle" placeholder="必填" onfocus="this.select()" value="${otitle}" /> <br/><br/>
-                    <span>链&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp接 : </span><input id="iqxin-newLink" placeholder="必填" onfocus="this.select()" value="${olink}" /> <br/><br/>
-                    <span>图&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp标 : </span><input id="iqxin-newIcon" placeholder="选填,留空则自动获取" onfocus="this.select()" value="${oicon}" /> <br/><br/>
-                    <span>打开方式 : 
-                        <select id="iqxin-newTarget" style="border-radius: 4px;border: none;padding: 2px 0 2px 2px"> 
-                            ${strblank}
-                        <select> 
-                    </span>
-                    <br/><br/>
-                    <span style=""><label>GBK编码：<input type="checkbox" name="" id="iqxin-newGBK" ${strGBK} style="vertical-align:middle;"></label></span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button id="editItemBoxEnter" class="editItemBoxEnter addItemBoxBtn iqxin-enterBtn">确定</button>&nbsp;&nbsp;&nbsp&nbsp&nbsp;&nbsp
-                    <button id="addItemBoxCancel" class="addItemBoxCancel addItemBoxBtn iqxin-closeBtn">取消</button>
-                    `;
+          <span>标&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp题 : </span><input id="iqxin-newTitle" placeholder="必填" onfocus="this.select()" value="${otitle}" /> <br/><br/>
+          <span>链&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp接 : </span><input id="iqxin-newLink" placeholder="必填" onfocus="this.select()" value="${olink}" /> <br/><br/>
+          <span>图&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp标 : </span><input id="iqxin-newIcon" placeholder="选填,留空则自动获取" onfocus="this.select()" value="${oicon}" /> <br/><br/>
+          <span>打开方式 :
+              <select id="iqxin-newTarget" style="border-radius: 4px;border: none;padding: 2px 0 2px 2px">
+                  ${strblank}
+              <select>
+          </span>
+          <br/><br/>
+          <span style=""><label>GBK编码：<input type="checkbox" name="" id="iqxin-newGBK" ${strGBK} style="vertical-align:middle;"></label></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <button id="editItemBoxEnter" class="editItemBoxEnter addItemBoxBtn iqxin-enterBtn">确定</button>&nbsp;&nbsp;&nbsp&nbsp&nbsp;&nbsp
+          <button id="addItemBoxCancel" class="addItemBoxCancel addItemBoxBtn iqxin-closeBtn">取消</button>
+          `;
 
         newDiv.innerHTML = innerHTML;
 
@@ -6174,8 +6168,11 @@
           "opacity:" +
           getSettingData.setBtnOpacity +
           ";" +
-          "transition:0.5s;" +
-          "padding: 1em 1.5em" +
+          "transition: 0.5s;" +
+          "padding: 0 1em;" +
+          "height: 2.6em;" +
+          "display: flex;" +
+          "align-item: center" +
           "}" +
           "span#setBtn:hover{" +
           "opacity:1;" +
@@ -6183,7 +6180,7 @@
           "}" +
           ""
       );
-      setBtn.innerHTML = `<img style='margin:0 0 4px 0;width:16px;vertical-align: middle;display:inline-block;cursor:pointer;' src="data:image/svg+xml,%3Csvg t='1666950165377' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='11048' width='32' height='32'%3E%3Cpath d='M337.333 517.667c77.406 0 141.974 54.967 156.8 127.998l440.534 0.002c17.673 0 32 14.327 32 32 0 17.496-14.042 31.713-31.471 31.995l-0.53 0.005-440.534 0.001C479.307 782.7 414.74 837.667 337.333 837.667S195.36 782.699 180.534 709.668l-99.2-0.001c-17.674 0-32-14.327-32-32 0-17.497 14.041-31.713 31.47-31.996l0.53-0.004 99.2-0.002c14.825-73.03 79.393-127.998 156.8-127.998z m0 64c-53.019 0-96 42.98-96 96 0 53.019 42.981 96 96 96 53.02 0 96-42.981 96-96 0-53.02-42.98-96-96-96z m341.334-405.334c77.406 0 141.974 54.968 156.799 127.999l99.2 0.001c17.674 0 32 14.327 32 32 0 17.497-14.041 31.713-31.47 31.996l-0.53 0.004-99.2 0.003c-14.826 73.03-79.394 127.997-156.8 127.997-77.405 0-141.973-54.967-156.798-127.997l-440.535-0.003c-17.673 0-32-14.327-32-32 0-17.496 14.042-31.713 31.471-31.995l0.53-0.005 440.534-0.001c14.825-73.031 79.393-127.999 156.799-127.999z m0 64c-53.02 0-96 42.981-96 96 0 53.02 42.98 96 96 96 53.019 0 96-42.98 96-96 0-53.019-42.981-96-96-96z' p-id='11049'%3E%3C/path%3E%3C/svg%3E">`;
+      setBtn.innerHTML = `<img style='width:16px;display:block;cursor:pointer;' src="data:image/svg+xml,%3Csvg t='1666950165377' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='11048' width='32' height='32'%3E%3Cpath d='M337.333 517.667c77.406 0 141.974 54.967 156.8 127.998l440.534 0.002c17.673 0 32 14.327 32 32 0 17.496-14.042 31.713-31.471 31.995l-0.53 0.005-440.534 0.001C479.307 782.7 414.74 837.667 337.333 837.667S195.36 782.699 180.534 709.668l-99.2-0.001c-17.674 0-32-14.327-32-32 0-17.497 14.041-31.713 31.47-31.996l0.53-0.004 99.2-0.002c14.825-73.03 79.393-127.998 156.8-127.998z m0 64c-53.019 0-96 42.98-96 96 0 53.019 42.981 96 96 96 53.02 0 96-42.981 96-96 0-53.02-42.98-96-96-96z m341.334-405.334c77.406 0 141.974 54.968 156.799 127.999l99.2 0.001c17.674 0 32 14.327 32 32 0 17.497-14.041 31.713-31.47 31.996l-0.53 0.004-99.2 0.003c-14.826 73.03-79.394 127.997-156.8 127.997-77.405 0-141.973-54.967-156.798-127.997l-440.535-0.003c-17.673 0-32-14.327-32-32 0-17.496 14.042-31.713 31.471-31.995l0.53-0.005 440.534-0.001c14.825-73.031 79.393-127.999 156.799-127.999z m0 64c-53.02 0-96 42.981-96 96 0 53.02 42.98 96 96 96 53.019 0 96-42.98 96-96 0-53.019-42.981-96-96-96z' p-id='11049'%3E%3C/path%3E%3C/svg%3E">`;
       document.querySelector("#sej-container").appendChild(setBtn);
       var sejSet = null;
 

@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.2
+// @version        5.29.3
 // @created        2011-07-02
 // @lastUpdated    2022-11-05
 
@@ -115,6 +115,7 @@
 // @match          *://www.iciba.com/*
 // @match          *://fsoufsou.com/*
 // @match          *://*.douyin.com/*
+// @match          *://*.moegirl.org.cn/*
 // @match          *谷歌.ml/*
 // @match          *xn--flw351e.ml/*
 
@@ -570,6 +571,13 @@
           "\
             text-align: center;\
             background: #fff;\
+            margin: auto;\
+            width: 100% !important;\
+            position: sticky;\
+            top: 66px;\
+            z-index: 1001;\
+            border-top-right-radius: 0;\
+            border-top-left-radius: 0;\
           ",
         insertIntoDoc: {
           keyword: "css;#query",
@@ -653,6 +661,25 @@
             return decodeURIComponent(url);
           },
           target: "css;#mw-head",
+          where: "afterBegin",
+        },
+      },
+      {
+        name: "萌娘百科",
+        url: /^https?:\/\/.*\.?moegirl\.org\.cn/i,
+        engineList: "knowledge",
+        enabled: true,
+        style:
+          "\
+            position: fixed;\
+            margin: -0.8em auto 0;\
+            z-index: 3;\
+            left: 0;\
+            right: 0;\
+          ",
+        insertIntoDoc: {
+          keyword: "css;#firstHeading",
+          target: "css;#moe-main-container",
           where: "afterBegin",
         },
       },
@@ -799,11 +826,12 @@
         enabled: true,
         engineList: "knowledge",
         fixedTop: 50,
-        style: "width: 1000px;margin: 8px auto 0px;z-index:99;",
+        style:
+          "width: min(100%, 1264px) !important;position: sticky;top: 50px;z-index:1001;margin:auto",
         insertIntoDoc: {
-          keyword: "//input[@name='q']",
-          target: "css;.top-bar",
-          where: "afterEnd",
+          keyword: "css; #search > div > input",
+          target: "css;body > div.container",
+          where: "beforeBegin",
         },
       },
 
@@ -1723,7 +1751,6 @@
           "\
             border-top:1px solid #D9E1F7;\
             border-bottom:1px solid #D9E1F7;\
-            width: auto !important;\
             margin:0.6em 0 0.5em 465px;\
             position: sticky;\
             top: 0.1em;\

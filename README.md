@@ -21,6 +21,11 @@
 
 - 佛系更新, 具体功能以更新历史为准
 
+> version 5.29.3 2022-11-09
+
+- 增加：萌娘百科、StackOverflow 适配
+- 调整：知网、百度百科样式
+
 > version 5.29.2 2022-11-09
 
 - 调整：YouTube 样式
@@ -201,7 +206,7 @@
 - 修复: 列表退出动画缺失
 - 修复: 百度界面子列表偏移
 - 修复: 谷歌图片下拉不显示
-- 优化: 域名匹配规则 // @include *://*.yahoo.tld/\* [感谢 dnknn](https://greasyfork.org/zh-CN/users/35765-dnknn)
+- 优化: 域名匹配规则 // @include _://_.yahoo.tld/\* [感谢 dnknn](https://greasyfork.org/zh-CN/users/35765-dnknn)
 - 界面: 增加部分毛玻璃效果, 部分进入退出动画修改
 
 > version 5.23.5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2021-03-07

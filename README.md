@@ -1,6 +1,6 @@
 # searchEngineJump
 
-在线安装 [Greasy Fork](https://greasyfork.org/zh-CN/scripts/27752-searchenginejump)
+在线安装 [Greasy Fork](https://greasyfork.org/en/scripts/454280-searchenginejumpplus)
 
 **说明**
 
@@ -21,13 +21,25 @@
 
 - 佛系更新, 具体功能以更新历史为准
 
+> version 5.29.2 2022-11-09
+
+- 调整：YouTube 样式
+- 调整：滑词模式样式、普通搜索居中样式
+- 调整：全面 https 化
+- 修复：Edge 上百度贴吧遮挡有用信息的问题
+- 修复：海词、必应图片、pixiv、花瓣、Pinterest、Yandex 图片、QQ 音乐跳转问题
+- 修复：跳转到一听音乐跳转栏消失问题
+- 修复：豆瓣跳转栏换行问题
+- 修复：什么值得买、1688 样式错乱问题
+- 修复：必应图片下拉遮挡跳转栏问题
+
 > version 5.29.1 2022-11-05
 
 - 调整：滑词模式样式
 
 > version 5.29.0 2022-11-05
 
-- 增加：百度学术、谷歌学术、知网、万方、百度贴吧、淘宝、微博、豆瓣、QQ音乐、一听、腾讯视频重新适配
+- 增加：百度学术、谷歌学术、知网、万方、百度贴吧、淘宝、微博、豆瓣、QQ 音乐、一听、腾讯视频重新适配
 
 > version 5.28.1 2022-11-05
 

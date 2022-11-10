@@ -3,9 +3,9 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.3
+// @version        5.29.4
 // @created        2011-07-02
-// @lastUpdated    2022-11-05
+// @lastUpdated    2022-11-10
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/forkSearchEngineJump
@@ -170,6 +170,7 @@
             text-align: center;\
             z-index: 100;\
             margin-top:5px;\
+            margin: auto;\
           ",
         // 插入文档,相关
         // target 将引擎跳转工具栏插入到文档的某个元素
@@ -210,7 +211,7 @@
           "\
             text-align: center;\
             z-index: 100;\
-            margin-top:5px;\
+            margin:5px auto 0;\
           ",
         insertIntoDoc: {
           target: "css;#appbar",
@@ -239,8 +240,7 @@
           ",
         style_ACBaidu:
           "\
-            margin-top: 8px;\
-            margin-bottom: -5px;\
+            margin: 8px auto -5px;\
             z-index: 99;\
             text-align: center;\
             padding-left:0px !important;\
@@ -270,9 +270,7 @@
         style_ACBaidu:
           "\
             text-align: center;\
-            margin-left: -120px;\
-            margin-right: 0px;\
-            margin-bottom:-10px;\
+            margin: 0 auto -10px;\
             position: sticky;\
             top: 0.5em;\
           ",
@@ -380,7 +378,7 @@
           "\
             top:-46px;\
             z-index:99;\
-            margin-left:60px;\
+            margin: auto;\
             padding-left: 0px !important;\
           ",
         insertIntoDoc: {
@@ -514,7 +512,7 @@
           "\
             text-align: center;\
             z-index: -99999;\
-            margin-top:5px;\
+            margin:5px auto 0;\
           ",
         insertIntoDoc: {
           target: "css;.input-with-suggestion",

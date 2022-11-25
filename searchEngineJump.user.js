@@ -3,9 +3,9 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.4
+// @version        5.29.5
 // @created        2011-07-02
-// @lastUpdated    2022-11-10
+// @lastUpdated    2022-11-25
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/forkSearchEngineJump
@@ -3684,6 +3684,8 @@
                       --sej-drop-list-background-qxin:rgba(255,255,255,0.8);
                       --background-btn-qxin:#EFF4F8;
                       --background-setting-qxin:#fff;
+                      --box-shadow-color-sej:rgba(0,0,0,15%);
+                      --setting-img-filter:none;
                   }
                   body[qxintheme="dark"] {
                       --font-color-qxin:#BDC1BC;
@@ -3696,6 +3698,8 @@
                       --sej-drop-list-background-qxin:#202124e0;
                       --background-btn-qxin:#292f36;
                       --background-setting-qxin:#202124;
+                      --box-shadow-color-sej:rgba(128,128,128,15%);
+                      --setting-img-filter:invert(1)!important;
                   }
                   `;
       // 搜索列表的样式
@@ -3717,7 +3721,7 @@
                       width: max-content !important;
                       border-radius: 0.7em;
                       overflow: hidden;
-                      box-shadow: 0.2em 0.2em 0.7em rgb(0 0 0 / 15%);
+                      box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
                       height: fit-content;
                       flex-wrap: wrap;
                       justify-content: center;
@@ -3783,14 +3787,12 @@
                       min-width: 90px;
                       text-align: left;
                       font-size: 1em;
-                      -moz-box-shadow: 1px 1px 5px #999;
-                      -webkit-box-shadow: 2px 2px 5px #999;
-                      box-shadow: 2px 2px 5px #999;
+                      box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
                       // background-color: rgba(255,255,255,.8);
                       background-color: var(--sej-drop-list-background-qxin);
                       backdrop-filter: blur(2em);
                       transition: opacity 0.2s ease-out,
-                          top 0.2s ease-out;
+                      top 0.2s ease-out;
                       overflow: hidden;
                       border-radius: 0.6em;
                   }
@@ -6198,7 +6200,8 @@
           "padding: 0 1em;" +
           "height: 2.6em;" +
           "display: flex;" +
-          "align-item: center" +
+          "align-item: center;" +
+          "cursor: pointer;" +
           "}" +
           "span#setBtn:hover{" +
           "opacity:1;" +
@@ -6206,7 +6209,7 @@
           "}" +
           ""
       );
-      setBtn.innerHTML = `<img style='width:16px;display:block;cursor:pointer;' src="data:image/svg+xml,%3Csvg t='1666950165377' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='11048' width='32' height='32'%3E%3Cpath d='M337.333 517.667c77.406 0 141.974 54.967 156.8 127.998l440.534 0.002c17.673 0 32 14.327 32 32 0 17.496-14.042 31.713-31.471 31.995l-0.53 0.005-440.534 0.001C479.307 782.7 414.74 837.667 337.333 837.667S195.36 782.699 180.534 709.668l-99.2-0.001c-17.674 0-32-14.327-32-32 0-17.497 14.041-31.713 31.47-31.996l0.53-0.004 99.2-0.002c14.825-73.03 79.393-127.998 156.8-127.998z m0 64c-53.019 0-96 42.98-96 96 0 53.019 42.981 96 96 96 53.02 0 96-42.981 96-96 0-53.02-42.98-96-96-96z m341.334-405.334c77.406 0 141.974 54.968 156.799 127.999l99.2 0.001c17.674 0 32 14.327 32 32 0 17.497-14.041 31.713-31.47 31.996l-0.53 0.004-99.2 0.003c-14.826 73.03-79.394 127.997-156.8 127.997-77.405 0-141.973-54.967-156.798-127.997l-440.535-0.003c-17.673 0-32-14.327-32-32 0-17.496 14.042-31.713 31.471-31.995l0.53-0.005 440.534-0.001c14.825-73.031 79.393-127.999 156.799-127.999z m0 64c-53.02 0-96 42.981-96 96 0 53.02 42.98 96 96 96 53.019 0 96-42.98 96-96 0-53.019-42.981-96-96-96z' p-id='11049'%3E%3C/path%3E%3C/svg%3E">`;
+      setBtn.innerHTML = `<img style='width:16px;display:block;cursor:pointer;filter:var(--setting-img-filter)!important' src="data:image/svg+xml,%3Csvg t='1666950165377' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='11048' width='32' height='32'%3E%3Cpath d='M337.333 517.667c77.406 0 141.974 54.967 156.8 127.998l440.534 0.002c17.673 0 32 14.327 32 32 0 17.496-14.042 31.713-31.471 31.995l-0.53 0.005-440.534 0.001C479.307 782.7 414.74 837.667 337.333 837.667S195.36 782.699 180.534 709.668l-99.2-0.001c-17.674 0-32-14.327-32-32 0-17.497 14.041-31.713 31.47-31.996l0.53-0.004 99.2-0.002c14.825-73.03 79.393-127.998 156.8-127.998z m0 64c-53.019 0-96 42.98-96 96 0 53.019 42.981 96 96 96 53.02 0 96-42.981 96-96 0-53.02-42.98-96-96-96z m341.334-405.334c77.406 0 141.974 54.968 156.799 127.999l99.2 0.001c17.674 0 32 14.327 32 32 0 17.497-14.041 31.713-31.47 31.996l-0.53 0.004-99.2 0.003c-14.826 73.03-79.394 127.997-156.8 127.997-77.405 0-141.973-54.967-156.798-127.997l-440.535-0.003c-17.673 0-32-14.327-32-32 0-17.496 14.042-31.713 31.471-31.995l0.53-0.005 440.534-0.001c14.825-73.031 79.393-127.999 156.799-127.999z m0 64c-53.02 0-96 42.981-96 96 0 53.02 42.98 96 96 96 53.019 0 96-42.98 96-96 0-53.019-42.981-96-96-96z' p-id='11049'%3E%3C/path%3E%3C/svg%3E">`;
       document.querySelector("#sej-container").appendChild(setBtn);
       var sejSet = null;
 

@@ -4,22 +4,29 @@
 
 ## 说明
 
-> forked version from 5.27.0
-> ![例图](Jump+.jpg)
+forked version from 5.27.0
+
+本来想给作者提 PR 的，但是翻阅原项目后发现作者似乎不太常用 GitHub，其他人贡献的一些 PR 也没有合并到主分支，于是暂且 fork 了一份原项目，开了一个新的脚本到这里。非常感谢 NLF & 锐经 & iqxin 提供的原脚本，如果之后作者有意合并分支的话，我也非常乐意，不过目前看来这个脚本可能要另起炉灶在这先放着了。
+
+已知问题： 与脚本[网页解除限制](https://greasyfork.org/zh-CN/scripts/14146-%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6%E8%A7%A3%E9%99%A4)有[冲突](https://greasyfork.org/zh-CN/forum/discussion/21298/x)，开启后，无法进行跳转。可以暂时先用 iqxin 修改后的[网页解除限制](https://greasyfork.org/zh-CN/scripts/28497-%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6%E8%A7%A3%E9%99%A4)，大刀阔斧的修改，与原脚本使用上有较大的变化。或者自己修改下原作者的脚本, 使用 exclude 排除相关网页。
+
+本脚本修改自[searchEngineJump modified version from NLF 4.0.5.3](https://greasyfork.org/zh-CN/scripts/18315-searchenginejump-modified-version-from-nlf)
+此类脚本的鼻祖应该为 NLF 写的 [搜索引擎跳转（searchEngineJump）](http://userscripts.org/scripts/show/84970) , 不过目前该网站已经无法打开， [相关网页快照](http://web.archive.org/web/*/http://userscripts.org/scripts/show/84970)
+
+2022-12-03更新：由于改动了代码风格导致没办法直接同步 Fork 前的仓库，PR 又不能合并，所以暂时 Detach Fork 了，以后会在这个仓库继续更新。
+
+## 例图
+
+![例图](Jump+.jpg)
 
 ## 关于乱码
 
 虽然不会用 github, 但是各位的反馈还是能看到的, 所以问下乱码的各位, 你们都是在 Ubuntu 的环境下出现的乱码么? 是只有在导入配置的时候才会发生乱码么? 导出环境也是 Ubuntu 还是从 Windows 这边建了文本文档导入了 Ubuntu ? 文档在 Ubuntu 中打开时的编码是什么? 此时的中文已经乱码还是正常的?
 我用虚拟机配置了 ubuntu-22.04.1 , 但还是没找到问题所在。目前从反馈图片中的乱码能看出是由于以 ISO8859-1 的方式读取了 UTF8 的编码导致。
 
-已知问题： 与脚本[网页解除限制](https://greasyfork.org/zh-CN/scripts/14146-%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6%E8%A7%A3%E9%99%A4)有[冲突](https://greasyfork.org/zh-CN/forum/discussion/21298/x)，开启后，无法进行跳转。可以暂时先用我修改后的[网页解除限制](https://greasyfork.org/zh-CN/scripts/28497-%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6%E8%A7%A3%E9%99%A4),大刀阔斧的修改，与原脚本使用上有较大的变化。或者自己修改下原作者的脚本, 使用 exclude 排除相关网页。
-
-本脚本修改自[searchEngineJump modified version from NLF 4.0.5.3](https://greasyfork.org/zh-CN/scripts/18315-searchenginejump-modified-version-from-nlf)
-此类脚本的鼻祖应该为 NLF 写的 [搜索引擎跳转（searchEngineJump）](http://userscripts.org/scripts/show/84970) , 不过目前该网站已经无法打开， [相关网页快照](http://web.archive.org/web/*/http://userscripts.org/scripts/show/84970)
-
 ## 更新历史
 
-- 佛系更新, 具体功能以更新历史为准
+佛系更新, 具体功能以更新历史为准
 
 > version 5.29.6 2022-12-03
 

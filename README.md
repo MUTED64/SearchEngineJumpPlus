@@ -1,8 +1,8 @@
-# searchEngineJump
+# SearchEngineJumpPlus 搜索引擎快捷跳转+
 
 在线安装 [Greasy Fork](https://greasyfork.org/en/scripts/454280-searchenginejumpplus)
 
-**说明**
+## 说明
 
 > forked version from 5.27.0
 > ![例图](Jump+.jpg)
@@ -20,6 +20,13 @@
 ## 更新历史
 
 - 佛系更新, 具体功能以更新历史为准
+
+> version 5.29.6 2022-12-03
+
+- 同步更新源仓库代码 5.26.1-5.26.3的代码
+- 调整：支持所有站点的划词搜索，有时候可能与某些网站不兼容需要手动关闭
+- 调整：Bilibili 样式及多个搜索子页面
+- 修复：排除与划词搜索不兼容的 cubic-bezier.com
 
 > version 5.29.5 2022-11-25
 

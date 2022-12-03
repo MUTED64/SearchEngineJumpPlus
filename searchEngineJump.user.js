@@ -3,9 +3,9 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.5
+// @version        5.29.6
 // @created        2011-07-02
-// @lastUpdated    2022-11-25
+// @lastUpdated    2022-12-03
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/forkSearchEngineJump
@@ -13,120 +13,18 @@
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
 // @license        MIT
 
-// @match          *://*.163.com/*
-// @match          *://*.1688.com/*
-// @match          *://*.1ting.com/*
-// @match          *://*.25pp.com/*
-// @match          *://*.3dmgame.com/*
-// @match          *://*.acfun.cn/*
-// @match          *://*.alternativeto.net/*
-// @match          *://*.amazon.cn/*
-// @match          *://*.assrt.net/*
-// @match          *://*.baidu.com/*
-// @match          *://*.bbc.co.uk/*
-// @match          *://*.bilibili.com/*
-// @match          *://*.bing.com/*
-// @match          *://*.brave.com/*
-// @match          *://*.caniuse.com/*
-// @match          *://*.cnki.net/*
-// @match          *://*.cnn.com/*
-// @match          *://*.dangdang.com/*
-// @match          *://*.deepl.com/*
-// @match          *://*.dict.cn/*
-// @match          *://*.dmhy.org/*
-// @match          *://*.dnspod.cn/*
-// @match          *://*.docin.com/*
-// @match          *://*.douban.com/*
-// @match          *://*.duckduckgo.com/*
-// @match          *://*.ebscohost.com/*
-// @match          *://*.ed2000.com/*
-// @match          *://*.enginelist.news/*
-// @match          *://*.facebook.com/*
-// @match          *://*.feng.com/*
-// @match          *://*.flickr.com/*
-// @match          *://*.fnd.io/*
-// @match          *://*.forfrigg.com/*
-// @match          *://*.forvo.com/*
-// @match          *://*.github.com/*
-// @include        *://*.google.tld/*
-// @match          *://*.huaban.com/*
-// @match          *://*.ifeng.com/*
-// @match          *://*.imomoe.in/*
-// @match          *://*.infinitynewtab.com/*
-// @match          *://*.iqiyi.com/*
-// @match          *://*.jd.com/*
-// @match          *://*.jiumodiary.com/*
-// @match          *://*.kugou.com/*
-// @match          *://*.kuwo.cn/*
-// @match          *://*.letv.com/*
-// @match          *://*.mebook.cc/*
-// @match          *://*.microsoft.com/*
-// @match          *://*.manmanbuy.com/*
-// @match          *://*.moegirl.org/*
-// @match          *://*.mozilla.org/*
-// @match          *://*.nicovideo.jp/*
-// @match          *://*.neeva.com/*
-// @match          *://*.nyaa.si/*
-// @match          *://*.pinterest.com/*
-// @match          *://*.pixiv.net/*
-// @match          *://*.qq.com/*
-// @match          *://*.quora.com/*
-// @match          *://*.rs05.com/*
-// @match          *://*.runoob.com/*
-// @match          *://*.rus.ec/*
-// @match          *://*.searx.me/*
-// @match          *://*.sina.com.cn/*
-// @match          *://*.smzdm.com/*
-// @match          *://*.so.com/*
-// @match          *://*.sogou.com/*
-// @match          *://*.sohu.com/*
-// @match          *://*.soku.com/*
-// @match          *://*.springer.com/*
-// @match          *://*.stackoverflow.com/*
-// @match          *://*.startpage.com/*
-// @match          *://*.suning.com/*
-// @match          *://*.taobao.com/*
-// @match          *://*.thepiratebay.org/*
-// @match          *://*.tmall.com/*
-// @match          *://*.toutiao.com/*
-// @match          *://*.tuoniao.me/*
-// @match          *://*.twitter.com/*
-// @match          *://*.userstyles.org/*
-// @match          *://*.verycd.com/*
-// @match          *://*.wanfangdata.com.cn/*
-// @match          *://*.webofknowledge.com/*
-// @match          *://*.weibo.com/*
-// @match          *://*.wikipedia.org/*
-// @match          *://*.xiami.com/*
-// @match          *://*.xiaoso.net/*
-// @include        *://*.yahoo.tld/*
-// @match          *://*.yandex.com/*
-// @match          *://*.yandex.ru/*
-// @match          *://*.yhd.com/*
-// @match          *://*.yinyuetai.com/*
-// @match          *://*.youdao.com/*
-// @match          *://*.youtube.com/*
-// @match          *://*.zdic.net/*
-// @match          *://*.zhihu.com/*
-// @match          *://*.zimuzu.tv/*
-// @match          *://*.ecosia.org/*
-// @match          *://*.qcc.com/*
-// @match          *://*.tianyancha.com/*
-// @match          *://www.iciba.com/*
-// @match          *://fsoufsou.com/*
-// @match          *://*.douyin.com/*
-// @match          *://*.moegirl.org.cn/*
-// @match          *谷歌.ml/*
-// @match          *xn--flw351e.ml/*
+// @match          *://**/*
+// @exclude        *://mega.nz/*
+// @exclude        *://cubic-bezier.com/*
 
-// @grant       GM_getValue
-// @grant       GM_setValue
-// @grant       GM_addStyle
-// @grant       GM_deleteValue
-// @grant       GM_setClipboard
-// @grant       GM_registerMenuCommand
-// @grant       GM_openInTab
-// @run-at      document-end
+// @grant          GM_getValue
+// @grant          GM_setValue
+// @grant          GM_addStyle
+// @grant          GM_deleteValue
+// @grant          GM_setClipboard
+// @grant          GM_registerMenuCommand
+// @grant          GM_openInTab
+// @run-at         document-end
 
 // ==/UserScript==
 
@@ -872,10 +770,10 @@
       },
       {
         name: "哔哩哔哩",
-        url: /^https?:\/\/search\.bilibili\.com\/all/,
+        url: /^https?:\/\/search\.bilibili\.com\/*/,
         enabled: true,
         engineList: "video",
-        // fixedTop:62,
+        fixedTop:64,
         style:
           "\
             width:980px;\
@@ -3437,7 +3335,8 @@
       );
 
       // if (!target || target.className.indexOf('sej-engine') == -1) return;
-      if (!target || !this.contains(target)) return;
+      // if (!target || !this.contains(target)) return;
+      if (!target) return;
 
       var value;
       if (typeof iInput == "function") {
@@ -3480,7 +3379,7 @@
         for (var i = 0; i < list.length; i++) {
           if (
             list[i].url.indexOf("site:") < 0 &&
-            matchedRule.url.test(list[i].url)
+            matchedRule?.url.test(list[i].url)
           )
             continue;
           if (list[i].disable) continue;
@@ -3585,11 +3484,11 @@
         return;
       }
 
-      if (
-        document.activeElement.tagName.toUpperCase() == "INPUT" ||
-        document.activeElement.tagName.toUpperCase() == "TEXTAREA"
-      )
-        return; // 排除inpu和textarea内的文本
+      // if (
+      //   document.activeElement.tagName.toUpperCase() == "INPUT" ||
+      //   document.activeElement.tagName.toUpperCase() == "TEXTAREA"
+      // )
+      //   return; // 排除input和textarea内的文本
 
       iTarget = document.body;
       iTargetWhere = "beforeend";

@@ -3,9 +3,9 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.6
+// @version        5.29.7
 // @created        2011-07-02
-// @lastUpdated    2022-12-03
+// @lastUpdated    2022-12-04
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
@@ -183,7 +183,8 @@
         url: /^https?:\/\/duckduckgo\.com\/*/i,
         enabled: true,
         engineList: "web",
-        style: "\
+        style:
+          "\
                 margin-top:5px;\
                ",
         insertIntoDoc: {
@@ -198,7 +199,8 @@
         engineList: "web",
         enabled: true,
         fixedTop: 54,
-        style: "\
+        style:
+          "\
                 margin-left:122px;\
                ",
         insertIntoDoc: {
@@ -293,7 +295,8 @@
         enabled: true,
         fixedTop: 96,
         class: "main__center",
-        style: "\
+        style:
+          "\
                 margin:1em 0;\
                ",
         insertIntoDoc: {
@@ -327,7 +330,8 @@
         url: /^https?:\/\/(www\.)?startpage\.com\/[a-zA-Z]{2,3}\/search/,
         engineList: "web",
         fixedTop: 103,
-        style: "\
+        style:
+          "\
                 z-index: 100;\
                ",
         insertIntoDoc: {
@@ -430,7 +434,8 @@
         url: /^https?:\/\/search\.brave\.com\/search\?/i,
         engineList: "web",
         class: "container-80",
-        style: "\
+        style:
+          "\
                 z-index:1;\
                ",
         insertIntoDoc: {
@@ -446,7 +451,8 @@
         url: /^https?:\/\/neeva\.com\/search\?/i,
         engineList: "web",
         fixedTop: 80,
-        style: "\
+        style:
+          "\
                 z-index:1;\
                ",
         insertIntoDoc: {
@@ -773,7 +779,7 @@
         url: /^https?:\/\/search\.bilibili\.com\/*/,
         enabled: true,
         engineList: "video",
-        fixedTop:64,
+        fixedTop: 64,
         style:
           "\
             width:980px;\
@@ -946,7 +952,8 @@
         url: /^https?:\/\/www\.xiami\.com\/search/,
         enabled: true,
         engineList: "music",
-        style: "\
+        style:
+          "\
             text-align: center;\
           ",
         insertIntoDoc: {
@@ -978,7 +985,8 @@
         enabled: true,
         engineList: "music",
         fixedTop: 80,
-        style: "\
+        style:
+          "\
             margin:auto;\
           ",
         insertIntoDoc: {
@@ -1020,7 +1028,8 @@
         engineList: "image",
         fixedTop: 70, //关闭关联联想的情况下
         // fixedTop:135,  //
-        style: "\
+        style:
+          "\
             margin-left:127px;\
           ",
         insertIntoDoc: {
@@ -1054,7 +1063,8 @@
         enabled: true,
         fixedTop: 74,
         engineList: "image",
-        style: "\
+        style:
+          "\
             margin:0 0 0 160px;\
           ",
         insertIntoDoc: {
@@ -1163,7 +1173,8 @@
         url: /^https?:\/\/share\.dmhy\.org\/topics\/list\?keyword\=/i,
         engineList: "download",
         enabled: true,
-        style: "\
+        style:
+          "\
             text-align: center;\
           ",
         insertIntoDoc: {
@@ -1224,7 +1235,8 @@
         url: /^https?:\/\/translate\.google(?:\.\D{1,4}){1,2}/i,
         enabled: true,
         engineList: "translate",
-        style: "\
+        style:
+          "\
             margin:10px 0px 0px 0px;\
           ",
         insertIntoDoc: {
@@ -1238,7 +1250,8 @@
         url: /^https?:\/\/fanyi\.baidu\.com/i,
         enabled: true,
         engineList: "translate",
-        style: "\
+        style:
+          "\
             margin: -20px 0 10px 0;\
           ",
         insertIntoDoc: {
@@ -1272,7 +1285,8 @@
         enabled: true,
         engineList: "translate",
         fixedTop: 64,
-        style: "\
+        style:
+          "\
                 margin:auto;\
                ",
         insertIntoDoc: {
@@ -1322,7 +1336,8 @@
         enabled: true,
         engineList: "translate",
         fixedTop: 122,
-        style: "\
+        style:
+          "\
                 z-index : 0;\
                   ",
         insertIntoDoc: {
@@ -1481,7 +1496,8 @@
         url: /^https?:\/\/www\.amazon\.cn\/s\?k/i,
         enabled: true,
         engineList: "shopping",
-        style: "\
+        style:
+          "\
                 margin:2px 0 -10px 0;\
                ",
         insertIntoDoc: {
@@ -1497,7 +1513,8 @@
         enabled: true,
         engineList: "shopping",
         fixedTop: 88,
-        style: "\
+        style:
+          "\
                 margin:-10px auto 5px;\
                ",
         insertIntoDoc: {
@@ -1512,7 +1529,8 @@
         url: /^https?:\/\/ss\.manmanbuy\.com\/Default\.aspx\?key/i,
         enabled: true,
         engineList: "shopping",
-        style: "\
+        style:
+          "\
                 text-align:center;\
                ",
         insertIntoDoc: {
@@ -1938,7 +1956,8 @@
         name: "test",
         enabled: true,
         url: /^https?:\/\/127\.0\.0\.1:8090\/./,
-        style: "\
+        style:
+          "\
                       margin:150px;\
                   ",
         insertIntoDoc: {
@@ -4324,7 +4343,7 @@
           ' data-iqxintarget="$blank$" ' +
           ' data-iqxindisabled="$disabled$" ' +
           ' data-iqxingbk="$gbk$" ' +
-          '><img src="$favicon$" class="sej-engine-icon" style="padding-bottom:3px;"/><span>$name$</span></span>' +
+          '><img src="$favicon$" class="sej-engine-icon"/><span>$name$</span></span>' +
           ' <span class="iqxin-set-edit" title="编辑 Edit"><img class="sej-engine-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAACDklEQVR4nJXVzUtUURjH8Y/mSNKkki2iwiApxHQ1q/6C+gusoCB6oxbRRqFNL4sWtRKqhVSLIDe1CqpNiwjKIilKLKKFEr2Z2qI0xxHN0+LOm+PMOPOc1T2H7/f5ncO991BdNer30zmxKrl0xV2zKJjRoy6aqkkvbbdVLPuUq+8+5uGXnVILki7qsxgtNDtrTNLcijHvrdYsft0/wQ8DZgSzeqMUDW4IJceYHcvwCd1ies0KZvWI1TnhIH6574Olgg0E74zmhZ902j304by4Cxp5LPjtQNmjy3XPVK2rgmCBCcGgdVXhdBgUBCMEwVMNVeIvBMFLifKC8vgrndFBlRJUhJcWFMd3ZfGuzFRxwWrdu3KTxQQVhi8lqApfKVhf0d4bc2/OckG9Pkur7r3TEw+1FRO0GxdM2Vc2/HHBgr1If935UTfigbt5+C27MeSo9+m5GJYitlCwWR2G8oQZ/FgWX1aFgnZMG852v5nFR4rhMn+2dDVJYFpKqy0SDksUhF9FsE0bWgyIa9bIanihoEUcDTrSz4ueOVMOLxQkzVkrZcaoNz755rmpcnihYNghm3w26Ys/5cGcIKgRBJDyqCIquj8C1PqKZvHK+qVrJ5bMRwmGterU64pkkZupWO3RjXkzUZj9+jVZMGK6IsEaHTbgjpOSUYZL/pa5m4qPIbtyznpHvJaqGB53O33h4T/3VzLuzDhE6AAAAABJRU5ErkJggg=="/></span>' +
           ' <span class="iqxin-set-del" title="删除 Delete"><img class="sej-engine-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAADAFBMVEUAAADsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVH///9VVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///8dej9TAAAAU3RSTlMAAABm7P/sZgAAABPO////zhQAAB/i/////////+IfAAAe4fvk4AAAAAAd/+Q3GxwAFR85FQBjz+LPY+v////r6//////rZM/h4c9jABUdHRUAAP0EcPoAAAEuSURBVHic7ZRnc8IwDIbdEUZHGB0kDsMOMcOMttBBB93Qvcj//y9VjB0Czh13/dz3ixT5OVmSYyMktLK6tm74oYxEMpVGUW1sbm2bM8DMZHP5OWBnd2+/YNnYAWHbKhRL5cocQKjrWFWPuSDmVS3HpUQu1eoNQkiTM9xqd7oHoG6n3cKMNyHcqNfQ4VGPUsr7nh0FbK/PIdw7PkGnZwOZNrqF9AfnF+jyaigLixYp/eH1Dbq9u4eAHyOAHh5HaPz0DCnjANjm5fUNvX98QoGCxyo5Fjmh0K/vH2hzAi0KnqnymMgJrU6gzemQBM+DZpX1/XBYUyAYTTAuZTUg+Aw8Zf+BvwJLR730sPTjXgD0H2YB0BUClXKpGAeE1y+fy2ZMfX12gdOpZMLQAfkE/AL7e5vGZF+dOQAAAABJRU5ErkJggg=="></span>' +
           "</span>";
@@ -5677,9 +5696,9 @@
           "display: flex;" +
           "flex-wrap: wrap;" +
           "padding: 20px 20px 50px 20px;" +
-          "margin: 2% 25px 50px 5px;" +
+          "margin: 2% 0 50px;" +
           "background-color: var(--background-setting-qxin);" +
-          "border-radius: 4px;" +
+          "border-radius: 0.5em;" +
           "position: absolute;" +
           "min-width: 700px;" +
           "max-width: 94%;" +
@@ -5687,14 +5706,14 @@
           "}" +
           ".iqxin-items{" +
           "min-width:5em;" +
-          "margin: 0 5px 0px;" +
+          "margin: 0 1px 0px;" +
           "}" +
           "#settingLayer .drag{" +
           "display: block;" +
           "position: relative;" +
           "}" +
           "#settingLayer .sej-engine{" +
-          "display: inline-block;" +
+          "padding: 0 calc(0.3em + 30px) 0 0.7em;" +
           "width: 100%;" +
           "box-sizing: border-box;" +
           "}" +
@@ -5708,16 +5727,18 @@
           "padding: 2px 0;" +
           "cursor: pointer;" +
           "position: relative;" +
+          "line-height: 1.8;" +
           "}" +
           "#settingLayerMask [data-xin]{" +
           "margin:4px 0;" +
-          "line-height:1.7;" +
-          "border-radius:4px;" +
+          "border-radius:0.5em;" +
           "}" +
           "#settingLayerMask .iqxin-set-edit," +
-          "#settingLayerMask .iqxin-set-del{" +
-          "border-radius:4px;" +
+          "#settingLayerMask .iqxin-set-del," +
+          "#settingLayerMask .iqxin-title-edit{" +
+          "border-radius:6px;" +
           "line-height: 1em;" +
+          "margin-right: 0.3em;" +
           "}" +
           ".sejcon [data-xin]{" +
           "cursor: pointer;" +
@@ -5727,7 +5748,6 @@
           "background-color: var(--background-avtive-color-qxin);" +
           "text-decoration: line-through;" +
           "text-decoration-color:red;" +
-          "border-radius:2px;" +
           "transition:.3s;" +
           "}" +
           ".sejtitle:not([data-xin^='-']):hover{" +
@@ -5753,7 +5773,7 @@
           "bottom: 0px;" +
           "right: 0;" +
           "background: var(--background-setting-qxin);" +
-          "border-radius: 4px;" +
+          "border-radius: 0.5em;" +
           "}" +
           "#btnEle2 span," +
           "#btnEle span{" +
@@ -5763,7 +5783,7 @@
           "margin: 12px auto 10px;" +
           "color: #3abdc1;" +
           "padding: 5px 10px;" +
-          "border-radius: 4px;" +
+          "border-radius: 0.5em;" +
           "cursor: pointer;" +
           "outline: none;" +
           "transition: 0.3s;" +
@@ -5774,7 +5794,7 @@
           "font-family: auto;" +
           "}" +
           "#btnEle a:hover{" +
-          "text-decoration: underline;" +
+          "text-decoration: none;" +
           "color: #ef8957;" +
           "}" +
           "#btnEle2 span.feedback:hover," +
@@ -5787,6 +5807,7 @@
           "color:#fff;" +
           "}" +
           "#btnEle .feedback{" +
+          "text-decoration: none;" +
           "border-color: #aaa;" +
           "}" +
           "#btnEle2>div," +
@@ -5795,7 +5816,7 @@
           "display:flex;" +
           "justify-content: space-around;" +
           "background: var(--background-btn-qxin);" +
-          "border-radius: 4px;" +
+          "border-radius: 0.5em;" +
           "}" +
           "#btnEle2{" +
           "visibility:hidden;" +
@@ -5856,7 +5877,7 @@
           "top: 50%;" +
           "transform: translate(0,-50%);" +
           "right: 0;" +
-          "padding: 3px 3px 6px 6px;" +
+          "padding: 3px 3px 5px 5px;" +
           "border-radius: 2px;" +
           "cursor: pointer;" +
           "transition: .3s;" +
@@ -5864,9 +5885,6 @@
           ".iqxin-set-title-del.iqxin-set-active {" +
           "background: #fff;" +
           "border-radius: 50% 0 0 50%;" +
-          "}" +
-          ".iqxin-title-edit{" +
-          "padding: 0px 3px 6px 6px;" +
           "}" +
           "span.iqxin-additem {" +
           "display: inline-block;" +
@@ -5952,7 +5970,7 @@
           "-webkit-appearance: none;" +
           "padding: 0px 5px;" +
           "cursor: pointer;" +
-          "text-decoration: underline;" +
+          "text-decoration: none;" +
           "background: var(--background-btn-qxin);" +
           "}" +
           "#titleEdit{" +
@@ -5994,6 +6012,7 @@
           "right:-20px;" +
           "position: absolute;" +
           "box-sizing: unset;" +
+          "cursor: pointer;" +
           "}" +
           "#xin-close::before{" +
           "content:'\\2716';" +

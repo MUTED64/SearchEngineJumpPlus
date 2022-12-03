@@ -5713,7 +5713,7 @@
           "position: relative;" +
           "}" +
           "#settingLayer .sej-engine{" +
-          "padding: 0 calc(0.3em + 30px) 0 0.7em;" +
+          "padding: 0 calc(0.3em + 28px) 0 0.7em;" +
           "width: 100%;" +
           "box-sizing: border-box;" +
           "}" +

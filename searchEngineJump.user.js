@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.9
+// @version        5.29.10
 // @created        2011-07-02
 // @lastUpdated    2022-12-04
 
@@ -723,7 +723,7 @@
         },
       },
       {
-        name: "StackOverflow",
+        name: "S.O.",
         url: /^https?:\/\/stackoverflow\.com\/search\?/i,
         enabled: true,
         engineList: "knowledge",
@@ -2448,7 +2448,7 @@
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADQUlEQVR4nO2WXYhUZRjHf8+ZzS0Jw9oUtMSa2V0TI1MJwqiETSzNWnFnxkzpoi5CSqKLCIwGL2Shqz4uFvoAtZCZYEet9GI1Ay+EDRQ1ktWZvNiIVNA+2V3dc/5eNDvunPPOeLS9Uv9X5zw8z/P/vec9vM8Lt3Szy+Im7kkx5W+PTnyWCRYYTBc0A2cMymb0kaCYHmBgQgEKj3OHzvGOxJvA1Ks0k6A4yWPTqlOc+N8AhRRzJfKCedUC4yjGF+bxEz5DwMxALDfjZYmmStMhYGOmzKfXDVBIMVdwUOLuarLHxzaft9Jf40fykywMoI9xX8kz3k2X6L5mgN453HNplKMSM8eFD2ZKPGWGGkCvDMSuGgOPlzKn2FGvxnMFL15iS8gcS7C5kTlAusRujCM1QfHhtw/X/3ciAMUUSYPXQuEL9ggHGplXQY1ijb+4959h3o4NcBEyim7NYde+OwECfowExZrYAIhnHXnlOOYVlRw9Hyy00x4PAGaFAwZ/xLY3/nSF5TM7HoAxPVJsDMf1b064c6VoXzeAOB9lojkuwIiY4oqbcSYegDHogLorLgDelYNrvG5r4rQr3hT14nvgsRBUcuwx38ZzCnjFoBW4U/ALRq/Xwrb0IYYsYFrExRjszFIi5+INEyWip5bgUeXwdrUzA5/diC6J+RIpxFICenSW/uIcZgcBixwmn1mOwPUFIgCrBzgG9IYIWgpf8cQLA/wmjw0Y3Ubt2BXMGxllD2JpzeKNc02T6XGZQ51ZsDPJ/SNwXFzZe4N9mTLPjL0feJrbz/7KdonVDZrLS7C86yR76+U4Z8GLZQa9BM9XxioAgo58im7l/qtZ8gPD0+5jHXCsjrlvxoZG5pW8+sq38qTEDsSMaoHRr8p9wIy/NMoKiS2Oxp2ZMjurC8jh8T4KD7Sr3oi+aaPlX58Pxl84Ysn4PFviVYB8Gx3y6QP2Z8t0XBPAmArtPCCf9cAyYIHEpEqD34GfMRZLtQeWwXdm9AewHpE0+ChTZuN1AYQ1NuNXHOcCQL6V9xSwuWGRsTBb4vCEAIRV6CKhI2yVWFvH/JNsiTei4QmUcnj5L1lj4nWMhxAJjBN49GROsnUivW7pxtFlNM8U1KJDSwUAAAAASUVORK5CYII=",
     };
     engineList.knowledge[9] = {
-      name: "StackOverflow",
+      name: "S.O.",
       url: "https://stackoverflow.com/search?q=%s",
       favicon:
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACRklEQVR4nM3XXWjPURzH8dcfUVsekjuhZVa0mI3kIeUhzcMFkvJ0sSgXLpCSkljZhRQXKLlAUliJkodSyhXSPJQ8jF14KuXG04rR/i7Omf2a/2y/bf/9fet0zu90Ht7nez7fc84vk81mFdIGFHR2DOqqQXPthLxMXLz3Jf4DD/Q1wDTcRXkhAIbjJmbgEkb0N8BnbEIWpTiHgfkGGIhJie+L2B/L1ajLN8ARPMDmRN0+XI3lnVidL4BxWIEhOI4zKEIr1uEFMjiFyfkAeI2puB2/N+AeygQ9LI95ES5jVF8DwAcsxAFBfOW4j1V4HqGyKNGJKHsCsBbLEn1/YRdW4hOGoR6HcEPQhAh6sLcAw3EUV9CIbbGO4ObpeCTs/XbcwknhXPgmeKVXAKPxJJbH4zDeRqgyvMJMnI5t5qBBEGkFTvQW4CnmoipO8gNDsUVY3XXMw8aYvqMl9mvKNWBPRfgANRiDPXgvuL0a1/BMUP8iLMa7zgZKA7BEiO+J2tX8UTj5SrBGuIgI23EEs7VvWU7r8j2QsB2YH8vNeIyHgjceCsfweeFG3IoFONbVoGkAfuKLEGbFmBVTm7UIq23AHdTia48ATp2t/1NOHOTVwpaVCidgZcyrMBKDY11lbL9UiIr0ANHaXquZRF2rEP+NuJCoHxtBKmI+RdRD/fi6LKxu2p0cp1sAaexNTJfSdkwDkPb9nnPFHa3gj9I0HujWitJawT2QyfVrFsOwr//ZMjXr/36dFdwD/9JAXva8oxXcAzk10J/2Gw08e05AgXJ5AAAAAElFTkSuQmCC",
@@ -2899,7 +2899,7 @@
         "(engineDetails: 第一个值为分类列表标题名称,第二个值与enginelist相关联,必须匹配,第三个值true为显示列表,false为禁用列表。排列顺序与跳转栏上的显示顺序相同，可以用它将分类列表按自己喜欢排序)..." +
         "(engineList: 各个搜索的相关信息)" +
         "(rules: 已弃用--将搜索样式插入到目标网页,同脚本中的rules设置相同,优先级高于脚本中自带的规则。自带了360搜索,可仿写)...",
-      version: "5.29.9",
+      version: "5.29.10",
       addSearchItems: true,
       modifySearchItems: true,
       closeBtn: true,
@@ -2929,7 +2929,7 @@
         ["购物", "shopping", true],
         ["下载", "download", false],
         ["新闻", "news", false],
-        ["mine", "mine", false],
+        ["常用", "mine", false],
       ],
       engineList: {},
       rules: [
@@ -3670,7 +3670,7 @@
                       z-index: 2;
                       padding: 0;
                       font-size: 13px;
-                      font-family: arial,sans-serif;
+                      font-family: sans-serif;
                       transform-origin: top center;
                       animation: sejopen 0.3s;
                       color:var(--font-color-qxin);
@@ -3703,7 +3703,7 @@
                       padding: 0 1em;
                       transition: background-color 0.2s ease-out;
                       font-size: 13px;
-                      font-family: arial,sans-serif;
+                      font-family: sans-serif;
                       display: inline-flex;
                       gap: 0.5em;
                       align-items: center;
@@ -3735,6 +3735,7 @@
 
                   .sej-engine-icon {
                       width: 16px;
+                      margin: 0;
                   }
 
                   .sej-drop-list {
@@ -5722,7 +5723,7 @@
           "backdrop-filter: blur(10px);" +
           "z-index: 200000000;" +
           "overflow: auto;" +
-          "font-family: arial,sans-serif;" +
+          "font-family: sans-serif;" +
           "min-height: 100%;" +
           "font-size:16px;" +
           "transition:0.3s;" +
@@ -5754,7 +5755,7 @@
           "position: relative;" +
           "}" +
           "#settingLayer .sej-engine{" +
-          "padding: 0 calc(0.3em + 28px) 0 0.7em;" +
+          "padding: 0 calc(0.3em + 26px) 0 0.7em;" +
           "width: 100%;" +
           "box-sizing: border-box;" +
           "}" +
@@ -5925,7 +5926,7 @@
           "top: 50%;" +
           "transform: translate(0,-50%);" +
           "right: 0;" +
-          "padding: 3px 3px 5px 5px;" +
+          "padding: 3px 3px 4.5px 4.5px;" +
           "border-radius: 2px;" +
           "cursor: pointer;" +
           "transition: .3s;" +
@@ -6012,7 +6013,7 @@
           "outline: none;" +
           "color: #3ABDC1;" +
           "font-size: 1em;" +
-          "font-family: arial,sans-serif;" +
+          "font-family: sans-serif;" +
           "padding: 0px 5px;" +
           "cursor: pointer;" +
           "text-decoration: none;" +

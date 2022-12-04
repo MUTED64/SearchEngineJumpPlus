@@ -3,20 +3,20 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.29.10
+// @version        5.30.0
 // @created        2011-07-02
 // @lastUpdated    2022-12-04
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
 // @require        https://greasyfork.org/scripts/408009-togbk/code/toGBK.js?version=832799
+// @resource       GLOBAL_STYLE https://greasyfork.org/scripts/455977-searchenginejumpplusglobalstyle/code/SearchEngineJumpPlusGlobalStyle.user.css
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
 // @license        MIT
 
 // @match          *://**/*
 // @exclude        *://mega.nz/*
 // @exclude        *://cubic-bezier.com/*
-
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_addStyle
@@ -24,6 +24,7 @@
 // @grant          GM_setClipboard
 // @grant          GM_registerMenuCommand
 // @grant          GM_openInTab
+// @grant          GM_getResourceText
 // @run-at         document-end
 
 // ==/UserScript==
@@ -32,7 +33,7 @@
   "use strict";
 
   console.log(
-    "脚本: 搜索引擎快捷跳转 --- 开始执行 --- 发布者: MUTED --- GitHub:https://github.com/MUTED64/SearchEngineJumpPlus ← 问题反馈地址"
+    "脚本: 搜索引擎快捷跳转 --- 开始执行 --- 发布者: MUTED64 --- GitHub:https://github.com/MUTED64/SearchEngineJumpPlus ← 问题反馈地址"
   );
   function iqxinstart() {
     // 根据规则把搜索引擎列表插入到指定网站
@@ -3632,151 +3633,6 @@
     function addSEJ() {
       // 搜索列表的样式(此处没有 “设置” 的css样式)
       let styleText = "";
-      // 配色
-      styleText += `
-                  body {
-                      --font-color-qxin:#333;
-                      --background-color-qxin: #ffffffe0;
-                      --background-avtive-color-qxin: #ccc;
-                      --background-active-enable-qxin:#cff9ff;
-                      --background-active-disable-qxin:#ffa2a2;
-                      --background-hover-color-qxin: #EAEAEA;
-                      --trigger-shown-qxin: #DEEDFF !important;
-                      --sej-drop-list-background-qxin:rgba(255,255,255,0.8);
-                      --background-btn-qxin:#EFF4F8;
-                      --background-setting-qxin:#fff;
-                      --box-shadow-color-sej:rgba(0,0,0,15%);
-                  }
-                  body[qxintheme="dark"] {
-                      --font-color-qxin:#BDC1BC;
-                      --background-color-qxin: #202124;
-                      --background-avtive-color-qxin: #424242;
-                      --background-active-enable-qxin:#274144;
-                      --background-active-disable-qxin:#583535;
-                      --background-hover-color-qxin: #424242;
-                      --trigger-shown-qxin: #424242 !important;
-                      --sej-drop-list-background-qxin:#202124e0;
-                      --background-btn-qxin:#292f36;
-                      --background-setting-qxin:#202124;
-                      --box-shadow-color-sej:rgba(128,128,128,15%);
-                  }
-                  `;
-      // 搜索列表的样式
-      styleText += `
-                  #sej-container {
-                      display: flex;
-                      align-items: center;
-                      position: relative;
-                      z-index: 2;
-                      padding: 0;
-                      font-size: 13px;
-                      font-family: sans-serif;
-                      transform-origin: top center;
-                      animation: sejopen 0.3s;
-                      color:var(--font-color-qxin);
-                      background: var(--background-color-qxin);
-                      backdrop-filter: blur(2em);
-                      // transition:0.3s;
-                      width: max-content !important;
-                      border-radius: 0.7em;
-                      overflow: hidden;
-                      box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
-                      height: fit-content;
-                      flex-wrap: wrap;
-                      justify-content: center;
-                  }
-                  /* 滑词搜索样式 */
-                  #sej-container.selectSearch{
-                      position:fixed;
-                      top:0.6em;
-                      left:0;
-                      right:0;
-                      z-index: 99999;
-                      transition: 0.3s;
-                      background: #ffffffa0;
-                      margin: 0 auto;
-                  }
-                  #sej-expanded-category {
-                      font-weight: bold;
-                  }
-                  .sej-engine {
-                      padding: 0 1em;
-                      transition: background-color 0.2s ease-out;
-                      font-size: 13px;
-                      font-family: sans-serif;
-                      display: inline-flex;
-                      gap: 0.5em;
-                      align-items: center;
-                      height: 2.6em;
-                      text-decoration: none;
-                  }
-                  .sej-drop-list a:visited,
-                  .sej-drop-list a:hover,
-                  .sej-engine a:visited,
-                  .sej-engine a:hover,
-                  #sej-container a:link,
-                  #sej-container a:visited,
-                  #sej-container a:hover{
-                      color:var(--font-color-qxin);
-                  }
-                  .sej-engine:hover {
-                      background-color: var(--background-hover-color-qxin);
-                      text-decoration: none;
-                  }
-                  .sej-drop-list > .sej-engine:hover {
-                      // background-color: #DEEDFF;
-                      background-color: var(--background-hover-color-qxin);
-                  }
-                  .sej-drop-list > .sej-engine {
-                      display: flex;
-                      justify-content: flex-start;
-                      gap: 1em;
-                  }
-
-                  .sej-engine-icon {
-                      width: 16px;
-                      margin: 0;
-                  }
-
-                  .sej-drop-list {
-                      position: absolute;
-                      display: none;
-                      opacity: 0.2;
-                      top: -10000px;
-                      left: 0;
-                      min-width: 90px;
-                      text-align: left;
-                      font-size: 1em;
-                      box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
-                      // background-color: rgba(255,255,255,.8);
-                      background-color: var(--sej-drop-list-background-qxin);
-                      backdrop-filter: blur(2em);
-                      transition: opacity 0.2s ease-out,
-                      top 0.2s ease-out;
-                      overflow: hidden;
-                      border-radius: 0.6em;
-                  }
-                  @keyframes sejopen {
-                      0% {
-                          transform: scale(1, 0.1);
-                          opacity: 0;
-                      }
-                      100% {
-                          transform: scale(1, 1);
-                          opacity: 1;
-                      }
-                  }
-                  @keyframes iqxinsejopen {
-                      0% {
-                          transform: scale(0.01, 0.01);
-                          opacity: 0;
-                      }
-                      100% {
-                          transform: scale(1, 1);
-                          opacity: 1;
-                      }
-                  }
-              `;
 
       // 工具列表动画
       if (!getSettingData.transtion) {
@@ -3794,40 +3650,6 @@
                           }
                    `;
       }
-      // 隐藏箭头
-      // if(getSettingData.icon){
-      //     styleText += `
-      //         .sej-drop-list-trigger-shown {
-      //             /* background-color: #DEEDFF !important; */
-      //             background-color: var(--trigger-show)
-      //         }
-      //         .sej-drop-list-trigger::after {
-      //             /* content: ''; */
-      //             display: inline-block;
-      //             margin: 0 0 0 3px;
-      //             padding: 0;
-      //             width: 0;
-      //             height: 0;
-      //             border-top: 6px solid #BCBCBC;
-      //             border-right: 5px solid transparent;
-      //             border-left: 5px solid transparent;
-      //             border-bottom: 0px solid transparent;
-      //             vertical-align: middle;
-      //             transition: -webkit-transform 0.3s ease-in-out;
-      //             transition: transform 0.3s ease-in-out;
-      //         }
-      //         .sej-drop-list-trigger-shown::after {
-      //             -webkit-transform: rotate(180deg);
-      //             transform: rotate(180deg);
-      //         }
-      //     `
-      // }else{
-      //     styleText += `
-      //         .sej-drop-list-trigger {
-      //             margin-right:8px;
-      //         }
-      //     `
-      // }
       GM_addStyle(styleText);
 
       // 夜间模式
@@ -3924,18 +3746,6 @@
 
           var top = scrolled.y + aBCRect.bottom;
           var left = scrolled.x + aBCRect.left;
-
-          // 百度界面二级搜索会出现偏移的问题
-          // if(/^https?:\/\/www\.baidu\.com\/(?:s|baidu)/.test(url)){
-          //     top = 26;
-          //     if(document.querySelector(".AC-style-logo") && getSettingData.center != 0){
-          //         // left += 0;
-          //         left = aBCRect.x -thisBCRect.x
-          //     } else {
-          //         // left += getSettingData.baiduOffset;   不需要用户自己修改，直接写死
-          //         left += -134;
-          //     }
-          // }
 
           style.top = top + 6 + "px";
           style.left = left + "px";
@@ -5711,423 +5521,6 @@
       },
       // 此处的样式主要是设置界面
       addGlobalStyle: function () {
-        var head, style;
-        var css =
-          "#settingLayerMask{" +
-          "display: none;" +
-          "justify-content: center;" +
-          "align-items: center;" +
-          "position: fixed;" +
-          "top:0; right:0; bottom:0; left:0;" +
-          "background-color: rgba(0,0,0,.3);" +
-          "backdrop-filter: blur(10px);" +
-          "z-index: 200000000;" +
-          "overflow: auto;" +
-          "font-family: sans-serif;" +
-          "min-height: 100%;" +
-          "font-size:16px;" +
-          "transition:0.3s;" +
-          "opacity:0;" +
-          "user-select: none;" +
-          "-moz-user-select: none;" +
-          "padding-bottom: 80px;" +
-          "box-sizing: border-box;" +
-          "color: var(--font-color-qxin);" +
-          "}" +
-          "#settingLayer{" +
-          "display: flex;" +
-          "flex-wrap: wrap;" +
-          "padding: 20px 20px 50px 20px;" +
-          "margin: 2% 0 50px;" +
-          "background-color: var(--background-setting-qxin);" +
-          "border-radius: 0.5em;" +
-          "position: absolute;" +
-          "min-width: 700px;" +
-          "max-width: 94%;" +
-          "transition:0.5s;" +
-          "}" +
-          ".iqxin-items{" +
-          "min-width:5em;" +
-          "margin: 0 2px 0px;" +
-          "}" +
-          "#settingLayer .drag{" +
-          "display: block;" +
-          "position: relative;" +
-          "}" +
-          "#settingLayer .sej-engine{" +
-          "padding: 0 calc(0.3em + 26px) 0 0.7em;" +
-          "width: 100%;" +
-          "box-sizing: border-box;" +
-          "}" +
-          ".iqxin-pointer-events," +
-          ".sej-engine-icon," +
-          "#settingLayer .sej-engine *{" +
-          "pointer-events:none;" +
-          "}" +
-          ".sejtitle{" +
-          "text-align: center;" +
-          "padding: 2px 0;" +
-          "cursor: pointer;" +
-          "position: relative;" +
-          "line-height: 1.8;" +
-          "}" +
-          "#settingLayerMask [data-xin]{" +
-          "margin:2px 0;" +
-          "border-radius:0.5em;" +
-          "}" +
-          "#settingLayerMask .iqxin-set-edit," +
-          "#settingLayerMask .iqxin-set-del," +
-          "#settingLayerMask .iqxin-title-edit{" +
-          "border-radius:6px;" +
-          "line-height: 1em;" +
-          "margin-right: 0.3em;" +
-          "}" +
-          ".sejcon [data-xin]{" +
-          "cursor: pointer;" +
-          "}" +
-          "#settingLayerMask [data-iqxindisabled='true']," +
-          "[data-xin^='-']{" +
-          "background-color: var(--background-avtive-color-qxin);" +
-          "text-decoration: line-through;" +
-          "text-decoration-color:red;" +
-          "transition:.3s;" +
-          "}" +
-          ".sejtitle:not([data-xin^='-']):hover{" +
-          "background:var(--background-active-enable-qxin);" +
-          "}" +
-          "#settingLayerMask .sej-engine:hover{" +
-          "background-color: var(--background-active-enable-qxin);" +
-          "}" +
-          "#settingLayerMask [data-iqxindisabled='true']:hover," +
-          "[data-xin^='-']:hover{" +
-          "background-color: var(--background-active-disable-qxin);" +
-          "}" +
-          "#settingLayerMask label{" +
-          "cursor:pointer;" +
-          "}" +
-          "#settingLayerMask .sej-engine-icon{" +
-          "vertical-align:middle;" +
-          "}" +
-          "#btnEle2," +
-          "#btnEle{" +
-          "position:absolute;" +
-          "width:100%;" +
-          "bottom: 0px;" +
-          "right: 0;" +
-          "background: var(--background-setting-qxin);" +
-          "border-radius: 0.5em;" +
-          "}" +
-          "#btnEle2 span," +
-          "#btnEle span{" +
-          "display: inline-block;" +
-          "background: var(--background-btn-qxin);" +
-          "border: 1px solid #3abdc1;" +
-          "margin: 12px auto 10px;" +
-          "color: #3abdc1;" +
-          "padding: 5px 10px;" +
-          "border-radius: 0.5em;" +
-          "cursor: pointer;" +
-          "outline: none;" +
-          "transition: 0.3s;" +
-          "}" +
-          "#btnEle a{" +
-          "color: #999;" +
-          "text-decoration: none;" +
-          "font-family: auto;" +
-          "}" +
-          "#btnEle a:hover{" +
-          "text-decoration: none;" +
-          "color: #ef8957;" +
-          "}" +
-          "#btnEle2 span.feedback:hover," +
-          "#btnEle span.feedback:hover{" +
-          "border-color:#ef8957;" +
-          "}" +
-          "#btnEle2 span:not(.feedback):hover," +
-          "#btnEle span:not(.feedback):hover," +
-          "#btnEle2 span:not(.feedback):hover select," +
-          "#btnEle span:not(.feedback):hover select{" +
-          "background:#3ACBDD;" +
-          "color:#fff;" +
-          "}" +
-          "#btnEle2 span:not(.feedback) option," +
-          "#btnEle span:not(.feedback) option{" +
-          "background:var(--background-btn-qxin);" +
-          "color:var(--font-color-qxin);" +
-          "}" +
-          "#btnEle .feedback{" +
-          "text-decoration: none;" +
-          "border-color: #aaa;" +
-          "}" +
-          "#btnEle2>div," +
-          "#btnEle>div{" +
-          "width: 100%;" +
-          "display:flex;" +
-          "justify-content: space-around;" +
-          "background: var(--background-btn-qxin);" +
-          "border-radius: 0.5em;" +
-          "}" +
-          "#btnEle2{" +
-          "visibility:hidden;" +
-          "opacity:0;" +
-          "transform:translate(0,40px);" +
-          "transition : 0.3s;" +
-          "}" +
-          "#btnEle2.btnEle2active{" +
-          "visibility:visible;" +
-          "opacity:1;" +
-          // "transform:translate(0,108px);"  // 两行的情况下
-          "transform:translate(0,53px);" +
-          "}" +
-          "#settingLayerMask input[type=checkbox]{" +
-          "width: 12px;" +
-          "height: 12px;" +
-          "display: inline-block;" +
-          "text-align: center;" +
-          "vertical-align: middle;" +
-          "line-height: 10px!important;" +
-          "margin: 0 5px 5px 5px!important;" +
-          "position: relative;" +
-          "}" +
-          "#settingLayerMask input[type=checkbox]:before{" +
-          "content: '';" +
-          "position: absolute;" +
-          "top: 0;" +
-          "left: 0;" +
-          "background: #fff;" +
-          "width: 100%;" +
-          "height: 100%;" +
-          "border: 1px solid #d9d9d9;" +
-          "}" +
-          "#settingLayerMask input[type=checkbox]:checked:after{" +
-          'content: "✔";' +
-          "background-color: #63d4d8;" +
-          "position: absolute;" +
-          "top: 0;" +
-          "left: 0;" +
-          "width: 12px;" +
-          "height: 12px;" +
-          "border: 1px solid #63d4d8;" +
-          "color: #fff;" +
-          "font-size: 10px;" +
-          "}" +
-          ".drop-over{" +
-          "opacity: 0.6;" +
-          "}" +
-          ".iqxin-title-edit," +
-          ".iqxin-set-edit," +
-          ".iqxin-set-title-del," +
-          ".iqxin-set-del {" +
-          "visibility: hidden;" +
-          "opacity:0;" +
-          "position: absolute;" +
-          "background: rgba(207, 249, 255, 0.86);" +
-          "color: red;" +
-          "top: 50%;" +
-          "transform: translate(0,-50%);" +
-          "right: 0;" +
-          "padding: 3px 3px 4.5px 4.5px;" +
-          "border-radius: 2px;" +
-          "cursor: pointer;" +
-          "transition: .3s;" +
-          "}" +
-          ".iqxin-set-title-del.iqxin-set-active {" +
-          "background: #fff;" +
-          "border-radius: 50% 0 0 50%;" +
-          "}" +
-          "span.iqxin-additem {" +
-          "display: inline-block;" +
-          "text-align: center;" +
-          "width: 100%;" +
-          "margin: 10px 0;" +
-          "border: 1px dotted red;" +
-          "color: red;" +
-          "cursor: pointer;" +
-          "visibility:hidden;" +
-          "opacity:0;" +
-          "transition:0.3s;" +
-          "transform:scale(0);" +
-          "}" +
-          "span.iqxin-additem.iqxin-set-active {" +
-          "visibility:visible;" +
-          "opacity:1;" +
-          "margin:10px 0;" +
-          "transform:scale(1);" +
-          "}" +
-          "#settingLayer .sejtitle:hover .iqxin-title-edit," +
-          "#settingLayer .sejcon>span:hover .iqxin-set-edit{" +
-          "visibility:visible;" +
-          "opacity:0.8;" +
-          "}" +
-          "#nSearchList.iqxin-set-active," +
-          ".iqxin-set-edit.iqxin-set-active," +
-          ".iqxin-set-title-del.iqxin-set-active," +
-          ".iqxin-set-del.iqxin-set-active {" +
-          "visibility:visible !important;" +
-          "opacity:1 !important;" +
-          "}" +
-          "#btnEle span.iqxin-btn-active{" +
-          "color:red;" +
-          "border-color:red;" +
-          "}" +
-          "#newSearchListBox," +
-          "#newSearchBox{" +
-          "transition:0.3s;" +
-          "transform : translateY(0%);" +
-          "opacity: 1;" +
-          "position:fixed;" +
-          "z-index:200000100;" +
-          "top:50%;" +
-          "left:50%;" +
-          "padding:22px;" +
-          "background:rgb(29, 29, 29);" +
-          "border-radius:4px;" +
-          "color: #e8e8e8;" +
-          "margin: -149px -117px;" +
-          "}" +
-          "#newSearchListBox input," +
-          "#newSearchBox input{" +
-          "border: none;" +
-          "padding: 4px 0 4px 5px;" +
-          "border-radius: 4px;" +
-          "outline: none;" +
-          "}" +
-          "#newSearchListBox input:focus," +
-          "#newSearchBox input:focus {" +
-          "background: #f1d2d2;" +
-          "transition: 0.5s;" +
-          "}" +
-          ".addItemBoxBtn{" +
-          "cursor: pointer;" +
-          "background: #fff;" +
-          "border: none;" +
-          "border-radius: 4px;" +
-          "padding: 4px 10px;" +
-          "color: #333;" +
-          "transition:0.3s;" +
-          "}" +
-          "#xin-centerDisplay select," +
-          "#xin-newtab select{" +
-          "height:auto;" +
-          "border: none;" +
-          "outline: none;" +
-          "color: #3ABDC1;" +
-          "font-size: 1em;" +
-          "font-family: sans-serif;" +
-          "padding: 0px 5px;" +
-          "cursor: pointer;" +
-          "text-decoration: none;" +
-          "background: var(--background-btn-qxin);" +
-          "transition: .3s;" +
-          "}" +
-          "#titleEdit{" +
-          "width:6em;" +
-          "}" +
-          // 按钮效果 ： 确定 取消按钮
-          ".iqxin-closeBtn," +
-          ".iqxin-enterBtn{" +
-          "box-sizing: border-box;" +
-          "}" +
-          ".iqxin-closeBtn:hover{" +
-          "background: #ff6565;" +
-          "border-color: #ff6565;" +
-          "color: #fff;" +
-          "}" +
-          ".iqxin-enterBtn:hover{" +
-          "background: #84bb84;" +
-          "border-color: #84bb84;" +
-          "color: #fff;" +
-          "}" +
-          "#iqxin-editCodeBox button{" +
-          "cursor:pointer;" +
-          "}" +
-          // 关闭按钮
-          "#xin-close{" +
-          "background:white;" +
-          "color:#3ABDC1;" +
-          "line-height:20px;" +
-          "text-align:center;" +
-          "height:20px;" +
-          "width:20px;" +
-          "text-align:center;" +
-          "font-size:20px;" +
-          "padding:10px;" +
-          "border: 3px solid #3ABDC1;" +
-          "border-radius: 50%;" +
-          "transition: .5s;" +
-          "top: -20px;" +
-          "right:-20px;" +
-          "position: absolute;" +
-          "box-sizing: unset;" +
-          "cursor: pointer;" +
-          "}" +
-          "#xin-close::before{" +
-          "content:'\\2716';" +
-          "margin:-10px;" +
-          "}" +
-          "#xin-close:hover{" +
-          "background: indianred;" +
-          "border-color: indianred;" +
-          "color: #fff;" +
-          "}" +
-          // type[range] 效果
-          "input[type=range] {" +
-          "outline: none;" +
-          "-webkit-appearance: none;" +
-          "background:-webkit-linear-gradient(left,#3ABDC1,#83e7ea) no-repeat, #fff;" +
-          "border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/" +
-          "}" +
-          "input[type=range]::-webkit-slider-thumb {" +
-          "-webkit-appearance: none;" +
-          "} " +
-          "input[type=range]::-webkit-slider-runnable-track {" +
-          "height: 10px;" +
-          "border-radius: 10px; /*将轨道设为圆角的*/" +
-          "box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/" +
-          "}" +
-          "input[type=range]::-webkit-slider-thumb {" +
-          "-webkit-appearance: none;" +
-          "height: 18px;" +
-          "width: 18px;" +
-          "margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/" +
-          "background: #fff; " +
-          "border-radius: 50%; /*外观设置为圆形*/" +
-          "border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/" +
-          "box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/" +
-          "}" +
-          // 导入
-          "#importingBox{" +
-          "position:fixed;" +
-          "width:350px;" +
-          "top:50%;" +
-          "left:50%;" +
-          "transform:translate(-50%,-50%);" +
-          "padding: 15px 30px;" +
-          "border-radius: 4px;" +
-          "background:#1D1D1D;" +
-          "color:#fff;" +
-          "}" +
-          "#importingBox li{" +
-          "margin:5px;" +
-          "border-bottom:1px solid #3ACBDD;" +
-          "}" +
-          "#importingBox li p{" +
-          "white-space: nowrap;" +
-          "overflow: hidden;" +
-          "text-overflow: ellipsis;" +
-          "margin-top:0;" +
-          "margin-bottom:0;" +
-          "}" +
-          ".xin-importing-item{" +
-          "cursor:pointer;" +
-          "}" +
-          "";
-        head = document.getElementsByTagName("head")[0];
-        style = document.createElement("style");
-        style.type = "text/css";
-        style.innerHTML = css;
-        head.appendChild(style);
-
         // 关闭设置菜单中的所有动画效果
         if (!getSettingData.transtion) {
           GM_addStyle(
@@ -6214,13 +5607,6 @@
       }
       sejSet.show();
     }
-
-    // 获取存储的数据信息
-    function get_data() {
-      setData = GM_getValue("searchEngineJumpData");
-    }
-    var setData = null;
-    // get_data();
   }
 
   // 消息提示框
@@ -6296,6 +5682,9 @@
   var delayListTag = delayList.some(function hashUrl(element, index, array) {
     return ~url.search(element);
   });
+
+  var css = GM_getResourceText("GLOBAL_STYLE");
+  GM_addStyle(css);
 
   // if (hashListTag){
   //     var oldTitle = document.title;

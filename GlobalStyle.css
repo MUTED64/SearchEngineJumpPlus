@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.30.0
+@version        5.30.1
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -413,78 +413,109 @@ input[type="range"]::-webkit-slider-thumb {
 .xin-importing-item {
   cursor: pointer;
 }
+#setBtn {
+  transition: 0.5s;
+  padding: 0 1em;
+  height: 2.6em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+span#setBtn:hover {
+  opacity: 1;
+  background-color: var(--background-hover-color-qxin);
+}
 #sej-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    padding: 0;
-    font-size: 13px;
-    font-family: sans-serif;
-    transform-origin: top center;
-    animation: sejopen 0.3s;
-    color:var(--font-color-qxin);
-    background: var(--background-color-qxin);
-    backdrop-filter: blur(2em);
-    width: max-content !important;
-    border-radius: 0.7em;
-    overflow: hidden;
-    box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
-    height: fit-content;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  font-size: 13px;
+  font-family: sans-serif;
+  transform-origin: top center;
+  animation: sejopen 0.3s;
+  color: var(--font-color-qxin);
+  background: var(--background-color-qxin);
+  backdrop-filter: blur(2em);
+  width: max-content !important;
+  border-radius: 0.7em;
+  overflow: hidden;
+  box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
+  height: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* 给用户的提示 */
+#iqixn-global-tip {
+  box-sizing: content-box !important;
+  opacity: 0;
+  height: 25px;
+  line-height: 25px;
+  letter-spacing: 1px;
+  font-size: 1em;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: #666;
+  position: fixed;
+  z-index: 200000001;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%);
+  transition: 0.4s;
 }
 /* 夜间模式 */
 body {
-    --font-color-qxin:#333;
-    --background-color-qxin: #ffffffe0;
-    --background-avtive-color-qxin: #ccc;
-    --background-active-enable-qxin:#cff9ff;
-    --background-active-disable-qxin:#ffa2a2;
-    --background-hover-color-qxin: #EAEAEA;
-    --trigger-shown-qxin: #DEEDFF !important;
-    --sej-drop-list-background-qxin:rgba(255,255,255,0.8);
-    --background-btn-qxin:#EFF4F8;
-    --background-setting-qxin:#fff;
-    --box-shadow-color-sej:rgba(0,0,0,15%);
+  --font-color-qxin: #333;
+  --background-color-qxin: #ffffffe0;
+  --background-avtive-color-qxin: #ccc;
+  --background-active-enable-qxin: #cff9ff;
+  --background-active-disable-qxin: #ffa2a2;
+  --background-hover-color-qxin: #eaeaea;
+  --trigger-shown-qxin: #deedff !important;
+  --sej-drop-list-background-qxin: rgba(255, 255, 255, 0.8);
+  --background-btn-qxin: #eff4f8;
+  --background-setting-qxin: #fff;
+  --box-shadow-color-sej: rgba(0, 0, 0, 15%);
 }
 body[qxintheme="dark"] {
-    --font-color-qxin:#BDC1BC;
-    --background-color-qxin: #202124;
-    --background-avtive-color-qxin: #424242;
-    --background-active-enable-qxin:#274144;
-    --background-active-disable-qxin:#583535;
-    --background-hover-color-qxin: #424242;
-    --trigger-shown-qxin: #424242 !important;
-    --sej-drop-list-background-qxin:#202124e0;
-    --background-btn-qxin:#292f36;
-    --background-setting-qxin:#202124;
-    --box-shadow-color-sej:rgba(128,128,128,15%);
+  --font-color-qxin: #bdc1bc;
+  --background-color-qxin: #202124;
+  --background-avtive-color-qxin: #424242;
+  --background-active-enable-qxin: #274144;
+  --background-active-disable-qxin: #583535;
+  --background-hover-color-qxin: #424242;
+  --trigger-shown-qxin: #424242 !important;
+  --sej-drop-list-background-qxin: #202124e0;
+  --background-btn-qxin: #292f36;
+  --background-setting-qxin: #202124;
+  --box-shadow-color-sej: rgba(128, 128, 128, 15%);
 }
 /* 滑词搜索样式 */
-#sej-container.selectSearch{
-    position:fixed;
-    top:0.6em;
-    left:0;
-    right:0;
-    z-index: 99999;
-    transition: 0.3s;
-    background: #ffffffa0;
-    margin: 0 auto;
+#sej-container.selectSearch {
+  position: fixed;
+  top: 0.6em;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  transition: 0.3s;
+  background: #ffffffa0;
+  margin: 0 auto;
 }
 #sej-expanded-category {
-    font-weight: bold;
+  font-weight: bold;
 }
 .sej-engine {
-    padding: 0 1em;
-    transition: background-color 0.2s ease-out;
-    font-size: 13px;
-    font-family: sans-serif;
-    display: inline-flex;
-    gap: 0.5em;
-    align-items: center;
-    height: 2.6em;
-    text-decoration: none;
+  padding: 0 1em;
+  transition: background-color 0.2s ease-out;
+  font-size: 13px;
+  font-family: sans-serif;
+  display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
+  height: 2.6em;
+  text-decoration: none;
 }
 .sej-drop-list a:visited,
 .sej-drop-list a:hover,
@@ -492,61 +523,60 @@ body[qxintheme="dark"] {
 .sej-engine a:hover,
 #sej-container a:link,
 #sej-container a:visited,
-#sej-container a:hover{
-    color:var(--font-color-qxin);
+#sej-container a:hover {
+  color: var(--font-color-qxin);
 }
 .sej-engine:hover {
-    background-color: var(--background-hover-color-qxin);
-    text-decoration: none;
+  background-color: var(--background-hover-color-qxin);
+  text-decoration: none;
 }
 .sej-drop-list > .sej-engine:hover {
-    background-color: var(--background-hover-color-qxin);
+  background-color: var(--background-hover-color-qxin);
 }
 .sej-drop-list > .sej-engine {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1em;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
 }
 
 .sej-engine-icon {
-    width: 16px;
-    margin: 0;
+  width: 16px;
+  margin: 0;
 }
 
 .sej-drop-list {
-    position: absolute;
-    display: none;
-    opacity: 0.2;
-    top: -10000px;
-    left: 0;
-    min-width: 90px;
-    text-align: left;
-    font-size: 1em;
-    box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
-    background-color: var(--sej-drop-list-background-qxin);
-    backdrop-filter: blur(2em);
-    transition: opacity 0.2s ease-out,
-    top 0.2s ease-out;
-    overflow: hidden;
-    border-radius: 0.6em;
+  position: absolute;
+  display: none;
+  opacity: 0.2;
+  top: -10000px;
+  left: 0;
+  min-width: 90px;
+  text-align: left;
+  font-size: 1em;
+  box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
+  background-color: var(--sej-drop-list-background-qxin);
+  backdrop-filter: blur(2em);
+  transition: opacity 0.2s ease-out, top 0.2s ease-out;
+  overflow: hidden;
+  border-radius: 0.6em;
 }
 @keyframes sejopen {
-    0% {
-        transform: scale(1, 0.1);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1, 1);
-        opacity: 1;
-    }
+  0% {
+    transform: scale(1, 0.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
 }
 @keyframes iqxinsejopen {
-    0% {
-        transform: scale(0.01, 0.01);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1, 1);
-        opacity: 1;
-    }
+  0% {
+    transform: scale(0.01, 0.01);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
 }

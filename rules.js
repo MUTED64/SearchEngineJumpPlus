@@ -62,7 +62,7 @@ const webRules = [
     url: /^https?:\/\/www\.google(?:\.[A-z]{2,3}){1,2}\/[^#]*#(?:&?q=|.+?&q=).+/,
     engineList: "web",
     style: `
-      margin-left: 142px;
+      left: 142px;
       z-index: 100;
       margin-top:5px;
     `,
@@ -86,14 +86,14 @@ const webRules = [
     url: /^https?:\/\/www\.baidu\.com\/(?:s|baidu)/,
     enabled: true,
     engineList: "web",
-    fixedTop: 70,
+    fixedTop: 80,
     fixedTop2: 88,
     fixedTopTarget: "css;.s_form ",
     fixedTopWhere: "beforeEnd",
     style: `
       margin-top:8px;
       z-index: 101;
-      margin-left: 133px;
+      left: 133px;
     `,
     style_ACBaidu: `
       margin: 8px auto -5px;
@@ -118,7 +118,7 @@ const webRules = [
     engineList: "web",
     style: `
       margin-top: 1em;
-      margin-left: 160px;
+      left: 160px;
       position: sticky;
       top: 0.5em;
     `,
@@ -149,13 +149,26 @@ const webRules = [
     },
   },
   {
+    name: "360",
+    url: /^https?:\/\/www\.so\.com\/s\?/,
+    enabled: true,
+    engineList: "web",
+    fixedTop: 50,
+    style: "margin: 1em 0 0 135px;position:sticky;top:55px;z-index:3001;",
+    insertIntoDoc: {
+      keyword: "//input[@name='q']",
+      target: "css;#tabs-wrap",
+      where: "afterEnd",
+    },
+  },
+  {
     name: "雅虎网页搜索",
     url: /^https?:\/\/search\.yahoo\.com\/search/i,
     engineList: "web",
     enabled: true,
     fixedTop: 54,
     style: `
-    margin-left:122px;
+    left:122px;
     `,
     insertIntoDoc: {
       keyword: "css;#yschsp",
@@ -169,7 +182,7 @@ const webRules = [
     engineList: "web",
     enabled: true,
     style: `
-      margin-left:0px;
+      left:0px;
       width:1050px;
       display:flex;
       -webkit-box-orient: vertical;
@@ -189,7 +202,7 @@ const webRules = [
     enabled: true,
     fixedTop: 52,
     style: `
-      margin-left:-10px;
+      left:-10px;
       margin-bottom:10px;
     `,
     insertIntoDoc: {
@@ -204,7 +217,7 @@ const webRules = [
     engineList: "web",
     enabled: true,
     style: `
-      margin-left:-10px;
+      left:-10px;
       margin-bottom:10px;
     `,
     insertIntoDoc: {
@@ -222,7 +235,7 @@ const webRules = [
     style: `
       top:-46px;
       z-index:99;
-      margin-left:-5px;
+      left:-5px;
     `,
     style_ACBaidu: `
       top:-46px;
@@ -260,7 +273,7 @@ const webRules = [
     url: /^https?:\/\/www\.google(?:\.[A-z]{2,3}){1,2}\/[^?]+\?(?:tbm=)(?:&?q=|(?:[^#](?!&tbm=))+?&q=)(?:.(?!&tbm=))*$/,
     engineList: "web",
     style: `
-      margin-left: 142px;
+      left: 142px;
       z-index: 100;
       margin-top:5px;
     `,
@@ -296,7 +309,7 @@ const webRules = [
     nightMode: true,
     style: `
       z-index: 100;
-      margin-left: 135px;
+      left: 135px;
       color:#ccc;
     `,
     insertIntoDoc: {
@@ -327,7 +340,7 @@ const webRules = [
     url: /^https?:\/\/www\.ecosia\.org\/search\?/i,
     engineList: "web",
     style: `
-      margin-left: -10px;
+      left: -10px;
       margin-top: -20px;
       z-index:1;
       background-color:#fff;
@@ -345,7 +358,7 @@ const webRules = [
     engineList: "web",
     fixedTop: 111,
     style: `
-      margin-left: 50px;
+      left: 50px;
       z-index: -99999;
       margin-top:5px;
     `,
@@ -418,7 +431,7 @@ const webRules = [
     enabled: true,
     fixedTop: 75,
     style: `
-      margin-left:146px;
+      left:146px;
       z-index:99999;
     `,
     insertIntoDoc: {
@@ -510,18 +523,16 @@ const knowledgeRules = [
     url: /^https?:\/\/wenku\.baidu\.com\/search/i,
     engineList: "knowledge",
     enabled: true,
-    fixedTop: 96,
+    fixedTop: 104,
     style: `
-      margin-bottom: 6px;
-      margin-top:-16px;
-      padding:0;
+      top:20px;
+      margin-bottom:25px;
+      left:145px;
+      z-index:202;
     `,
     insertIntoDoc: {
-      keyword: function () {
-        var str = document.querySelector("#kw").value;
-        return str;
-      },
-      target: "css;.bd-wrap",
+      keyword: "css;#kw",
+      target: "css;#app > div.base-layout-content",
       where: "afterBegin",
     },
   },
@@ -534,7 +545,7 @@ const knowledgeRules = [
       border-top: 1px solid #e5e5e5;
       border-bottom: 1px solid #e5e5e5;
       margin-bottom: 1px;
-      margin-left:112px;
+      left:112px;
     `,
     insertIntoDoc: {
       keyword: "css;#kw",
@@ -549,7 +560,7 @@ const knowledgeRules = [
     enabled: true,
     style: `
       position: fixed;
-      margin: 1em auto;
+      margin: 0.1em auto;
       left: 0;
       right: 0;
     `,
@@ -569,17 +580,17 @@ const knowledgeRules = [
     url: /^https?:\/\/.*\.?moegirl\.org\.cn/i,
     engineList: "knowledge",
     enabled: true,
+    fixedTop: 52,
     style: `
-      position: fixed;
       margin: -0.8em auto 0;
       z-index: 3;
-      left: 0;
-      right: 0;
+      width: 1200px !important;
+      top: 12px;
     `,
     insertIntoDoc: {
       keyword: "css;#firstHeading",
-      target: "css;#moe-main-container",
-      where: "afterBegin",
+      target: "css;#moe-topbanner-container",
+      where: "afterEnd",
     },
   },
   {
@@ -752,7 +763,7 @@ const videoRules = [
     url: /^https?:\/\/search\.bilibili\.com\/*/,
     enabled: true,
     engineList: "video",
-    fixedTop: 64,
+    fixedTop: 74,
     style: `
       width:980px;
       margin:10px auto 10px;
@@ -802,7 +813,7 @@ const videoRules = [
     fixedTop: 58,
     style: `
       z-index:9;
-      margin: 58px auto -50px;
+      margin: 60px auto -60px;
       text-align: center;
       backgroud:#fff;
       position: relative;
@@ -942,9 +953,10 @@ const musicRules = [
     url: /^https?:\/\/music\.163\.com\/.*?#\/search/i,
     enabled: true,
     engineList: "music",
-    fixedTop: 80,
+    fixedTop: 0,
     style: `
       margin:auto;
+      top:3px;
     `,
     insertIntoDoc: {
       keyword: function () {
@@ -982,10 +994,12 @@ const imageRules = [
     url: /^https?:\/\/image\.baidu\.com\/search/i,
     enabled: true,
     engineList: "image",
-    fixedTop: 70, //关闭关联联想的情况下
+    fixedTop: 72, //关闭关联联想的情况下
     // fixedTop:135,  //
     style: `
-      margin-left:127px;
+      left:127px;
+      z-index:1000;
+      margin-top:10px;
     `,
     insertIntoDoc: {
       keyword: "css;input#kw",
@@ -1000,29 +1014,28 @@ const imageRules = [
     engineList: "image",
     fixedTop: 52,
     style: `
-      margin-left:136px;
-      padding: 10px 5px 1px 22px;
+      left: 160px;
+      margin: 10px 0;
     `,
     insertIntoDoc: {
       keyword: "css;input[name=q]",
-      // target: 'css;#ucs',
-      target: "css;.ndYZfc",
-      where: "afterBegin",
-      // where: 'beforeEnd',
+      target: "css;#yDmH0d > div.T1diZc.KWE8qe > c-wiz > div.ndYZfc",
+      where: "afterEnd",
     },
   },
   {
     name: "必应图片",
     url: /^https?:\/\/.*\.bing\.com\/images\/search/i,
     enabled: true,
-    fixedTop: 74,
+    fixedTop: 88,
     engineList: "image",
     style: `
-      margin:0 0 0 160px;
+      left:160px;
+      margin-top:15px;
     `,
     insertIntoDoc: {
       keyword: "css;#sb_form_q",
-      target: "css;#rfPaneIn",
+      target: "css;#b_content",
       where: "afterBegin",
     },
   },
@@ -1211,9 +1224,8 @@ const translateRules = [
     enabled: true,
     engineList: "translate",
     style: `
-      padding-left:15px;
       margin-top:6px;
-      margin-left: 148px;
+      left: 148px;
     `,
     insertIntoDoc: {
       keyword: "css;#sb_form_q",
@@ -1226,7 +1238,7 @@ const translateRules = [
     url: /^https?:\/\/dict\.youdao\.com\/search/i,
     enabled: true,
     engineList: "translate",
-    fixedTop: 64,
+    fixedTop: 94,
     style: `
       margin:auto;
     `,
@@ -1483,17 +1495,29 @@ const socialityRules = [
     },
   },
   {
-    name: "百度贴吧",
-    url: /^https?:\/\/tieba\.baidu\.com/i,
+    name: "百度贴吧全吧搜索",
+    url: /^https?:\/\/tieba\.baidu\.com\/f\/search/i,
     enabled: true,
     engineList: "sociality",
+    fixedTop: 60,
     style: `
-      position: fixed;
-      top: 60px;
-      right: 2em;
-      max-width: 17.2em;
-      flex-wrap: wrap;
-      justify-content: left;
+      left: 121px;
+    `,
+    insertIntoDoc: {
+      keyword: "css;#wd1",
+      target: "css;#head > div.search_main_wrap",
+      where: "afterEnd",
+    },
+  },
+  {
+    name: "百度贴吧",
+    url: /^https?:\/\/tieba\.baidu\.com\/f/i,
+    enabled: true,
+    engineList: "sociality",
+    fixedTop: 60,
+    style: `
+      margin: 0 auto 1em;
+      z-index: 10;
     `,
     insertIntoDoc: {
       keyword: "css;#wd1",
@@ -1575,7 +1599,7 @@ const scholarRules = [
     style: `
       z-index:1001;
       position:relative;
-      margin: 1em 0 0.5em 3.5em;
+      margin: 1em 0 0.5em 11em;
       position: sticky;
       top: 0.1em;
     `,

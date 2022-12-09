@@ -441,7 +441,7 @@ span#setBtn:hover {
   width: max-content !important;
   border-radius: 0.7em;
   overflow: hidden;
-  box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
+  box-shadow: 0 0 1em var(--box-shadow-color-sej);
   height: fit-content;
   flex-wrap: wrap;
   justify-content: center;
@@ -477,7 +477,7 @@ body {
   --sej-drop-list-background-qxin: rgba(255, 255, 255, 0.8);
   --background-btn-qxin: #eff4f8;
   --background-setting-qxin: #fff;
-  --box-shadow-color-sej: rgba(0, 0, 0, 15%);
+  --box-shadow-color-sej: hsla(0, 0%, 0%, 7%);
 }
 body[qxintheme="dark"] {
   --font-color-qxin: #bdc1bc;
@@ -490,15 +490,15 @@ body[qxintheme="dark"] {
   --sej-drop-list-background-qxin: #202124e0;
   --background-btn-qxin: #292f36;
   --background-setting-qxin: #202124;
-  --box-shadow-color-sej: rgba(128, 128, 128, 15%);
+  --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
 }
 /* 滑词搜索样式 */
 #sej-container.selectSearch {
   position: fixed;
-  top: 0.6em;
+  top: -5em;
   left: 0;
   right: 0;
-  z-index: 99999;
+  z-index: 99999999;
   transition: 0.3s;
   background: #ffffffa0;
   margin: 0 auto;
@@ -553,7 +553,7 @@ body[qxintheme="dark"] {
   min-width: 90px;
   text-align: left;
   font-size: 1em;
-  box-shadow: 0.2em 0.2em 0.7em var(--box-shadow-color-sej);
+  box-shadow: 0em 0.6em 1em var(--box-shadow-color-sej);
   background-color: var(--sej-drop-list-background-qxin);
   backdrop-filter: blur(2em);
   transition: opacity 0.2s ease-out, top 0.2s ease-out;

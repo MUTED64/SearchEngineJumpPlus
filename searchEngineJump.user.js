@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.30.1
+// @version        5.30.3
 // @created        2011-07-02
 // @lastUpdated    2022-12-04
 
@@ -16,7 +16,6 @@
 
 // @match          *://**/*
 // @exclude        *://mega.nz/*
-// @exclude        *://cubic-bezier.com/*
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_addStyle
@@ -238,7 +237,10 @@
           // 5.30.2 更新
           if (this.#isVersionOutdated(this.settingData.version, "5.30.2")) {
             this.deleteOutdatedSearchItems(["https://so.letv.com/s?wd=%s"]);
-            this.modifyOutdatedSearchItems("https://s.weibo.com/weibo/%s", "https://s.weibo.com/weibo/?q=%s")
+            this.modifyOutdatedSearchItems(
+              "https://s.weibo.com/weibo/%s",
+              "https://s.weibo.com/weibo/?q=%s"
+            );
           }
 
           console.info(
@@ -465,13 +467,11 @@
         this.parentJumpBarContainer = jumpBarContainer;
         this.settingData = settingData;
         this.#addButtonToJumpBar();
-        this.settingButtonElement?.addEventListener(
-          "click",
-          this.#activateSettingButton.bind(this)
+        this.settingButtonElement?.addEventListener("click", (e) =>
+          this.#activateSettingButton(e)
         );
-        GM_registerMenuCommand(
-          "设置菜单",
-          this.#activateSettingButton.bind(this)
+        GM_registerMenuCommand("设置菜单", (e) =>
+          this.#activateSettingButton(e)
         );
       }
       #addButtonToJumpBar() {
@@ -483,7 +483,7 @@
           this.parentJumpBarContainer.appendChild(this.settingButtonElement);
         }
       }
-      #activateSettingButton() {
+      #activateSettingButton(e) {
         if (!document.querySelector("#settingLayerMask")) {
           this.settingPanel = new SettingPanel();
         }
@@ -543,9 +543,9 @@
           this.inputTarget = {};
           this.insertTarget = document.body;
           this.insertPositionLabel = "beforeend";
-          document.addEventListener("mouseup", (e) => {
-            this.#toggleSelectSearchJumpBar(e);
-          });
+          document.addEventListener("selectionchange", () =>
+            this.#toggleSelectSearchJumpBar()
+          );
         } else {
           this.inputTarget = this.#getInputTarget();
           this.insertTarget = this.#getInsertTarget();
@@ -575,20 +575,13 @@
         this.container.id = "sej-container";
         this.container.className = "rwl-exempt";
       }
-      #toggleSelectSearchJumpBar(e) {
-        // TODO
-        let selectText = window.getSelection().toString();
-        if (e.button != 0) return; // 排除非左键点击
-        if (selectText.length < 1) {
-          if (this.container) {
-            this.container.style.top = "-5em";
-          }
-          return;
-        }
-        this.inputTarget.textContent = selectText;
-        if (this.container) {
+      #toggleSelectSearchJumpBar() {
+        const selection = getSelection();
+        if (selection.isCollapsed) {
+          this.container.style.top = "-5em";
+        } else {
+          this.inputTarget.textContent = selection.toString();
           this.container.style.top = "2px";
-          return;
         }
       }
       #isOnSelectSearchMode() {

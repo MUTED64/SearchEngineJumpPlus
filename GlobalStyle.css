@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.30.3
+@version        5.30.4
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -517,6 +517,8 @@ body[qxintheme="dark"] {
   align-items: center;
   height: 2.6em;
   text-decoration: none;
+  color: var(--font-color-qxin);
+  cursor: pointer;
 }
 .sej-drop-list a:visited,
 .sej-drop-list a:hover,

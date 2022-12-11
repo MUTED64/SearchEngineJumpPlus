@@ -300,26 +300,6 @@ const webRules = [
     },
   },
   {
-    name: "startpage2",
-    enabled: true,
-    url: /^https?:\/\/www\.startpage\.com\/do\/asearch/,
-    engineList: "web",
-    fixedTop: 102,
-    fixedTopColor: "#202c46",
-    nightMode: true,
-    style: `
-      z-index: 100;
-      left: 135px;
-      color:#ccc;
-    `,
-    insertIntoDoc: {
-      target: "css;.layout-web__header",
-      keyword: '//input[@name="query"]',
-      where: "beforeEnd",
-    },
-    stylish: ".layout-web__body{margin-top:110px;}",
-  },
-  {
     name: "infinitynewtab",
     enabled: true,
     url: /^https?:\/\/google\.infinitynewtab\.com\/\?q/i,

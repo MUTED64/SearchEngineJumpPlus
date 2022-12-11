@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.30.3
+// @version        5.30.4
 // @created        2011-07-02
 // @lastUpdated    2022-12-04
 
@@ -25,6 +25,7 @@
 // @grant          GM_openInTab
 // @grant          GM_getResourceText
 // @grant          GM_info
+// @grant          window.onurlchange
 // @run-at         document-end
 
 // ==/UserScript==
@@ -67,32 +68,21 @@
     startMainScript();
   }
 
-  // 添加标题监视器, 应对 youtube
-  addTitleObserver();
-
-  function addTitleObserver() {
-    const title = document.querySelector("title");
-    if (!title) {
-      window.setTimeout(addTitleObserver, 1000);
-    } else {
-      const titleObserver = new MutationObserver(() => {
-        document.querySelectorAll("sejspan")?.forEach((i) => i.remove());
-        startMainScript();
-      });
-      titleObserver.observe(title, {
-        childList: true,
-        characterData: true,
-      });
-      return titleObserver;
-    }
+  // 单页应用路由变化后重新加载
+  if (window.onurlchange === null) {
+    let lastURL = decodeURI(location.href).replaceAll(" ", "+");
+    window.addEventListener("urlchange", (e) => {
+      const newURL = decodeURI(e.url).replaceAll(" ", "+");
+      if (lastURL === newURL) return;
+      lastURL = newURL;
+      document.querySelectorAll("sejspan")?.forEach((i) => i.remove());
+      startMainScript();
+    });
   }
 
   function startMainScript() {
     const rules = searchEngineJumpPlusRules;
     let engineList = searchEngineJumpPlusEngines;
-
-    const globalStyle = GM_getResourceText("GLOBAL_STYLE");
-    GM_addStyle(globalStyle);
 
     // 有些图标需要重复使用
     const icon = {
@@ -243,6 +233,14 @@
             );
           }
 
+          // 5.30.4 更新
+          if (this.#isVersionOutdated(this.settingData.version, "5.30.4")) {
+            this.modifyOutdatedSearchItems(
+              "https://www.startpage.com/do/asearch$post$query",
+              "https://www.startpage.com/sp/search$post$query"
+            );
+          }
+
           console.info(
             `\n%c ${GM_info.script.name}+ 设置已更新 \n%c 本地设置版本号:\t\t${
               this.#storedSettingData.version
@@ -259,12 +257,31 @@
 
       initSettings() {
         if (this.#storedSettingData) {
-          this.settingData = this.#storedSettingData;
+          this.settingData = Object.assign({}, this.#storedSettingData);
           this.#checkSettingDataIntegrity();
           this.#checkUpdate();
         } else {
           this.settingData = this.#scriptSettingData;
           GM_setValue("searchEngineJumpData", this.settingData);
+        }
+
+        this.initEngineCategories();
+      }
+
+      initEngineCategories() {
+        this.settingData.engineList.engineCategories = [];
+        for (
+          let engineCategoryIndex = 0;
+          engineCategoryIndex < this.settingData.engineDetails.length;
+          engineCategoryIndex++
+        ) {
+          if (this.settingData.engineDetails[engineCategoryIndex][2]) {
+            this.settingData.engineList.engineCategories[engineCategoryIndex] =
+              this.settingData.engineDetails[engineCategoryIndex];
+          } else {
+            this.settingData.engineList.engineCategories[-engineCategoryIndex] =
+              this.settingData.engineDetails[engineCategoryIndex];
+          }
         }
       }
 
@@ -287,7 +304,6 @@
             }
           }
         }
-        GM_setValue("searchEngineJumpData", this.settingData);
       }
       deleteOutdatedSearchItems(urlList) {
         for (const value in this.settingData.engineList) {
@@ -299,7 +315,6 @@
             }
           }
         }
-        GM_setValue("searchEngineJumpData", this.settingData);
       }
       // 更新图标
       modifyOutdatedSearchItemsIcon(url, newIcon) {
@@ -309,7 +324,6 @@
             this.settingData.engineList[i].favicon = newIcon;
           }
         }
-        GM_setValue("searchEngineJumpData", this.settingData);
       }
       // 更新本地 rule
       modifyOutdatedSearchItemsRule(name, value) {
@@ -320,7 +334,6 @@
             oldRule[item] = value;
           }
         }
-        GM_setValue("searchEngineJumpData", this.settingData);
       }
     }
 
@@ -467,12 +480,10 @@
         this.parentJumpBarContainer = jumpBarContainer;
         this.settingData = settingData;
         this.#addButtonToJumpBar();
-        this.settingButtonElement?.addEventListener("click", (e) =>
-          this.#activateSettingButton(e)
+        this.settingButtonElement?.addEventListener("click", () =>
+          this.#activateSettingButton()
         );
-        GM_registerMenuCommand("设置菜单", (e) =>
-          this.#activateSettingButton(e)
-        );
+        GM_registerMenuCommand("设置菜单", () => this.#activateSettingButton());
       }
       #addButtonToJumpBar() {
         if (this.settingData.setBtnOpacity >= 0) {
@@ -483,8 +494,9 @@
           this.parentJumpBarContainer.appendChild(this.settingButtonElement);
         }
       }
-      #activateSettingButton(e) {
-        if (!document.querySelector("#settingLayerMask")) {
+      #activateSettingButton() {
+        if (!this.settingPanel) {
+          document.querySelector("#settingLayerMask")?.remove();
           this.settingPanel = new SettingPanel();
         }
         this.settingPanel.show();
@@ -493,7 +505,7 @@
 
     class JumpBar {
       engineButtonTemplate =
-        '<a href="" class="sej-engine" target="$blank$" data-iqxincategory="$category$" encoding="$encoding$" gbk="$gbk$" url="$url$"><img src="$favicon$" class="sej-engine-icon" />$name$</a>';
+        '<a class="sej-engine" target="$blank$" data-iqxincategory="$category$" encoding="$encoding$" gbk="$gbk$" url="$url$"><img src="$favicon$" class="sej-engine-icon" />$name$</a>';
       dropDownLists = [];
       container;
       inputTarget;
@@ -507,7 +519,8 @@
         this.engineList = engineList;
         this.settingData = settingData;
         this.matchedRule = matchedRule;
-        this.#initContainer();
+        const inited = this.#initContainer();
+        if (inited===false) return;
         this.#initEngines();
         this.#addEnginesToDOM();
         this.#fixCompatibility();
@@ -537,31 +550,36 @@
         }
       }
       #initContainer() {
-        if (this.#isOnSelectSearchMode()) {
-          this.#createContainerDOM();
-          this.container.classList.add("selectSearch");
-          this.inputTarget = {};
-          this.insertTarget = document.body;
-          this.insertPositionLabel = "beforeend";
-          document.addEventListener("selectionchange", () =>
-            this.#toggleSelectSearchJumpBar()
-          );
-        } else {
+        if (this.matchedRule?.enabled) {
           this.inputTarget = this.#getInputTarget();
           this.insertTarget = this.#getInsertTarget();
           this.insertPositionLabel = this.#getInsertPositionLabel();
           if (this.inputTarget && this.insertTarget) {
             this.#createContainerDOM();
           } else {
-            console.warn("未找到输入框或插入位置，跳过初始化");
+            console.warn(
+              `未找到输入框或插入位置，跳过初始化：\n输入框：${this.inputTarget}\n插入位置：${this.insertTarget}`
+            );
           }
+        } else if (this.#isOnSelectSearchMode()) {
+          this.inputTarget = {};
+          this.insertTarget = document.body;
+          this.insertPositionLabel = "beforeend";
+          this.#createContainerDOM();
+          this.container.classList.add("selectSearch");
+          document.addEventListener("selectionchange", () =>
+            this.#toggleSelectSearchJumpBar()
+          );
+        } else {
+          console.info("未启用搜索跳转，跳过初始化");
+          return false;
         }
 
         this.matchedRule?.class
           ? (this.container.className += ` ${this.matchedRule.class}`)
           : {};
         this.container.addEventListener(
-          "mousedown",
+          "click",
           (e) => this.#JumpToSelectedEngine(e),
           true
         );
@@ -569,6 +587,7 @@
         if (this.matchedRule?.stylish) {
           GM_addStyle(this.matchedRule.stylish);
         }
+        return true;
       }
       #createContainerDOM() {
         this.container = document.createElement("sejspan");
@@ -696,7 +715,7 @@
           this.container.appendChild(item[0]); //将搜索列表放入主搜索
           document.body.appendChild(item[1]); // 插入搜索子菜单
           item[1].addEventListener(
-            "mousedown",
+            "click",
             (e) => this.#JumpToSelectedEngine(e),
             true
           );
@@ -875,18 +894,22 @@
         }
 
         // 如果有post请求
+        // TODO
         var postSign = targetURL.indexOf("$post$");
         if (~postSign) {
+          target.addEventListener("click", function (e) {
+            e.preventDefault();
+          });
           var f = getPostFormHTML(
             targetURL.substring(0, postSign),
-            [targetURL.substring(postSign + 6), searchKeyword],
+            [
+              targetURL.substring(postSign + 6),
+              decodeURIComponent(searchKeyword),
+            ],
             target.getAttribute("target")
           );
-          target.appendChild(f);
-          target.setAttribute(
-            "onclick",
-            "this.getElementsByTagName('form')[0].submit();return false;"
-          );
+          document.body.appendChild(f);
+          f.submit();
         } else {
           target.href = target
             .getAttribute("url")
@@ -2148,77 +2171,43 @@
     engineList = settingData.engineList;
     const matchedRule = settings.getMatchedRule();
 
-    engineList.engineCategories = [];
-    for (
-      let engineCategoryIndex = 0;
-      engineCategoryIndex < settingData.engineDetails.length;
-      engineCategoryIndex++
-    ) {
-      if (settingData.engineDetails[engineCategoryIndex][2]) {
-        engineList.engineCategories[engineCategoryIndex] =
-          settingData.engineDetails[engineCategoryIndex];
-      } else {
-        engineList.engineCategories[-engineCategoryIndex] =
-          settingData.engineDetails[engineCategoryIndex];
-      }
-    }
-
-    //xpath 获取单个元素
-    function getElementByXPath(xPath, contextNode, doc) {
-      doc = doc || document;
-      contextNode = contextNode || doc;
-      return doc.evaluate(xPath, contextNode, null, 9, null).singleNodeValue;
-    }
-
-    function getElement(selector) {
-      if (!selector) {
-        return null;
-      }
-
-      if (selector.indexOf("css;") == 0) {
-        return document.querySelector(selector.slice(4));
-      } else {
-        return getElementByXPath(selector);
-      }
-    }
-
-    function getPostFormHTML(url, value, newTab) {
-      //console.log(url,value,newTab)
-      var ospan = document.createElement("span");
-      ospan.style.cssText = "width:0px;height:0px;";
-      var form =
-        "" +
-        "<form method='post'" +
-        " action='" +
-        url +
-        "'" +
-        (newTab ? " target='_blank'" : "") +
-        ">" +
-        "<input type='hidden'" +
-        " name='" +
-        value[0] +
-        "'" +
-        " value='" +
-        value[1] +
-        "'" +
-        " />" +
-        "</form>";
-      ospan.innerHTML = form;
-      return ospan;
-    }
-
+    const globalStyle = GM_getResourceText("GLOBAL_STYLE");
+    GM_addStyle(globalStyle);
     // 取消工具列表动画和毛玻璃效果
     if (!settingData.transtion) {
       const nonTransitionStyle = `.sej-engine,.sej-drop-list-trigger,.sej-drop-list{transition:none!important;}#sej-container{animation:none!important;}.sej-drop-list {backdrop-filter:none!important;}`;
       GM_addStyle(nonTransitionStyle);
     }
-
     // 夜间模式
     if (
       document.getElementsByTagName("meta")?.["color-scheme"]?.content ===
       "dark"
     ) {
       document.body.setAttribute("qxintheme", "dark");
+    }
+
+    //xpath 获取单个元素
+    function getElementByXPath(xPath, contextNode = document) {
+      return document.evaluate(xPath, contextNode, null, 9, null)
+        .singleNodeValue;
+    }
+
+    function getElement(selector) {
+      if (selector?.startsWith("css;")) {
+        return document.querySelector(selector?.slice(4));
+      } else {
+        return getElementByXPath(selector);
+      }
+    }
+
+    function getPostFormHTML(url, value, newTab) {
+      const postForm = document.createElement("form");
+      postForm.method = "post";
+      postForm.action = url;
+      newTab ? (postForm.target = "_blank") : {};
+      postForm.style.cssText = "width:0px;height:0px;position:fixed;";
+      postForm.innerHTML = `<input type="hidden" name="${value[0]}" value="${value[1]}"/>`;
+      return postForm;
     }
 
     const jumpBar = new JumpBar(engineList, settingData, matchedRule);

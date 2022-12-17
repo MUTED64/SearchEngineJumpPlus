@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.30.4
+@version        5.31.0
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -126,6 +126,14 @@
   cursor: pointer;
   outline: none;
   transition: 0.3s;
+}
+#btnEle label,
+#btnEle2 label{
+  color: #3abdc1;
+}
+#btnEle span:hover label,
+#btnEle2 span:hover label{
+  color: #fff;
 }
 #btnEle a {
   color: #999;
@@ -417,9 +425,9 @@ input[type="range"]::-webkit-slider-thumb {
   transition: 0.5s;
   padding: 0 1em;
   height: 2.6em;
-  display: flex;
   align-items: center;
   cursor: pointer;
+  display: flex;
 }
 span#setBtn:hover {
   opacity: 1;
@@ -437,7 +445,7 @@ span#setBtn:hover {
   animation: sejopen 0.3s;
   color: var(--font-color-qxin);
   background: var(--background-color-qxin);
-  backdrop-filter: blur(2em);
+  backdrop-filter: blur(1em);
   width: max-content !important;
   border-radius: 0.7em;
   overflow: hidden;
@@ -445,7 +453,7 @@ span#setBtn:hover {
   height: fit-content;
   flex-wrap: wrap;
   justify-content: center;
-  user-select:none;
+  user-select: none;
 }
 /* 给用户的提示 */
 #iqixn-global-tip {
@@ -475,7 +483,6 @@ body {
   --background-active-disable-qxin: #ffa2a2;
   --background-hover-color-qxin: #eaeaea;
   --trigger-shown-qxin: #deedff !important;
-  --sej-drop-list-background-qxin: rgba(255, 255, 255, 0.8);
   --background-btn-qxin: #eff4f8;
   --background-setting-qxin: #fff;
   --box-shadow-color-sej: hsla(0, 0%, 0%, 7%);
@@ -488,7 +495,6 @@ body[qxintheme="dark"] {
   --background-active-disable-qxin: #583535;
   --background-hover-color-qxin: #424242;
   --trigger-shown-qxin: #424242 !important;
-  --sej-drop-list-background-qxin: #202124e0;
   --background-btn-qxin: #292f36;
   --background-setting-qxin: #202124;
   --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
@@ -501,7 +507,6 @@ body[qxintheme="dark"] {
   right: 0;
   z-index: 99999999;
   transition: 0.3s;
-  background: #ffffffa0;
   margin: 0 auto;
 }
 #sej-expanded-category {
@@ -557,8 +562,8 @@ body[qxintheme="dark"] {
   text-align: left;
   font-size: 1em;
   box-shadow: 0em 0.6em 1em var(--box-shadow-color-sej);
-  background-color: var(--sej-drop-list-background-qxin);
-  backdrop-filter: blur(2em);
+  background-color: var(--background-color-qxin);
+  backdrop-filter: blur(1em);
   transition: opacity 0.2s ease-out, top 0.2s ease-out;
   overflow: hidden;
   border-radius: 0.6em;

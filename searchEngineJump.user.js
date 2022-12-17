@@ -3,13 +3,15 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.30.4
+// @version        5.31.0
 // @created        2011-07-02
-// @lastUpdated    2022-12-04
+// @lastUpdated    2022-12-17
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
 // @require        https://greasyfork.org/scripts/408009-togbk/code/toGBK.js?version=832799
+// @require        https://greasyfork.org/scripts/456710-searchenginejumpplusenginelist/code/SearchEngineJumpPlusEngineList.js?version=1129095
+// @require        https://greasyfork.org/scripts/456711-searchenginejumpplusrules/code/SearchEngineJumpPlusRules.js?version=1129096
 // @resource       GLOBAL_STYLE https://greasyfork.org/scripts/455977-searchenginejumpplusglobalstyle/code/SearchEngineJumpPlusGlobalStyle.user.css
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
 // @license        MIT
@@ -33,54 +35,61 @@
 (function () {
   "use strict";
 
-  if (window.self != window.top) return;
+  startScript();
+  listenUrlChange();
 
-  console.info(
-    `\n%c ${GM_info.script.name}+ v${GM_info.script.version} \n%c 问题反馈(GitHub):\t\thttps://github.com/MUTED64/SearchEngineJumpPlus/issues/new\t\t\t\t\t\t\t\n%c 问题反馈(GreasyFork):\thttps://greasyfork.org/scripts/454280-searchenginejumpplus-搜索引擎快捷跳转/feedback\t\n`,
-    "color:#eee;background:#444;padding:6px 0;border-radius:6px 6px 0 0;",
-    "color:#444;background:#eee;padding:6px 0;border-radius:0 6px 0 0",
-    "color:#444;background:#eee;padding:6px 0;border-radius:0 0 6px 6px;"
-  );
+  // For some websites with iframe and some websites need delay to load
+  function startScript() {
+    if (window.self != window.top) return;
 
-  // 部分网站或内因或外因的原因加载缓慢，所以推迟插入
-  const delayList = [
-    /^https?:\/\/google\.infinitynewtab\.com\/\?q/,
-    /^https?:\/\/www\.zhihu\.com\/search\?/,
-    /^https?:\/\/www\.iciba\.com\/word\?/,
-    /^https?:\/\/neeva\.com\/search\?/i,
-    /^https?:\/\/s\.taobao\.com\/search/,
-    /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
-  ];
-  let needDelay = delayList.some(
-    (delaySite) => location.href.search(delaySite) !== -1
-  );
+    console.info(
+      `\n%c ${GM_info.script.name} v${GM_info.script.version} \n%c 问题反馈(GitHub):\t\thttps://github.com/MUTED64/SearchEngineJumpPlus/issues/new\t\t\t\t\t\t\t\n%c 问题反馈(GreasyFork):\thttps://greasyfork.org/scripts/454280-searchenginejumpplus-搜索引擎快捷跳转/feedback\t\n`,
+      "color:#eee;background:#444;padding:6px 0;border-radius:6px 6px 0 0;",
+      "color:#444;background:#eee;padding:6px 0;border-radius:0 6px 0 0",
+      "color:#444;background:#eee;padding:6px 0;border-radius:0 0 6px 6px;"
+    );
 
-  if (needDelay) {
-    setTimeout(function () {
-      var sejSpan = document.querySelector("sejspan");
-      if (sejSpan) {
-        return;
-      } else {
-        startMainScript();
-      }
-    }, 2000);
-  } else {
-    startMainScript();
+    const delayList = [
+      /^https?:\/\/google\.infinitynewtab\.com\/\?q/,
+      /^https?:\/\/www\.zhihu\.com\/search\?/,
+      /^https?:\/\/www\.iciba\.com\/word\?/,
+      /^https?:\/\/neeva\.com\/search\?/i,
+      /^https?:\/\/s\.taobao\.com\/search/,
+      /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
+    ];
+    const needDelay = delayList.some(
+      (delaySite) => location.href.search(delaySite) !== -1
+    );
+
+    if (needDelay) {
+      setTimeout(function () {
+        const isRunning = document.querySelector("sejspan");
+        if (isRunning) {
+          return;
+        } else {
+          mainLogic();
+        }
+      }, 2000);
+    } else {
+      mainLogic();
+    }
   }
 
-  // 单页应用路由变化后重新加载
-  if (window.onurlchange === null) {
-    let lastURL = decodeURI(location.href).replaceAll(" ", "+");
-    window.addEventListener("urlchange", (e) => {
-      const newURL = decodeURI(e.url).replaceAll(" ", "+");
-      if (lastURL === newURL) return;
-      lastURL = newURL;
-      document.querySelectorAll("sejspan")?.forEach((i) => i.remove());
-      startMainScript();
-    });
+  // For SPA websites with javascript router
+  function listenUrlChange() {
+    if (window.onurlchange === null) {
+      let lastURL = decodeURI(location.href).replaceAll(" ", "+");
+      window.addEventListener("urlchange", (e) => {
+        const newURL = decodeURI(e.url).replaceAll(" ", "+");
+        if (lastURL === newURL) return;
+        lastURL = newURL;
+        document.querySelectorAll("sejspan")?.forEach((i) => i.remove());
+        mainLogic();
+      });
+    }
   }
 
-  function startMainScript() {
+  function mainLogic() {
     const rules = searchEngineJumpPlusRules;
     let engineList = searchEngineJumpPlusEngines;
 
@@ -88,9 +97,10 @@
     const icon = {
       edit: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAACDklEQVR4nJXVzUtUURjH8Y/mSNKkki2iwiApxHQ1q/6C+gusoCB6oxbRRqFNL4sWtRKqhVSLIDe1CqpNiwjKIilKLKKFEr2Z2qI0xxHN0+LOm+PMOPOc1T2H7/f5ncO991BdNer30zmxKrl0xV2zKJjRoy6aqkkvbbdVLPuUq+8+5uGXnVILki7qsxgtNDtrTNLcijHvrdYsft0/wQ8DZgSzeqMUDW4IJceYHcvwCd1ies0KZvWI1TnhIH6574Olgg0E74zmhZ902j304by4Cxp5LPjtQNmjy3XPVK2rgmCBCcGgdVXhdBgUBCMEwVMNVeIvBMFLifKC8vgrndFBlRJUhJcWFMd3ZfGuzFRxwWrdu3KTxQQVhi8lqApfKVhf0d4bc2/OckG9Pkur7r3TEw+1FRO0GxdM2Vc2/HHBgr1If935UTfigbt5+C27MeSo9+m5GJYitlCwWR2G8oQZ/FgWX1aFgnZMG852v5nFR4rhMn+2dDVJYFpKqy0SDksUhF9FsE0bWgyIa9bIanihoEUcDTrSz4ueOVMOLxQkzVkrZcaoNz755rmpcnihYNghm3w26Ys/5cGcIKgRBJDyqCIquj8C1PqKZvHK+qVrJ5bMRwmGterU64pkkZupWO3RjXkzUZj9+jVZMGK6IsEaHTbgjpOSUYZL/pa5m4qPIbtyznpHvJaqGB53O33h4T/3VzLuzDhE6AAAAABJRU5ErkJggg==",
       del: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAADAFBMVEUAAADsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVH///9VVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///8dej9TAAAAU3RSTlMAAABm7P/sZgAAABPO////zhQAAB/i/////////+IfAAAe4fvk4AAAAAAd/+Q3GxwAFR85FQBjz+LPY+v////r6//////rZM/h4c9jABUdHRUAAP0EcPoAAAEuSURBVHic7ZRnc8IwDIbdEUZHGB0kDsMOMcOMttBBB93Qvcj//y9VjB0Czh13/dz3ixT5OVmSYyMktLK6tm74oYxEMpVGUW1sbm2bM8DMZHP5OWBnd2+/YNnYAWHbKhRL5cocQKjrWFWPuSDmVS3HpUQu1eoNQkiTM9xqd7oHoG6n3cKMNyHcqNfQ4VGPUsr7nh0FbK/PIdw7PkGnZwOZNrqF9AfnF+jyaigLixYp/eH1Dbq9u4eAHyOAHh5HaPz0DCnjANjm5fUNvX98QoGCxyo5Fjmh0K/vH2hzAi0KnqnymMgJrU6gzemQBM+DZpX1/XBYUyAYTTAuZTUg+Aw8Zf+BvwJLR730sPTjXgD0H2YB0BUClXKpGAeE1y+fy2ZMfX12gdOpZMLQAfkE/AL7e5vGZF+dOQAAAABJRU5ErkJggg==",
+      setting: `<svg style="width: 16px;" class="icon" viewBox="0 0 512 512"><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="42"/></svg>`,
     };
 
-    let scriptSettingData = {
+    const scriptSettingData = {
       status: 1,
       message:
         "$相关说明$(status: 这个在将来或许很重要)..." +
@@ -153,7 +163,6 @@
     class Settings {
       #storedSettingData = GM_getValue("searchEngineJumpData");
       #scriptSettingData = scriptSettingData;
-      scriptSettingData = {};
       settingData;
 
       constructor() {
@@ -200,7 +209,7 @@
         for (const value in this.#scriptSettingData) {
           if (!this.settingData.hasOwnProperty(value)) {
             console.warn(`属性不存在：${value}`);
-            this.settingData[value] = scriptSettingData[value];
+            this.settingData[value] = this.#scriptSettingData[value];
             GM_setValue("searchEngineJumpData", this.settingData);
           }
         }
@@ -219,13 +228,13 @@
           // 5.29.9 更新
           if (
             this.settingData.setBtnOpacity === "0.2" &&
-            this.#isVersionOutdated(this.settingData.version, "5.29.9")
+            this.#isVersionOutdated(this.#storedSettingData.version, "5.29.9")
           ) {
             this.settingData.setBtnOpacity = "0.7";
           }
 
           // 5.30.2 更新
-          if (this.#isVersionOutdated(this.settingData.version, "5.30.2")) {
+          if (this.#isVersionOutdated(this.#storedSettingData.version, "5.30.2")) {
             this.deleteOutdatedSearchItems(["https://so.letv.com/s?wd=%s"]);
             this.modifyOutdatedSearchItems(
               "https://s.weibo.com/weibo/%s",
@@ -234,7 +243,7 @@
           }
 
           // 5.30.4 更新
-          if (this.#isVersionOutdated(this.settingData.version, "5.30.4")) {
+          if (this.#isVersionOutdated(this.#storedSettingData.version, "5.30.4")) {
             this.modifyOutdatedSearchItems(
               "https://www.startpage.com/do/asearch$post$query",
               "https://www.startpage.com/sp/search$post$query"
@@ -242,7 +251,7 @@
           }
 
           console.info(
-            `\n%c ${GM_info.script.name}+ 设置已更新 \n%c 本地设置版本号:\t\t${
+            `\n%c ${GM_info.script.name} 设置已更新 \n%c 本地设置版本号:\t\t${
               this.#storedSettingData.version
             }\t\t\t\t\t\t\t\n%c 当前版本号:\t\t\t${
               this.settingData.version
@@ -374,7 +383,7 @@
             var style = list.style;
             style.top = parseFloat(list.style.top) - 6 + "px";
             style.zIndex = this.zIndex + 1;
-            style.opacity = 0.96;
+            style.opacity = 1;
           }
         });
 
@@ -396,7 +405,7 @@
 
           var style = list.style;
           style.zIndex = this.zIndex + 1;
-          style.opacity = 0.96;
+          style.opacity = 1;
           style.top = parseFloat(list.style.top) - 6 + "px";
         });
 
@@ -433,7 +442,7 @@
           "px";
 
         setTimeout(function () {
-          style.opacity = 0.96;
+          style.opacity = 1;
           style.top = top + "px";
         }, 30);
         this.a.classList.add(this.aShownClass);
@@ -444,7 +453,7 @@
 
         var style = this.list.style;
         style.display = "none";
-        style.opacity = 0.1;
+        style.opacity = 0.2;
 
         this.a.classList.remove(this.aShownClass);
       }
@@ -489,8 +498,9 @@
         if (this.settingData.setBtnOpacity >= 0) {
           this.settingButtonElement = document.createElement("span");
           this.settingButtonElement.id = "setBtn";
+          this.settingButtonElement.title = "设置菜单";
           GM_addStyle(`#setBtn{opacity: ${this.settingData.setBtnOpacity};}`);
-          this.settingButtonElement.innerHTML = `<svg style="width:16px;display:block;cursor:pointer;" t='1666950165377' class='icon' viewBox='0 0 1024 1024' version='1.1' fill="var(--font-color-qxin)" xmlns='http://www.w3.org/2000/svg' p-id='11048' width='32' height='32'><path d='M337.333 517.667c77.406 0 141.974 54.967 156.8 127.998l440.534 0.002c17.673 0 32 14.327 32 32 0 17.496-14.042 31.713-31.471 31.995l-0.53 0.005-440.534 0.001C479.307 782.7 414.74 837.667 337.333 837.667S195.36 782.699 180.534 709.668l-99.2-0.001c-17.674 0-32-14.327-32-32 0-17.497 14.041-31.713 31.47-31.996l0.53-0.004 99.2-0.002c14.825-73.03 79.393-127.998 156.8-127.998z m0 64c-53.019 0-96 42.98-96 96 0 53.019 42.981 96 96 96 53.02 0 96-42.981 96-96 0-53.02-42.98-96-96-96z m341.334-405.334c77.406 0 141.974 54.968 156.799 127.999l99.2 0.001c17.674 0 32 14.327 32 32 0 17.497-14.041 31.713-31.47 31.996l-0.53 0.004-99.2 0.003c-14.826 73.03-79.394 127.997-156.8 127.997-77.405 0-141.973-54.967-156.798-127.997l-440.535-0.003c-17.673 0-32-14.327-32-32 0-17.496 14.042-31.713 31.471-31.995l0.53-0.005 440.534-0.001c14.825-73.031 79.393-127.999 156.799-127.999z m0 64c-53.02 0-96 42.981-96 96 0 53.02 42.98 96 96 96 53.019 0 96-42.98 96-96 0-53.019-42.981-96-96-96z' p-id='11049'></path></svg>`;
+          this.settingButtonElement.innerHTML = icon.setting;
           this.parentJumpBarContainer.appendChild(this.settingButtonElement);
         }
       }
@@ -520,7 +530,7 @@
         this.settingData = settingData;
         this.matchedRule = matchedRule;
         const inited = this.#initContainer();
-        if (inited===false) return;
+        if (inited === false) return;
         this.#initEngines();
         this.#addEnginesToDOM();
         this.#fixCompatibility();
@@ -614,12 +624,12 @@
       #getInputTarget() {
         return typeof this.matchedRule?.insertIntoDoc.keyword == "function"
           ? this.matchedRule.insertIntoDoc.keyword
-          : getElement(this.matchedRule?.insertIntoDoc.keyword);
+          : this.#getElementBySelector(this.matchedRule?.insertIntoDoc.keyword);
       }
       #getInsertTarget() {
         return typeof this.matchedRule?.insertIntoDoc.target == "function"
           ? this.matchedRule.insertIntoDoc.target()
-          : getElement(this.matchedRule?.insertIntoDoc.target);
+          : this.#getElementBySelector(this.matchedRule?.insertIntoDoc.target);
       }
       #getInsertPositionLabel() {
         return this.matchedRule?.insertIntoDoc.where.toLowerCase();
@@ -838,12 +848,10 @@
         }
       }
       #JumpToSelectedEngine(e) {
-        const target = getElementByXPath(
-          'ancestor-or-self::a[contains(@class, "sej-engine")]',
-          e.target
-        );
+        const target = e.target;
 
         if (!target) return;
+        if (!target.classList.contains("sej-engine")) return;
 
         let searchKeyword;
         if (typeof this.inputTarget == "function") {
@@ -894,13 +902,12 @@
         }
 
         // 如果有post请求
-        // TODO
-        var postSign = targetURL.indexOf("$post$");
-        if (~postSign) {
+        var postSign = targetURL?.indexOf("$post$");
+        if (postSign && postSign !== -1) {
           target.addEventListener("click", function (e) {
             e.preventDefault();
           });
-          var f = getPostFormHTML(
+          var f = this.#getEngineJumpPostForm(
             targetURL.substring(0, postSign),
             [
               targetURL.substring(postSign + 6),
@@ -918,6 +925,23 @@
         if (this.#isOnSelectSearchMode()) {
           target.target = "_blank";
         }
+      }
+      #getElementBySelector(selector) {
+        if (selector?.startsWith("css;")) {
+          return document.querySelector(selector.slice(4));
+        } else {
+          return document.evaluate(selector, document, null, 9, null)
+            .singleNodeValue;
+        }
+      }
+      #getEngineJumpPostForm(url, value, newTab) {
+        const postForm = document.createElement("form");
+        postForm.method = "post";
+        postForm.action = url;
+        postForm.style.cssText = "display:none;";
+        postForm.innerHTML = `<input type="hidden" name="${value[0]}" value="${value[1]}"/>`;
+        newTab ? (postForm.target = "_blank") : {};
+        return postForm;
       }
     }
 
@@ -1737,7 +1761,7 @@
 
           settingData.setBtnOpacity = -settingData.setBtnOpacity;
         } else {
-          iqxinShowTip("抱歉,目前只支持chrome类浏览器", 2500);
+          this.showPopUp("抱歉,目前只支持chrome类浏览器", 2500);
         }
       }
 
@@ -1745,7 +1769,9 @@
       titleClick(e) {
         var target = e.target;
         target.dataset.xin = -parseInt(target.dataset.xin);
-        target.dataset.xin > 0 ? iqxinShowTip("启用") : iqxinShowTip("禁用");
+        target.dataset.xin > 0
+          ? this.showPopUp("启用")
+          : this.showPopUp("禁用");
       }
       // 点击事件   此处的 if 需要根据实际情况替换成 elseif (switch)
       domClick(e) {
@@ -1774,8 +1800,8 @@
             ? ""
             : "true";
           e.target.dataset.iqxindisabled
-            ? iqxinShowTip("禁用")
-            : iqxinShowTip("启用");
+            ? this.showPopUp("禁用")
+            : this.showPopUp("启用");
         }
         if (~targetClass.indexOf("addItemBoxCancel")) {
           this.addItemBoxRemove();
@@ -1821,7 +1847,7 @@
           this.editCodeBoxSave();
         } else if (targetid === "xin-copyCode") {
           GM_setClipboard(JSON.stringify(settingData, false, 4));
-          iqxinShowTip("复制成功");
+          this.showPopUp("复制成功");
         }
 
         //  点击更多菜单
@@ -2014,8 +2040,8 @@
           elem.parentNode.removeChild(elem);
         });
 
-        startMainScript();
-        iqxinShowTip("保存成功");
+        mainLogic();
+        this.showPopUp("保存成功");
       }
 
       // 设置按钮透明度设置
@@ -2164,10 +2190,37 @@
           );
         }
       }
+      showPopUp(text, duration) {
+        new PopUp(text, duration);
+      }
+    }
+
+    class PopUp {
+      constructor(text, duration = 1500) {
+        this.popUp = document.createElement("iqxinDiv");
+        this.popUp.id = "iqixn-global-tip";
+        this.show(text);
+        setTimeout(() => {
+          this.destroy();
+        }, duration);
+      }
+      show(text) {
+        this.popUp.innerText = text;
+        document.body.appendChild(this.popUp);
+        this.popUp.style.opacity = 1;
+      }
+      destroy() {
+        this.popUp.style.opacity = 0;
+        const transitionTime =
+          parseFloat(getComputedStyle(this.popUp).transitionDuration) * 1000;
+        setTimeout(() => {
+          this.popUp.remove();
+        }, transitionTime);
+      }
     }
 
     const settings = new Settings();
-    let settingData = settings.settingData;
+    const settingData = settings.settingData;
     engineList = settingData.engineList;
     const matchedRule = settings.getMatchedRule();
 
@@ -2186,58 +2239,11 @@
       document.body.setAttribute("qxintheme", "dark");
     }
 
-    //xpath 获取单个元素
-    function getElementByXPath(xPath, contextNode = document) {
-      return document.evaluate(xPath, contextNode, null, 9, null)
-        .singleNodeValue;
-    }
-
-    function getElement(selector) {
-      if (selector?.startsWith("css;")) {
-        return document.querySelector(selector?.slice(4));
-      } else {
-        return getElementByXPath(selector);
-      }
-    }
-
-    function getPostFormHTML(url, value, newTab) {
-      const postForm = document.createElement("form");
-      postForm.method = "post";
-      postForm.action = url;
-      newTab ? (postForm.target = "_blank") : {};
-      postForm.style.cssText = "width:0px;height:0px;position:fixed;";
-      postForm.innerHTML = `<input type="hidden" name="${value[0]}" value="${value[1]}"/>`;
-      return postForm;
-    }
-
     const jumpBar = new JumpBar(engineList, settingData, matchedRule);
     if (jumpBar.container) {
-      const settingButton = new SettingButton(jumpBar.container, settingData);
+      new SettingButton(jumpBar.container, settingData);
     } else {
       return;
-    }
-
-    // 消息提示框
-    // 目前只是为了给用户一个反馈。 - 成功了么 - 嗯,成功了
-    let iqxinTimerGlobalTip = null;
-    function iqxinShowTip(text, duration) {
-      let globalTip = document.querySelector("#iqixn-global-tip");
-      if (!globalTip) {
-        globalTip = document.createElement("iqxinDiv");
-        globalTip.id = "iqixn-global-tip";
-        document.body.appendChild(globalTip);
-      }
-      globalTip.innerText = text;
-      globalTip.style.opacity = 1;
-
-      duration = duration ? duration : 1500;
-      //防止持续时间内多次触发提示
-      if (!iqxinTimerGlobalTip) {
-        iqxinTimerGlobalTip = setTimeout(function () {
-          globalTip.style.opacity = 0;
-          iqxinTimerGlobalTip = null;
-        }, duration);
-      }
     }
   }
 })();

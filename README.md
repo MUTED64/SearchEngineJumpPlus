@@ -3,6 +3,8 @@
 <div align="center">
 <a href="https://greasyfork.org/zh-CN/scripts/454280-searchenginejumpplus" target="_blank">
 <img src="https://img.shields.io/badge/Download-GreasyFork-blue?logo=Tampermonkey&style=for-the-badge" alt="GreasyFork"></a>
+<a href="https://openuserjs.org/scripts/MUTED64/SearchEngineJumpPlus_%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%BF%AB%E6%8D%B7%E8%B7%B3%E8%BD%AC%2B" target="_blank">
+<img src="https://img.shields.io/badge/Download-OpenUserJS-green?logo=Tampermonkey&style=for-the-badge" alt="GreasyFork"></a>
 </div>
 
 ## 说明

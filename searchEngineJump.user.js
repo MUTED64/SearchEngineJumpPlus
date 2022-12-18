@@ -3,15 +3,15 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.0
+// @version        5.31.1
 // @created        2011-07-02
-// @lastUpdated    2022-12-17
+// @lastUpdated    2022-12-18
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
 // @require        https://greasyfork.org/scripts/408009-togbk/code/toGBK.js?version=832799
-// @require        https://greasyfork.org/scripts/456710-searchenginejumpplusenginelist/code/SearchEngineJumpPlusEngineList.js?version=1129095
-// @require        https://greasyfork.org/scripts/456711-searchenginejumpplusrules/code/SearchEngineJumpPlusRules.js?version=1129096
+// @require        https://greasyfork.org/scripts/456710-searchenginejumpplusenginelist/code/SearchEngineJumpPlusEngineList.js?version=1129525
+// @require        https://greasyfork.org/scripts/456711-searchenginejumpplusrules/code/SearchEngineJumpPlusRules.js?version=1129524
 // @resource       GLOBAL_STYLE https://greasyfork.org/scripts/455977-searchenginejumpplusglobalstyle/code/SearchEngineJumpPlusGlobalStyle.user.css
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
 // @license        MIT
@@ -56,6 +56,8 @@
       /^https?:\/\/neeva\.com\/search\?/i,
       /^https?:\/\/s\.taobao\.com\/search/,
       /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
+      /^https?:\/\/www\.quora\.com\/search\?/i,
+      /^https?:\/\/search\.bilibili\.com\/*/,
     ];
     const needDelay = delayList.some(
       (delaySite) => location.href.search(delaySite) !== -1
@@ -69,7 +71,7 @@
         } else {
           mainLogic();
         }
-      }, 2000);
+      }, 1000);
     } else {
       mainLogic();
     }
@@ -97,7 +99,7 @@
     const icon = {
       edit: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAACDklEQVR4nJXVzUtUURjH8Y/mSNKkki2iwiApxHQ1q/6C+gusoCB6oxbRRqFNL4sWtRKqhVSLIDe1CqpNiwjKIilKLKKFEr2Z2qI0xxHN0+LOm+PMOPOc1T2H7/f5ncO991BdNer30zmxKrl0xV2zKJjRoy6aqkkvbbdVLPuUq+8+5uGXnVILki7qsxgtNDtrTNLcijHvrdYsft0/wQ8DZgSzeqMUDW4IJceYHcvwCd1ies0KZvWI1TnhIH6574Olgg0E74zmhZ902j304by4Cxp5LPjtQNmjy3XPVK2rgmCBCcGgdVXhdBgUBCMEwVMNVeIvBMFLifKC8vgrndFBlRJUhJcWFMd3ZfGuzFRxwWrdu3KTxQQVhi8lqApfKVhf0d4bc2/OckG9Pkur7r3TEw+1FRO0GxdM2Vc2/HHBgr1If935UTfigbt5+C27MeSo9+m5GJYitlCwWR2G8oQZ/FgWX1aFgnZMG852v5nFR4rhMn+2dDVJYFpKqy0SDksUhF9FsE0bWgyIa9bIanihoEUcDTrSz4ueOVMOLxQkzVkrZcaoNz755rmpcnihYNghm3w26Ys/5cGcIKgRBJDyqCIquj8C1PqKZvHK+qVrJ5bMRwmGterU64pkkZupWO3RjXkzUZj9+jVZMGK6IsEaHTbgjpOSUYZL/pa5m4qPIbtyznpHvJaqGB53O33h4T/3VzLuzDhE6AAAAABJRU5ErkJggg==",
       del: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAADAFBMVEUAAADsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVH///9VVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///8dej9TAAAAU3RSTlMAAABm7P/sZgAAABPO////zhQAAB/i/////////+IfAAAe4fvk4AAAAAAd/+Q3GxwAFR85FQBjz+LPY+v////r6//////rZM/h4c9jABUdHRUAAP0EcPoAAAEuSURBVHic7ZRnc8IwDIbdEUZHGB0kDsMOMcOMttBBB93Qvcj//y9VjB0Czh13/dz3ixT5OVmSYyMktLK6tm74oYxEMpVGUW1sbm2bM8DMZHP5OWBnd2+/YNnYAWHbKhRL5cocQKjrWFWPuSDmVS3HpUQu1eoNQkiTM9xqd7oHoG6n3cKMNyHcqNfQ4VGPUsr7nh0FbK/PIdw7PkGnZwOZNrqF9AfnF+jyaigLixYp/eH1Dbq9u4eAHyOAHh5HaPz0DCnjANjm5fUNvX98QoGCxyo5Fjmh0K/vH2hzAi0KnqnymMgJrU6gzemQBM+DZpX1/XBYUyAYTTAuZTUg+Aw8Zf+BvwJLR730sPTjXgD0H2YB0BUClXKpGAeE1y+fy2ZMfX12gdOpZMLQAfkE/AL7e5vGZF+dOQAAAABJRU5ErkJggg==",
-      setting: `<svg style="width: 16px;" class="icon" viewBox="0 0 512 512"><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="42"/></svg>`,
+      setting: `<svg style="width: 16px;" class="icon" viewBox="0 0 512 512"><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="#555" stroke-linecap="round" stroke-linejoin="round" stroke-width="42"/></svg>`,
     };
 
     const scriptSettingData = {
@@ -234,7 +236,9 @@
           }
 
           // 5.30.2 更新
-          if (this.#isVersionOutdated(this.#storedSettingData.version, "5.30.2")) {
+          if (
+            this.#isVersionOutdated(this.#storedSettingData.version, "5.30.2")
+          ) {
             this.deleteOutdatedSearchItems(["https://so.letv.com/s?wd=%s"]);
             this.modifyOutdatedSearchItems(
               "https://s.weibo.com/weibo/%s",
@@ -243,11 +247,22 @@
           }
 
           // 5.30.4 更新
-          if (this.#isVersionOutdated(this.#storedSettingData.version, "5.30.4")) {
+          if (
+            this.#isVersionOutdated(this.#storedSettingData.version, "5.30.4")
+          ) {
             this.modifyOutdatedSearchItems(
               "https://www.startpage.com/do/asearch$post$query",
               "https://www.startpage.com/sp/search$post$query"
             );
+          }
+
+          // 5.31.1 更新
+          if (
+            this.#isVersionOutdated(this.#storedSettingData.version, "5.31.1")
+          ) {
+            this.modifyOutdatedSearchItemsTarget("https://zh.moegirl.org/%s");
+            this.modifyOutdatedSearchItemsTarget("https://tieba.baidu.com/f?kw=%s&ie=utf-8");
+            this.modifyOutdatedSearchItemsTarget("https://github.com/search?utf8=✓&q=%s");
           }
 
           console.info(
@@ -310,6 +325,17 @@
           for (let i = 0; i < item.length; i++) {
             if (item[i].url === oldURL) {
               item[i].url = newURL;
+            }
+          }
+        }
+      }
+      // 更新搜索target 不为 _blank
+      modifyOutdatedSearchItemsTarget(url) {
+        for (const value in this.settingData.engineList) {
+          var item = this.settingData.engineList[value];
+          for (let i = 0; i < item.length; i++) {
+            if (item[i].url === url) {
+              delete item[i].blank;
             }
           }
         }
@@ -536,7 +562,7 @@
         this.#fixCompatibility();
         if (this.settingData.fixedTop && this.matchedRule) {
           const originalContainerDistanceTop =
-            this.container.getBoundingClientRect().top;
+            this.container.getBoundingClientRect().top + window.scrollY;
           // 判断是否需要只在向上滚动时显示
           if (this.settingData.fixedTopUpward) {
             window.onwheel = document.onwheel = (e) => {
@@ -557,6 +583,15 @@
               );
             };
           }
+        }
+        if (getComputedStyle(this.container).position !== "sticky") {
+          this.containerWrapper.style.height =
+            this.container.offsetHeight +
+            parseFloat(getComputedStyle(this.container).marginTop) +
+            parseFloat(getComputedStyle(this.container).marginBottom) +
+            "px";
+          this.containerWrapper.style.position = "relative";
+          this.containerWrapper.style.display = "flow-root";
         }
       }
       #initContainer() {
@@ -600,14 +635,17 @@
         return true;
       }
       #createContainerDOM() {
+        this.containerWrapper = document.createElement("sejspan");
+        this.containerWrapper.id = "sej-container-wrapper";
         this.container = document.createElement("sejspan");
         this.container.id = "sej-container";
         this.container.className = "rwl-exempt";
+        this.containerWrapper.appendChild(this.container);
       }
       #toggleSelectSearchJumpBar() {
         const selection = getSelection();
         if (selection.isCollapsed) {
-          this.container.style.top = "-5em";
+          this.container.style.top = "-50px";
         } else {
           this.inputTarget.textContent = selection.toString();
           this.container.style.top = "2px";
@@ -735,14 +773,14 @@
         switch (this.insertPositionLabel) {
           case "beforebegin": // 'beforeBegin'(插入到给定元素的前面) ;
             this.insertTarget.parentNode.insertBefore(
-              this.container,
+              this.containerWrapper,
               this.insertTarget
             );
             break;
           case "afterbegin": // 'afterBegin'(作为给定元素的第一个子元素) ;
             if (this.insertTarget.firstChild) {
               this.insertTarget.insertBefore(
-                this.container,
+                this.containerWrapper,
                 this.insertTarget.firstChild
               );
             } else {
@@ -750,12 +788,12 @@
             }
             break;
           case "beforeend": // 'beforeEnd' (作为给定元素的最后一个子元素) ;
-            this.insertTarget.appendChild(this.container);
+            this.insertTarget.appendChild(this.containerWrapper);
             break;
           case "afterend": // 'afterEnd'(插入到给定元素的后面);.
             if (this.insertTarget.nextSibling) {
               this.insertTarget.parentNode.insertBefore(
-                this.container,
+                this.containerWrapper,
                 this.insertTarget.nextSibling
               );
             } else {
@@ -763,7 +801,7 @@
             }
             break;
           default:
-            this.insertTarget.appendChild(this.container);
+            this.insertTarget.appendChild(this.containerWrapper);
             break;
         }
       }
@@ -811,40 +849,20 @@
           return;
         }
 
-        const containerDistanceLeft =
-          this.container.getBoundingClientRect().left;
-
-        const scrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop;
-
         fixedTop = fixedTop ? fixedTop : 0;
 
-        if (originalContainerDistanceTop - scrollTop >= fixedTop) {
-          this.container.style.cssText = matchedRule.style;
-        } else if (
-          this.container.style.position != "fixed" &&
-          this.container.style.position != "sticky"
-        ) {
-          let objstyle = window.getComputedStyle(this.container, null);
-          let marginTop = parseInt(objstyle.marginTop);
-
-          this.container.style.top = fixedTop + "px";
-          this.container.style.left = containerDistanceLeft + "px";
-
-          // 如果之前未设置颜色,则默认设置为白色
-          // 2020-12-19 增加选项,可以通过代码自定义颜色,但是无法通过网站自动获取
-          if (color) {
-            this.container.style.background = color;
-          } else if (
-            objstyle.backgroundColor === "rgba(0, 0, 0, 0)" ||
-            objstyle.backgroundColor === "transparent"
-          ) {
-            this.container.style.background = "#fff";
+        if (this.container.style.position != "sticky") {
+          const rect = this.container.getBoundingClientRect();
+          if (originalContainerDistanceTop - window.scrollY <= fixedTop) {
+            this.container.style.position = "fixed";
+            this.container.style.top = fixedTop + "px";
+            this.container.style.left = rect.left + "px";
+            this.container.style.padding = "0";
+            this.container.style.margin = "0";
+            this.container.style.backgroundColor = color;
+          } else {
+            this.container.style.cssText = matchedRule.style;
           }
-          this.container.style.position = "fixed";
-
-          this.container.style.padding = "0"; // 重置padding, 因为用了 fixed 定位, 没必要继续用padding,反而会带来遮挡
-          this.container.style.margin = "0";
         }
       }
       #JumpToSelectedEngine(e) {
@@ -924,6 +942,9 @@
         }
         if (this.#isOnSelectSearchMode()) {
           target.target = "_blank";
+        }
+        if (target?.target !== "_blank") {
+          target.target = "_top";
         }
       }
       #getElementBySelector(selector) {

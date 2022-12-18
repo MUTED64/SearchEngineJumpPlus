@@ -166,10 +166,8 @@ const webRules = [
     url: /^https?:\/\/search\.yahoo\.com\/search/i,
     engineList: "web",
     enabled: true,
-    fixedTop: 54,
-    style: `
-    left:122px;
-    `,
+    fixedTop: 72,
+    style: `z-index:11;`,
     insertIntoDoc: {
       keyword: "css;#yschsp",
       target: "css;#horizontal-bar",
@@ -658,16 +656,16 @@ const knowledgeRules = [
     enabled: true,
     engineList: "knowledge",
     fixedTop: 53,
-    style: "width: 1000px;margin: 0px auto 0px; padding-left:180px;",
+    style: `
+      left:calc((100% - 1120px) / 2);
+      margin-top: 30px;
+    `,
     insertIntoDoc: {
-      keyword: function () {
-        var url = window.location.href.substring(
-          window.location.href.lastIndexOf("=") + 1
-        );
-        return decodeURIComponent(url);
-      },
-      target: "css;.SiteHeader",
-      where: "beforeEnd",
+      keyword:
+        "css;#root > div > div.q-box > div > div.q-fixed.qu-fullX.qu-zIndex--header.qu-bg--raised.qu-borderBottom.qu-boxShadow--medium.qu-borderColor--raised > div > div:nth-child(2) > div > div.q-box.qu-flex--auto.qu-mx--small.qu-alignItems--center > div > div > form > div > div > div > div > div > input",
+      target:
+        "css;#root > div > div.q-box > div > div:nth-child(3) > div > div",
+      where: "beforeBegin",
     },
   },
   {
@@ -1236,8 +1234,8 @@ const translateRules = [
     fixedTop: 64,
     style: `
       padding-left:0px;
-      margin-top:2px;
       text-align:center;
+      margin: 2px auto 0;
     `,
     insertIntoDoc: {
       keyword: "css;#query",
@@ -1488,6 +1486,7 @@ const socialityRules = [
       target: "css;#head > div.search_main_wrap",
       where: "afterEnd",
     },
+    stylish: `@media screen and (min-width: 1920px){#sej-container{left:424px !important;}}`,
   },
   {
     name: "百度贴吧",
@@ -1810,5 +1809,5 @@ const searchEngineJumpPlusRules = [
   ...socialityRules,
   ...scholarRules,
   ...enterpriseRules,
-  ...codingRules
+  ...codingRules,
 ];

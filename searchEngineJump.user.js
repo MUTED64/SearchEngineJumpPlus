@@ -3,9 +3,9 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.1
+// @version        5.31.2
 // @created        2011-07-02
-// @lastUpdated    2022-12-18
+// @lastUpdated    2022-12-19
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
@@ -261,8 +261,12 @@
             this.#isVersionOutdated(this.#storedSettingData.version, "5.31.1")
           ) {
             this.modifyOutdatedSearchItemsTarget("https://zh.moegirl.org/%s");
-            this.modifyOutdatedSearchItemsTarget("https://tieba.baidu.com/f?kw=%s&ie=utf-8");
-            this.modifyOutdatedSearchItemsTarget("https://github.com/search?utf8=✓&q=%s");
+            this.modifyOutdatedSearchItemsTarget(
+              "https://tieba.baidu.com/f?kw=%s&ie=utf-8"
+            );
+            this.modifyOutdatedSearchItemsTarget(
+              "https://github.com/search?utf8=✓&q=%s"
+            );
           }
 
           console.info(
@@ -559,7 +563,7 @@
         if (inited === false) return;
         this.#initEngines();
         this.#addEnginesToDOM();
-        this.#fixCompatibility();
+        this.#addStyle();
         if (this.settingData.fixedTop && this.matchedRule) {
           const originalContainerDistanceTop =
             this.container.getBoundingClientRect().top + window.scrollY;
@@ -583,15 +587,6 @@
               );
             };
           }
-        }
-        if (getComputedStyle(this.container).position !== "sticky") {
-          this.containerWrapper.style.height =
-            this.container.offsetHeight +
-            parseFloat(getComputedStyle(this.container).marginTop) +
-            parseFloat(getComputedStyle(this.container).marginBottom) +
-            "px";
-          this.containerWrapper.style.position = "relative";
-          this.containerWrapper.style.display = "flow-root";
         }
       }
       #initContainer() {
@@ -805,7 +800,7 @@
             break;
         }
       }
-      #fixCompatibility() {
+      #addStyle() {
         if (this.matchedRule?.style) {
           // 判断是否存在脚本 “AC-baidu:重定向优化百度搜狗谷歌搜索_去广告_favicon_双列”
           if (this.settingData.center == 2) {
@@ -843,6 +838,20 @@
             matchedRule.fixedTop = matchedRule.fixedTop2;
           }
         }, 2500);
+
+        // 吸附顶部时的占位
+        if (
+          getComputedStyle(this.container).position !== "sticky" &&
+          !this.#isOnSelectSearchMode()
+        ) {
+          this.containerWrapper.style.height =
+            this.container.offsetHeight +
+            parseFloat(getComputedStyle(this.container).marginTop) +
+            parseFloat(getComputedStyle(this.container).marginBottom) +
+            "px";
+          this.containerWrapper.style.position = "relative";
+          this.containerWrapper.style.display = "flow-root";
+        }
       }
       #fixedToTop(fixedTop, color, originalContainerDistanceTop) {
         if (!this.container) {

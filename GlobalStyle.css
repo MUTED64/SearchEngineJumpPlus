@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.31.1
+@version        5.31.2
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -508,7 +508,7 @@ body[qxintheme="dark"] {
   top: -50px;
   left: 0;
   right: 0;
-  z-index: 99999999999;
+  z-index: 99999999;
   transition: 0.3s;
   margin: 0 auto;
 }

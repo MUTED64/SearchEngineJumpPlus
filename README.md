@@ -27,6 +27,11 @@ Forked from version 5.27.0
 
 ## 更新历史
 
+- version 5.31.2 2022-12-19
+
+  - 调整：划词搜索顶部 Wrapper
+  - 调整：划词搜索显示层级
+
 - version 5.31.1 2022-12-18
 
   - 调整：边缘样式向 Fluent UI 靠拢

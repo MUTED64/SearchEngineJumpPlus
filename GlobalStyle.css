@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.31.2
+@version        5.31.3
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -450,7 +450,7 @@ span#setBtn:hover {
   border-radius: 8px;
   border-width: thin;
   border-style: solid;
-  border-color: #e1e6ea;
+  border-color: var(--border-color-sej);
   overflow: hidden;
   box-shadow: 0 0 0.6em var(--box-shadow-color-sej);
   height: fit-content;
@@ -489,6 +489,7 @@ body {
   --background-btn-qxin: #eff4f8;
   --background-setting-qxin: #fff;
   --box-shadow-color-sej: hsla(0, 0%, 0%, 7%);
+  --border-color-sej: #e1e6ea;
 }
 body[qxintheme="dark"] {
   --font-color-qxin: #bdc1bc;
@@ -501,6 +502,7 @@ body[qxintheme="dark"] {
   --background-btn-qxin: #292f36;
   --background-setting-qxin: #202124;
   --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
+  --border-color-sej: #3b4547;
 }
 /* 滑词搜索样式 */
 #sej-container.selectSearch {
@@ -571,7 +573,7 @@ body[qxintheme="dark"] {
   border-radius: 8px;
   border-width: thin;
   border-style: solid;
-  border-color: #e1e6ea;
+  border-color: var(--border-color-sej);
 }
 @keyframes sejopen {
   0% {

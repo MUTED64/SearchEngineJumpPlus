@@ -27,6 +27,10 @@ Forked from version 5.27.0
 
 ## 更新历史
 
+- version 5.31.3 2022-12-23
+
+  - 调整：优化深色模式逻辑，适配 Firefox
+
 - version 5.31.2 2022-12-19
 
   - 调整：划词搜索顶部 Wrapper

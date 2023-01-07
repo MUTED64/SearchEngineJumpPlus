@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.31.3
+@version        5.31.4
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -574,6 +574,7 @@ body[qxintheme="dark"] {
   border-width: thin;
   border-style: solid;
   border-color: var(--border-color-sej);
+  user-select: none;
 }
 @keyframes sejopen {
   0% {

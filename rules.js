@@ -1762,17 +1762,14 @@ const codingRules = [
     enabled: true,
     url: /^https?:\/\/github\.com\/search/i,
     engineList: "mine",
+    fixedTop: 2,
     style: `
-      margin: 1em 8px;
-      text-align:center;
-      position: sticky;
-      width: 100% !important;
-      top: 0.5em;
+      margin: 1em auto;
     `,
     insertIntoDoc: {
-      keyword: '//input[@name="q"]',
-      target: "css;.col-12.px-2.py-2.py-md-3.d-lg-none.d-flex",
-      where: "afterEnd",
+      keyword: 'css;span[data-target="search-input.inputButtonText"]',
+      target: "css;body > div.logged-in.env-production.page-responsive.full-width > div.application-main > main",
+      where: "beforeBegin",
     },
   },
   {

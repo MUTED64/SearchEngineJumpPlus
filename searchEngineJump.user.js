@@ -3,9 +3,9 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.5
+// @version        5.31.6
 // @created        2011-07-02
-// @lastUpdated    2022-12-19
+// @lastUpdated    2023-01-11
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
@@ -58,6 +58,7 @@
       /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
       /^https?:\/\/www\.quora\.com\/search\?/i,
       /^https?:\/\/search\.bilibili\.com\/*/,
+      /^https?:\/\/github\.com/i
     ];
     const needDelay = delayList.some(
       (delaySite) => location.href.search(delaySite) !== -1
@@ -2288,8 +2289,7 @@
         return (
           document.getElementsByTagName("meta")?.["color-scheme"]?.content ===
             "dark" ||
-          getContrastYIQ(getComputedStyle(document.body).backgroundColor) ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches
+          getContrastYIQ(getComputedStyle(document.body).backgroundColor)
         );
       }
     }

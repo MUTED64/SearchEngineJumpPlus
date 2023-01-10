@@ -7,25 +7,45 @@
 <img src="https://img.shields.io/badge/Download-OpenUserJS-green?logo=Tampermonkey&style=for-the-badge" alt="GreasyFork"></a>
 </div>
 
-## 说明
+## 项目说明
 
-Forked from version 5.27.0
+本项目源自 [iqxin 维护的搜索引擎跳转脚本](https://github.com/qxinGitHub/searchEngineJump)，从 5.27.0 版本后 Fork 到本仓库独立开发。本来 Fork 过来是想给作者提 PR 的，然而作者不太常用 GitHub，之前一些人贡献的 PR 也没合并到主分支，加上 2022-12-03 后进行了大规模的重构导致没办法直接同步原仓库的更改，于是暂时 Detach Fork 了，以后会在这个仓库继续更新，并不定时推送到 GreasyFork 和 OpenUserJS。
 
-本来想给作者提 PR 的，但是翻阅原项目后发现作者似乎不太常用 GitHub，其他人贡献的一些 PR 也没有合并到主分支，于是暂且 fork 了一份原项目，开了一个新的脚本到这里。非常感谢 NLF & 锐经 & iqxin 提供的原脚本，如果之后作者有意合并分支的话，我也非常乐意，不过目前看来这个脚本可能要另起炉灶在这先放着了。
+## 使用说明
 
-2022-12-03 更新：由于改动了代码风格导致没办法直接同步 Fork 前的仓库，PR 又不能合并，所以暂时 Detach Fork 了，以后会在这个仓库继续更新。
+### 搜索页跳转
 
-> 已知问题： 与脚本[网页解除限制](https://greasyfork.org/zh-CN/scripts/14146-%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6%E8%A7%A3%E9%99%A4)有[冲突](https://greasyfork.org/zh-CN/forum/discussion/21298/x)，开启后，无法进行跳转。可以暂时先用 iqxin 修改后的[网页解除限制](https://greasyfork.org/zh-CN/scripts/28497-%E7%BD%91%E9%A1%B5%E9%99%90%E5%88%B6%E8%A7%A3%E9%99%A4)，大刀阔斧的修改，与原脚本使用上有较大的变化。或者自己修改下原作者的脚本, 使用 exclude 排除相关网页。
->
-> 本脚本修改自[searchEngineJump modified version from NLF 4.0.5.3](https://greasyfork.org/zh-CN/scripts/18315-searchenginejump-modified-version-from-nlf)
->
-> 此类脚本的鼻祖应该为 NLF 写的 [搜索引擎跳转（searchEngineJump）](http://userscripts.org/scripts/show/84970) , 不过目前该网站已经无法打开， [相关网页快照](http://web.archive.org/web/*/http://userscripts.org/scripts/show/84970)
+在脚本管理器中启用脚本后，当访问支持的搜索页时，页面中会显示脚本的跳转小横条，你可以点击其中的按钮跳转到相应的搜索引擎，并自动按照当前搜索框中的内容进行快捷的一键搜索。
 
-## 例图
+![SearchEngineJump](SearchEngineJump.png)
 
-![例图](Jump+.jpg)
+### 划词搜索
+
+访问不支持搜索框的其它页面时，脚本默认开启划词搜索功能，在页面中使用鼠标划动取词，页面上方会弹出跳转小横条，此时可以点击其中的按钮跳转到相应的搜索引擎，并自动按照当前划词内容进行快捷的一键搜索。
+
+![SelectSearch](SelectSearch.png)
+
+### 深色模式
+
+脚本支持深色模式，但不同的页面对深色模式的适配不同，导致部分不支持深色模式的网站与操作系统或浏览器的默认设置冲突，因此建议与 [Dark Reader 拓展](https://darkreader.org/) 共同使用，自动根据操作系统设置渲染深色页面。
+
+![Dark](Dark.png)
+
+### 设置菜单
+
+跳转小横条的最后有设置按钮，点击后进入设置菜单，或者从脚本管理器的选项中也可以进入设置菜单。在设置菜单中可以对脚本的搜索引擎进行配置，例如拖拽调整位置、点击切换启用状态、添加或删除搜索引擎等。
+
+![Settings](Settings.png)
 
 ## 更新历史
+
+- version 5.31.5 2023-01-09
+
+  - 添加：文档使用说明和图片
+  - 调整：百度样式
+  - 修复：某些网页按钮样式被覆盖的问题
+  - 修复：position 的 sticky 样式导致的某些网站顶部固定失效的问题
+  - 修复：维基百科页面下样式错乱的问题
 
 - version 5.31.4 2023-01-06
 
@@ -57,7 +77,7 @@ Forked from version 5.27.0
   - 调整：设置按钮样式
   - 调整：下拉样式
   - 修复：错误的更新逻辑
-  - 修复：设置面板label颜色问题
+  - 修复：设置面板 label 颜色问题
 
 - version 5.30.4 2022-12-10
 
@@ -75,7 +95,7 @@ Forked from version 5.27.0
   - 调整：优化划词体验
 
 - version 5.30.2 2022-12-05
-  
+
   - 添加：百度文库、百度贴吧全吧搜索重新适配
   - 调整：重构大部分代码，减少冗余，提高可读性
   - 调整：微博跳转引擎问题

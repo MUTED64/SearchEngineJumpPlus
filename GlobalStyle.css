@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.31.4
+@version        5.31.5
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -526,8 +526,8 @@ body[qxintheme="dark"] {
   gap: 8px;
   align-items: center;
   height: 2.6em;
-  text-decoration: none;
-  color: var(--font-color-qxin);
+  text-decoration: none !important;
+  color: var(--font-color-qxin) !important;
   cursor: pointer;
 }
 .sej-drop-list a:visited,
@@ -540,10 +540,6 @@ body[qxintheme="dark"] {
   color: var(--font-color-qxin);
 }
 .sej-engine:hover {
-  background-color: var(--background-hover-color-qxin);
-  text-decoration: none;
-}
-.sej-drop-list > .sej-engine:hover {
   background-color: var(--background-hover-color-qxin);
 }
 .sej-drop-list > .sej-engine {

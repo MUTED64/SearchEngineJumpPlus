@@ -93,7 +93,7 @@ const webRules = [
     style: `
       margin-top:8px;
       z-index: 101;
-      left: 133px;
+      left: 145px;
     `,
     style_ACBaidu: `
       margin: 8px auto -5px;

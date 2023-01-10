@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.31.5
+@version        5.31.7
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -85,8 +85,8 @@
 #settingLayerMask [data-iqxindisabled="true"],
 [data-xin^="-"] {
   background-color: var(--background-avtive-color-qxin);
-  text-decoration: line-through;
-  text-decoration-color: red;
+  text-decoration: line-through !important;
+  text-decoration-color: red !important;
   transition: 0.3s;
 }
 .sejtitle:not([data-xin^="-"]):hover {

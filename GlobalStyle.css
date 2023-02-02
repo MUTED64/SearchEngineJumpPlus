@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SearchEngineJumpPlusGlobalStyle
 @description    Global style for SearchEngineJumpPlus
-@version        5.31.7
+@version        5.31.8
 @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 @license        MIT
 @author         MUTED64
@@ -372,21 +372,21 @@ span.iqxin-additem.iqxin-set-active {
   border-color: indianred;
   color: #fff;
 }
-input[type="range"] {
+input#setBtnOpacityRange[type="range"] {
   outline: none;
   appearance: none;
   background: -webkit-linear-gradient(left, #3abdc1, #83e7ea) no-repeat, #fff;
   border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
 }
-input[type="range"]::-webkit-slider-thumb {
+input#setBtnOpacityRange[type="range"]::-webkit-slider-thumb {
   appearance: none;
 }
-input[type="range"]::-webkit-slider-runnable-track {
+input#setBtnOpacityRange[type="range"]::-webkit-slider-runnable-track {
   height: 10px;
   border-radius: 10px; /*将轨道设为圆角的*/
   box-shadow: 0 1px 1px #def3f8, inset 0 0.125em 0.125em #0d1112; /*轨道内置阴影效果*/
 }
-input[type="range"]::-webkit-slider-thumb {
+input#setBtnOpacityRange[type="range"]::-webkit-slider-thumb {
   appearance: none;
   height: 18px;
   width: 18px;

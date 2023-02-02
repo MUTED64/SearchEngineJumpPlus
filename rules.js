@@ -88,8 +88,8 @@ const webRules = [
     engineList: "web",
     fixedTop: 80,
     fixedTop2: 88,
-    fixedTopTarget: "css;.s_form ",
-    fixedTopWhere: "beforeEnd",
+    fixedTopTarget: "css;#wrapper_wrapper",
+    fixedTopWhere: "beforeBegin",
     style: `
       margin-top:8px;
       z-index: 101;

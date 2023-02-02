@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.7
+// @version        5.31.8
 // @created        2011-07-02
 // @lastUpdated    2023-01-11
 
@@ -58,7 +58,7 @@
       /^https?:\/\/y\.qq\.com\/n\/ryqq\/search/i,
       /^https?:\/\/www\.quora\.com\/search\?/i,
       /^https?:\/\/search\.bilibili\.com\/*/,
-      /^https?:\/\/github\.com/i
+      /^https?:\/\/github\.com/i,
     ];
     const needDelay = delayList.some(
       (delaySite) => location.href.search(delaySite) !== -1
@@ -267,6 +267,15 @@
             );
             this.modifyOutdatedSearchItemsTarget(
               "https://github.com/search?utf8=✓&q=%s"
+            );
+          }
+
+          if (
+            this.#isVersionOutdated(this.#storedSettingData.version, "5.31.8")
+          ) {
+            this.modifyOutdatedSearchItems(
+              "https://cn.bing.com/search?q=%s",
+              "https://www.bing.com/search?q=%s"
             );
           }
 

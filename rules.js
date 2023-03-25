@@ -109,7 +109,18 @@ const webRules = [
       where: "afterBegin",
     },
     stylish:
-      ".headBlock,.se_common_hint{display:none !important} #wrapper>.result-molecule{z-index:300 !important}",
+      `.headBlock,.se_common_hint{
+        display:none !important
+      }
+      #wrapper>.result-molecule{
+        z-index:300 !important
+      }
+      @media screen and (min-width: 1921px){
+        #sej-container{
+          left: calc(50vw - 439px) !important;
+        }
+      }
+      `,
   },
   {
     name: "必应网页搜索",

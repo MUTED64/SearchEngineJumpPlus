@@ -50,7 +50,7 @@ const webRules = [
     `,
     insertIntoDoc: {
       target: "css;#appbar",
-      keyword: '//input[@name="q"]',
+      keyword: "css;[name=q]",
       where: "beforeBegin",
     },
     stylish:

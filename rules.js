@@ -108,8 +108,7 @@ const webRules = [
       target: "css;#wrapper_wrapper",
       where: "afterBegin",
     },
-    stylish:
-      `.headBlock,.se_common_hint{
+    stylish: `.headBlock,.se_common_hint{
         display:none !important
       }
       #wrapper>.result-molecule{
@@ -1562,6 +1561,24 @@ const socialityRules = [
       where: "afterBegin",
     },
   },
+  {
+    name: "小红书",
+    url: /^https?:\/\/www\.xiaohongshu\.com\/search_result/,
+    enabled: true,
+    engineList: "sociality",
+    style: `
+      margin: -1em auto 1em;
+      position: sticky;
+      top: -1em;
+    `,
+    insertIntoDoc: {
+      keyword:
+        "css;#app > div.layout > div.header-container.showSearchBoxOrHeaderFixed > header > div.input-box > input",
+      target:
+        "css;#app > div.layout > div.main-container > div.feeds-page > div.middle",
+      where: "beforeBegin",
+    },
+  },
 ];
 const scholarRules = [
   {
@@ -1779,7 +1796,8 @@ const codingRules = [
     `,
     insertIntoDoc: {
       keyword: 'css;span[data-target="search-input.inputButtonText"]',
-      target: "css;body > div.logged-in.env-production.page-responsive.full-width > div.application-main > main",
+      target:
+        "css;body > div.logged-in.env-production.page-responsive.full-width > div.application-main > main",
       where: "beforeBegin",
     },
   },

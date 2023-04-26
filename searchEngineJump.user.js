@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.11
+// @version        5.31.12
 // @created        2011-07-02
 // @lastUpdated    2023-04-18
 
@@ -59,6 +59,7 @@
       /^https?:\/\/www\.quora\.com\/search\?/i,
       /^https?:\/\/search\.bilibili\.com\/*/,
       /^https?:\/\/github\.com/i,
+      /^https?:\/\/(www\.)?baidu\.com/i,
     ];
     const needDelay = delayList.some(
       (delaySite) => location.href.search(delaySite) !== -1
@@ -87,7 +88,7 @@
         if (lastURL === newURL) return;
         lastURL = newURL;
         document.querySelectorAll("sejspan")?.forEach((i) => i.remove());
-        mainLogic();
+        startScript();
       });
     }
   }

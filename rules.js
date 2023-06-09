@@ -433,11 +433,12 @@ const webRules = [
     url: /^https?:\/\/www\.douyin\.com\/search/,
     engineList: "web",
     enabled: true,
-    fixedTop: 175,
+    fixedTop: 192,
     fixedTopColor: "rgb(22,23,34)",
     style: `
       margin:-10px 0 0 -6px;
       z-index:99999;
+      margin-top:8px;
     `,
     insertIntoDoc: {
       target: "css;.CHUUyANc",
@@ -451,17 +452,21 @@ const webRules = [
       .J122YuOM{
         padding-top:14px
       }
+      .IFYTLgyk.FMy9BImq {
+        margin-top: 170px;
+      }
       body {
-        --font-color-qxin:#ccc;
-        --background-color-qxin: #161722;
+        --font-color-qxin: #bdc1bc;
+        --background-color-qxin: #202124f0;
         --background-avtive-color-qxin: #424242;
-        --background-active-enable-qxin:#274144;
-        --background-active-disable-qxin:#583535;
+        --background-active-enable-qxin: #274144;
+        --background-active-disable-qxin: #583535;
         --background-hover-color-qxin: #424242;
         --trigger-shown-qxin: #424242 !important;
-        --sej-drop-list-background-qxin:rgba(0,0,0,0.8);
-        --background-btn-qxin:#292f36;
-        --background-setting-qxin: #161722;
+        --background-btn-qxin: #292f36;
+        --background-setting-qxin: #202124;
+        --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
+        --border-color-sej: #3b4547;
       }
     `,
   },

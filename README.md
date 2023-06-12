@@ -39,6 +39,10 @@
 
 ## 更新历史
 
+- version 5.31.14 2023-06-12
+
+  - 调整：通过 @noframe 禁止脚本在 iframe 中运行，优化性能
+
 - version 5.31.13 2023-06-02
 
   - 调整：抖音搜索样式
@@ -456,7 +460,7 @@
 - version 5.19.0 2020-01-26
 
   - 编码问题，默认所有搜索进行转码(可以搜索 c#而不会变成 c 了)。其中 1688 采用 gbk 编码，规则中添加 gbk 选项
-  - 添加网站样式 google.infinitynewtab.com | www.dogedoge.com
+  - 添加网站样式 google.infinitynewtab.com | <www.dogedoge.com>
   - 增加搜索引擎 Yandex
   - 修复知乎网站 网易云(依旧有问题:无法固定到顶端)
   - 时光不弃 岁月静好 新年平安
@@ -490,7 +494,7 @@
 
   - "固定到顶端" 开启后，谷歌搜索中，搜索栏被遮挡的问题(有瑕疵)
   - 将 YouTube 搜索栏置中，已知问题：无法固定到顶端
-  - www.startpage.com 网站添加搜索栏
+  - <www.startpage.com> 网站添加搜索栏
   - 个别名称更改
 
 - version 5.17.0 2018-08-03

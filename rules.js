@@ -1295,13 +1295,12 @@ const shoppingRules = [
     url: /^https?:\/\/s\.taobao\.com\/search/,
     enabled: true,
     engineList: "shopping",
+    fixedTop: 56,
     style: `
-      margin:1em 0 0 0;
-      width: 100% !important;
+      margin:1em auto 0;
+      width: 1446px !important;
       justify-content: center;
-      position: sticky;
-      top: 55px;
-      z-index: 99;
+      z-index: 99999;
     `,
     insertIntoDoc: {
       keyword: function () {
@@ -1315,7 +1314,7 @@ const shoppingRules = [
           }
         }
       },
-      target: "css;#mainsrp-supertab",
+      target: "css;div.PageContent--contentWrap--mep7AEm",
       where: "beforeBegin",
     },
   },

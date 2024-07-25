@@ -370,13 +370,13 @@ const webRules = [
     enabled: true,
     url: /^https?:\/\/search\.brave\.com\/search\?/i,
     engineList: "web",
-    class: "container-80",
     style: `
-      z-index:1;
+      top: 8px;
+      left: 178px;
     `,
     insertIntoDoc: {
-      target: "css;#search-main",
-      keyword: '//input[@name="q"]',
+      target: "css;#filters-wrapper",
+      keyword: '//*[@id="searchbox"]',
       where: "beforeBegin",
     },
   },

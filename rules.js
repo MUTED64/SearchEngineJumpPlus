@@ -34,13 +34,13 @@ const webRules = [
     url: /^https?:\/\/www\.google(?:\.[A-z]{2,3}){1,2}\/[^?]+\?(?!tbm=)(?:&?q=|(?:[^#](?!&tbm=))+?&q=)(?:.(?!&tbm=))*$|(^https?:\/\/xn--flw351e\.ml\/search\?q=)/,
     engineList: "web",
     class: "s6JM6d",
+    wrapperClass: "YNk70c",
     fixedTop: 52,
     style: `
       z-index: 100;
       margin-top:15px;
       margin-bottom:5px;
-      position:sticky;
-      top: 57px;
+      grid-column: 2 / -2;
     `,
     style_ACBaidu: `
       text-align: center;
@@ -54,7 +54,7 @@ const webRules = [
       where: "beforeBegin",
     },
     stylish:
-      "#appbar.hdtb-ab-o{height:0px !important;} #hdtbMenus{position:unset}",
+      "#appbar.hdtb-ab-o{height:0px !important;} #hdtbMenus{position:unset} #sej-container-wrapper{display:grid !important}",
   },
   {
     name: "google-hash-query", // 不刷新页面显示搜索结果的google

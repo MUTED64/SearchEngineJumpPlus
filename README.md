@@ -39,6 +39,12 @@
 
 ## 更新历史
 
+- version 5.31.16 2025-05-11
+
+  - 修复：Google 搜索位置问题
+  - 调整：更新 Twitter 为 X
+  - 修复：Brave Search 支持 By jiechus
+
 - version 5.31.15 2023-06-13
 
   - 修复：淘宝前端更新导致跳转条消失的问题

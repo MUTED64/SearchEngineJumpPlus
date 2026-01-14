@@ -93,7 +93,7 @@ const webRules = [
     style: `
       margin-top:8px;
       z-index: 101;
-      left: 145px;
+      margin: 0 var(--container-left-gap);
     `,
     style_ACBaidu: `
       margin: 8px auto -5px;
@@ -114,22 +114,17 @@ const webRules = [
       #wrapper>.result-molecule{
         z-index:300 !important
       }
-      @media screen and (min-width: 1921px){
-        #sej-container{
-          left: calc(50vw - 439px) !important;
-        }
-      }
       `,
   },
   {
     name: "必应网页搜索",
     url: /^https?:\/\/[^.]*\.bing\.com\/search/,
     enabled: true,
+    fixedTop: 60,
     engineList: "web",
     style: `
       margin-top: 1em;
       left: 160px;
-      position: sticky;
       top: 0.5em;
     `,
     style_ACBaidu: `
@@ -151,6 +146,7 @@ const webRules = [
     engineList: "web",
     style: `
     margin-top:5px;
+    margin-left: var(--gutter-xl);
     `,
     insertIntoDoc: {
       keyword: '//input[@name="q"]',

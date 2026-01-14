@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.17
+// @version        5.32.0
 // @created        2011-07-02
 // @lastUpdated    2023-06-13
 
@@ -11,7 +11,7 @@
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
 // @require        https://greasyfork.org/scripts/408009-togbk/code/toGBK.js?version=832799
 // @require        https://update.greasyfork.org/scripts/456710/1586958/SearchEngineJumpPlusEngineList.js
-// @require        https://update.greasyfork.org/scripts/456711/1586948/SearchEngineJumpPlusRules.js
+// @require        https://update.greasyfork.org/scripts/456711/1734362/SearchEngineJumpPlusRules.js
 // @resource       GLOBAL_STYLE https://greasyfork.org/scripts/455977-searchenginejumpplusglobalstyle/code/SearchEngineJumpPlusGlobalStyle.user.css
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
 // @license        MIT
@@ -37,6 +37,79 @@
 
 (function () {
   "use strict";
+
+  // Shadow DOM 容器和样式管理
+  class ShadowDOMManager {
+    static shadowHost = null;
+    static shadowRoot = null;
+    
+    static initialize() {
+      if (this.shadowHost) return this.shadowRoot;
+      
+      // 创建 Shadow DOM 宿主元素
+      this.shadowHost = document.createElement('div');
+      this.shadowHost.id = 'sej-shadow-host';
+      // Shadow host 作为布局元素，不设置 display:contents
+      // 它将接收原本应用到 containerWrapper 的样式和 class
+      
+      // 附加 Shadow DOM
+      this.shadowRoot = this.shadowHost.attachShadow({ mode: 'open' });
+      
+      // 默认不插入到 body，而是在需要时插入到指定位置
+      
+      return this.shadowRoot;
+    }
+    
+    static insertHost(target, position = 'beforeend') {
+      if (!this.shadowHost) this.initialize();
+      
+      // 如果已经在文档中，先移除
+      if (this.shadowHost.parentNode) {
+        this.shadowHost.parentNode.removeChild(this.shadowHost);
+      }
+      
+      // 插入到指定位置
+      if (position === 'beforebegin') {
+        target.parentNode.insertBefore(this.shadowHost, target);
+      } else if (position === 'afterbegin') {
+        if (target.firstChild) {
+          target.insertBefore(this.shadowHost, target.firstChild);
+        } else {
+          target.appendChild(this.shadowHost);
+        }
+      } else if (position === 'beforeend') {
+        target.appendChild(this.shadowHost);
+      } else if (position === 'afterend') {
+        if (target.nextSibling) {
+          target.parentNode.insertBefore(this.shadowHost, target.nextSibling);
+        } else {
+          target.parentNode.appendChild(this.shadowHost);
+        }
+      } else {
+        // 默认插入到 body
+        document.body.appendChild(this.shadowHost);
+      }
+    }
+    
+    static addStyle(cssText) {
+      if (!this.shadowRoot) this.initialize();
+      
+      const style = document.createElement('style');
+      style.textContent = cssText;
+      this.shadowRoot.appendChild(style);
+    }
+    
+    static applyHostStyle(cssText) {
+      // 将样式应用到 Shadow host（主文档元素）
+      if (!this.shadowHost) this.initialize();
+      this.shadowHost.style.cssText += cssText;
+    }
+    
+    static getRoot() {
+      if (!this.shadowRoot) this.initialize();
+      return this.shadowRoot;
+    }
+  }
 
   startScript();
   listenUrlChange();
@@ -70,7 +143,8 @@
 
     if (needDelay) {
       setTimeout(function () {
-        const isRunning = document.querySelector("sejspan");
+        // 检查 Shadow host 而不是 sejspan
+        const isRunning = document.querySelector("#sej-shadow-host");
         if (isRunning) {
           return;
         } else {
@@ -90,7 +164,14 @@
         const newURL = decodeURI(e.url).replaceAll(" ", "+");
         if (lastURL === newURL) return;
         lastURL = newURL;
-        document.querySelectorAll("sejspan")?.forEach((i) => i.remove());
+        // 清理 Shadow DOM 内容
+        const shadowHost = document.querySelector('#sej-shadow-host');
+        if (shadowHost) {
+          shadowHost.remove();
+        }
+        // 重置 Shadow DOM 管理器
+        ShadowDOMManager.shadowHost = null;
+        ShadowDOMManager.shadowRoot = null;
         startScript();
       });
     }
@@ -518,12 +599,12 @@
 
         var scrolled = this.#getScrolled();
         var aBCRect = this.a.getBoundingClientRect();
-        var thisBCRect = this.a.parentNode.getBoundingClientRect();
 
         var style = this.list.style;
 
-        var top = scrolled.y + aBCRect.bottom;
-        var left = scrolled.x + aBCRect.left;
+        // 使用 fixed 定位，直接使用视口坐标，不需要加 scrolled
+        var top = aBCRect.bottom;
+        var left = aBCRect.left;
 
         style.top = top + 6 + "px";
         style.left = left + "px";
@@ -594,14 +675,15 @@
           this.settingButtonElement = document.createElement("span");
           this.settingButtonElement.id = "setBtn";
           this.settingButtonElement.title = "设置菜单";
-          GM_addStyle(`#setBtn{opacity: ${this.settingData.setBtnOpacity};}`);
+          ShadowDOMManager.addStyle(`#setBtn{opacity: ${this.settingData.setBtnOpacity};}`);
           this.settingButtonElement.innerHTML = icon.setting;
           this.parentJumpBarContainer.appendChild(this.settingButtonElement);
         }
       }
       #activateSettingButton() {
         if (!this.settingPanel) {
-          document.querySelector("#settingLayerMask")?.remove();
+          const shadowRoot = ShadowDOMManager.getRoot();
+          shadowRoot.querySelector("#settingLayerMask")?.remove();
           this.settingPanel = new SettingPanel();
         }
         this.settingPanel.show();
@@ -653,7 +735,9 @@
             };
           }
         }
-        document.querySelectorAll("sejspan a.sej-engine").forEach((engine) => {
+        // 在 Shadow root 中查询并绑定事件
+        const shadowRoot = ShadowDOMManager.getRoot();
+        shadowRoot.querySelectorAll("sejspan a.sej-engine").forEach((engine) => {
           engine.addEventListener("mousedown", (e) => {
             this.#jumpToSelectedEngine(e);
           });
@@ -677,6 +761,7 @@
           this.insertPositionLabel = "beforeend";
           this.#createContainerDOM();
           this.container.classList.add("selectSearch");
+          // selectionchange 事件在主文档上监听，但操作 Shadow DOM 中的元素
           document.addEventListener("selectionchange", () =>
             this.#toggleSelectSearchJumpBar()
           );
@@ -685,12 +770,19 @@
           return false;
         }
 
-        this.matchedRule?.class
-          ? (this.container.className += ` ${this.matchedRule.class}`)
-          : {};
         // 由于与要插入网页的样式无法很好的兼容,更改源网页的样式
+        // 这里需要保留 GM_addStyle，因为要修改主文档的样式
         if (this.matchedRule?.stylish) {
           GM_addStyle(this.matchedRule.stylish);
+          
+          // 同时将 stylish 中针对脚本元素的规则注入到 Shadow DOM
+          // 提取 #sej-container 和 #sej-container-wrapper 的规则
+          const scriptElementStyles = this.matchedRule.stylish.match(/#sej-container(-wrapper)?\s*\{[^}]+\}/g);
+          if (scriptElementStyles) {
+            scriptElementStyles.forEach(rule => {
+              ShadowDOMManager.addStyle(rule);
+            });
+          }
         }
         return true;
       }
@@ -698,16 +790,20 @@
         this.container = document.createElement("sejspan");
         this.container.id = "sej-container";
         this.container.className = "rwl-exempt";
-        if (
+        
+        // 应用 rule.class 到 container
+        if (this.matchedRule?.class) {
+          this.container.className += ` ${this.matchedRule.class}`;
+        }
+        
+        // 判断是否需要独立的 wrapper
+        // 有 sticky/fixed：不需要 wrapper，Shadow host 直接接收 container
+        // 没有 sticky/fixed：需要 wrapper 行为，但不创建 containerWrapper 元素，
+        //                    让 Shadow host 充当 wrapper 角色
+        this.needsWrapper = !(
           this.matchedRule?.style.includes("sticky") ||
           this.matchedRule?.style.includes("fixed")
-        ) {
-          this.containerWrapper = this.container;
-        } else {
-          this.containerWrapper = document.createElement("sejspan");
-          this.containerWrapper.id = "sej-container-wrapper";
-          this.containerWrapper.appendChild(this.container);
-        }
+        );
       }
       #toggleSelectSearchJumpBar() {
         const selection = getSelection();
@@ -826,46 +922,30 @@
         });
       }
       #addEnginesToDOM() {
+        const shadowRoot = ShadowDOMManager.getRoot();
+        
         this.dropDownLists.forEach((item) => {
           this.container.appendChild(item[0]); //将搜索列表放入主搜索
-          document.body.appendChild(item[1]); // 插入搜索子菜单
+          shadowRoot.appendChild(item[1]); // 插入搜索子菜单到 Shadow DOM
           new DropDownList(item[0], item[1]);
         });
 
-        switch (this.insertPositionLabel) {
-          case "beforebegin": // 'beforeBegin'(插入到给定元素的前面) ;
-            this.insertTarget.parentNode.insertBefore(
-              this.containerWrapper,
-              this.insertTarget
-            );
-            break;
-          case "afterbegin": // 'afterBegin'(作为给定元素的第一个子元素) ;
-            if (this.insertTarget.firstChild) {
-              this.insertTarget.insertBefore(
-                this.containerWrapper,
-                this.insertTarget.firstChild
-              );
-            } else {
-              this.insertTarget.appendChild(this.container);
-            }
-            break;
-          case "beforeend": // 'beforeEnd' (作为给定元素的最后一个子元素) ;
-            this.insertTarget.appendChild(this.containerWrapper);
-            break;
-          case "afterend": // 'afterEnd'(插入到给定元素的后面);.
-            if (this.insertTarget.nextSibling) {
-              this.insertTarget.parentNode.insertBefore(
-                this.containerWrapper,
-                this.insertTarget.nextSibling
-              );
-            } else {
-              this.insertTarget.parentNode.appendChild(this.container);
-            }
-            break;
-          default:
-            this.insertTarget.appendChild(this.containerWrapper);
-            break;
+        // 将 Shadow host 插入到目标位置
+        if (this.#isOnSelectSearchMode()) {
+          // 划词搜索模式：插入到 body（fixed 定位）
+          ShadowDOMManager.insertHost(document.body, 'beforeend');
+        } else {
+          // 正常搜索引擎页面模式：插入到指定位置
+          ShadowDOMManager.insertHost(this.insertTarget, this.insertPositionLabel);
+          
+          // 如果需要 wrapper 行为，应用 wrapperClass 到 Shadow host
+          if (this.needsWrapper && this.matchedRule?.wrapperClass) {
+            ShadowDOMManager.shadowHost.className += ` ${this.matchedRule.wrapperClass}`;
+          }
         }
+        
+        // 将容器添加到 Shadow root
+        shadowRoot.appendChild(this.container);
       }
       #addStyle() {
         if (this.matchedRule?.style) {
@@ -893,7 +973,16 @@
               this.matchedRule.fixedTop = null;
             }
           }
-          this.container.style.cssText = this.matchedRule.style;
+          
+          // 应用规则样式，始终应用到 container
+          // 原始代码：this.container.style.cssText = this.matchedRule.style;
+          // 
+          // Shadow DOM 架构：
+          // - 有 wrapper 行为：Shadow host 充当 wrapper（接收 wrapperClass），
+          //                   container 接收样式（grid-column 等在 wrapper 这个 grid 中生效）
+          // - 无 wrapper（sticky/fixed）：Shadow host 透明，container 接收所有样式
+          const styleContent = `#sej-container { ${this.matchedRule.style} }`;
+          ShadowDOMManager.addStyle(styleContent);
         }
 
         //兼容ac百度中lite选项, fixedtop和正常的不一样
@@ -907,19 +996,19 @@
         }, 2500);
 
         // 吸附顶部时的占位
+        // 当需要 wrapper 行为时，给 Shadow host 设置占位样式
         if (
           getComputedStyle(this.container).position !== "sticky" &&
-          this.containerWrapper !== this.container &&
+          this.needsWrapper &&
           !this.#isOnSelectSearchMode()
         ) {
-          this.containerWrapper.style.height =
+          // 给 Shadow host 设置占位高度
+          const height =
             this.container.offsetHeight +
             parseFloat(getComputedStyle(this.container).marginTop) +
             parseFloat(getComputedStyle(this.container).marginBottom) +
             "px";
-          this.containerWrapper.style.position = "relative";
-          this.containerWrapper.style.display = "flow-root";
-          this.containerWrapper.classList.add(this.matchedRule.wrapperClass);
+          ShadowDOMManager.shadowHost.style.height = height;
         }
       }
       #fixedToTop(fixedTop, color, originalContainerDistanceTop) {
@@ -929,18 +1018,56 @@
 
         fixedTop = fixedTop ? fixedTop : 0;
 
-        if (this.container.style.position != "sticky") {
-          const rect = this.container.getBoundingClientRect();
-          if (originalContainerDistanceTop - window.scrollY <= fixedTop) {
-            this.container.style.position = "fixed";
-            this.container.style.top = fixedTop + "px";
-            this.container.style.left = rect.left + "px";
-            this.container.style.padding = "0";
-            this.container.style.margin = "0";
-            this.container.style.backgroundColor = color;
-          } else {
-            this.container.style.cssText = matchedRule.style;
+        // 如果规则样式本身包含 sticky 或 fixed，不需要动态 fixedToTop
+        if (this.matchedRule?.style && 
+            (this.matchedRule.style.includes("sticky") || 
+             this.matchedRule.style.includes("fixed"))) {
+          return;
+        }
+
+        const shadowHost = ShadowDOMManager.shadowHost;
+        
+        if (originalContainerDistanceTop - window.scrollY <= fixedTop) {
+          // 需要吸附到顶部
+          if (shadowHost.style.position !== "fixed") {
+            // 第一次变成 fixed：保存 container 相对视口的位置
+            const rect = this.container.getBoundingClientRect();
+            // 保存相对视口的 left，并考虑页面的横向滚动
+            shadowHost.dataset.originalLeft = rect.left;
           }
+          
+          // 吸附到顶部：将 Shadow host 设置为 fixed
+          // fixed 的 left 就是相对于视口的，直接使用保存的值
+          shadowHost.style.position = "fixed";
+          shadowHost.style.top = fixedTop + "px";
+          shadowHost.style.left = shadowHost.dataset.originalLeft + "px";
+          shadowHost.style.zIndex = "9999";
+          
+          // container 的样式调整
+          // 清除 container 的所有定位和布局样式，让它相对于 fixed 的 Shadow host 正常显示
+          this.container.style.position = "static";
+          this.container.style.left = "0";
+          this.container.style.top = "0";
+          this.container.style.gridColumn = "auto"; // 清除 grid-column，避免在 fixed 后错位
+          this.container.style.padding = "0";
+          this.container.style.margin = "0";
+          this.container.style.backgroundColor = color;
+        } else {
+          // 恢复原始状态：清除 Shadow host 的 fixed 定位
+          shadowHost.style.position = "";
+          shadowHost.style.top = "";
+          shadowHost.style.left = "";
+          shadowHost.style.zIndex = "";
+          delete shadowHost.dataset.originalLeft;
+          
+          // 重置 container 样式，让 Shadow DOM 样式表生效
+          this.container.style.position = "";
+          this.container.style.left = "";
+          this.container.style.top = "";
+          this.container.style.gridColumn = ""; // 恢复 grid-column
+          this.container.style.padding = "";
+          this.container.style.margin = "";
+          this.container.style.backgroundColor = "";
         }
       }
       #jumpToSelectedEngine(e) {
@@ -1053,8 +1180,10 @@
       parentTemp = null;
       editTemp = null;
       online = null;
+      shadowRoot = null; // 存储 Shadow root 引用
 
       constructor() {
+        this.shadowRoot = ShadowDOMManager.getRoot();
         this.init();
       }
       init() {
@@ -1076,7 +1205,7 @@
         });
 
         this.mask.appendChild(this.ele);
-        document.body.appendChild(this.mask);
+        ShadowDOMManager.getRoot().appendChild(this.mask);
 
         // 绑定事件
         this.ele.addEventListener("click", that.domClick.bind(this), false);
@@ -1084,32 +1213,39 @@
         this.setDragNode(this.ele); //设置拖动
         // input[range]
         that.rangeChange(true);
-        document
+        this.shadowRoot
           .querySelector("#setBtnOpacityRange")
-          .addEventListener("input", that.rangeChange);
+          .addEventListener("input", that.rangeChange.bind(that));
 
-        document
+        this.shadowRoot
           .querySelector("#xin-save")
           .addEventListener("click", function () {
             that.saveData();
             that.hide();
             that.reloadSet();
           });
-        document
+        this.shadowRoot
           .querySelector("#xin-addDel")
           .addEventListener("click", function (e) {
             that.addDel(e);
           });
-        document
+        this.shadowRoot
           .querySelector("#xin-modification")
           .addEventListener("click", function () {
             that.editCodeBox();
           });
         window.addEventListener("resize", this.windowResize.bind(this));
       }
+      // 添加辅助方法用于在 Shadow root 中查询元素
+      $(selector) {
+        return this.shadowRoot.querySelector(selector);
+      }
+      $$(selector) {
+        return this.shadowRoot.querySelectorAll(selector);
+      }
       dragEvent() {
         var that = this;
-        var odivsdrag = document.querySelectorAll(".drag");
+        var odivsdrag = this.$$(".drag");
         [].forEach.call(odivsdrag, function (odiv) {
           odiv.addEventListener("dragstart", that.domdragstart, false);
           odiv.addEventListener("dragenter", that.domdragenter, false);
@@ -1373,30 +1509,30 @@
           this.addDelremove();
         } else {
           // console.log("不存在,增加增加");
-          var obtn = document.querySelector("#xin-addDel");
+          var obtn = this.$("#xin-addDel");
           obtn.classList.add("iqxin-btn-active");
 
-          var odom = document.querySelectorAll(".iqxin-set-del");
+          var odom = this.$$(".iqxin-set-del");
           [].forEach.call(odom, function (div) {
             div.classList.add("iqxin-set-active");
           });
 
           // 标题添加删除框
-          var odom = document.querySelectorAll(".iqxin-set-title-del");
+          var odom = this.$$(" .iqxin-set-title-del");
           [].forEach.call(odom, function (div) {
             // console.log(div);
             div.classList.add("iqxin-set-active");
           });
 
           // 增加单个搜索
-          var oitemAdd = document.querySelectorAll(".iqxin-additem");
+          var oitemAdd = this.$$(" .iqxin-additem");
           [].forEach.call(oitemAdd, function (div) {
             // console.log(div);
             div.classList.add("iqxin-set-active");
           });
 
           // 添加搜索列表
-          var olistAdd = document.querySelector("#nSearchList");
+          var olistAdd = this.$("#nSearchList");
           olistAdd.classList.add("iqxin-set-active");
         }
       }
@@ -1446,15 +1582,15 @@
         setTimeout(function () {
           newDiv.style.cssText = "";
         }, 10);
-        document.querySelector("#iqxin-newTitle").focus();
+        this.$("#iqxin-newTitle").focus();
       }
       // 内部逻辑,：添加新的搜索
       addItemEnger() {
         var otitle, olink, oimg, oblank;
-        otitle = document.querySelector("#iqxin-newTitle").value;
-        olink = document.querySelector("#iqxin-newLink").value;
-        oimg = document.querySelector("#iqxin-newIcon").value;
-        oblank = document.querySelector("#iqxin-newTarget").selectedIndex;
+        otitle = this.$("#iqxin-newTitle").value;
+        olink = this.$("#iqxin-newLink").value;
+        oimg = this.$("#iqxin-newIcon").value;
+        oblank = this.$("#iqxin-newTarget").selectedIndex;
 
         if (!oimg) {
           oimg = this.getICON(olink);
@@ -1505,7 +1641,7 @@
       }
       addItemBoxRemove(ele) {
         ele = ele ? ele : "#newSearchBox";
-        var newBox = document.querySelector(ele);
+        var newBox = this.$(ele);
         if (newBox) {
           // newBox.style.transform = "translateY(30%)";
           newBox.style.top = "60%";
@@ -1566,7 +1702,7 @@
 
       // 界面, 框: 添加新的搜索列表
       addSearchListBox() {
-        var odiv = document.querySelector("#newSearchListBox");
+        var odiv = this.$("#newSearchListBox");
         if (odiv) {
           this.boxClose("#newSearchListBox");
           return;
@@ -1591,11 +1727,11 @@
           "";
         this.ele.appendChild(newDiv);
 
-        document.querySelector("#iqxin-newSearchListName").focus();
+        this.$("#iqxin-newSearchListName").focus();
       }
       addSearchListEnger() {
-        var name = document.querySelector("#iqxin-newSearchListName").value;
-        var innerName = document.querySelector(
+        var name = this.$("#iqxin-newSearchListName").value;
+        var innerName = this.$(
           "#iqxin-newSearchListInnerName"
         ).value;
 
@@ -1637,12 +1773,12 @@
         // this.boxClose("#newSearchListBox");
         this.addItemBoxRemove("#newSearchListBox");
 
-        var btnEle = document.querySelector("#btnEle");
+        var btnEle = this.$("#btnEle");
         btnEle.parentNode.insertBefore(odiv, btnEle);
       }
 
       boxClose(ele) {
-        var odiv = document.querySelector(ele);
+        var odiv = this.$(ele);
         if (odiv) {
           odiv.parentNode.removeChild(odiv);
         }
@@ -1704,15 +1840,15 @@
         setTimeout(function () {
           newDiv.style.cssText = "";
         }, 10);
-        document.querySelector("#iqxin-newTitle").select();
+        this.$("#iqxin-newTitle").select();
       }
       addEditBoxEnger() {
         var otitle, olink, oimg, oblank, ogbk;
-        otitle = document.querySelector("#iqxin-newTitle").value;
-        olink = document.querySelector("#iqxin-newLink").value;
-        oimg = document.querySelector("#iqxin-newIcon").value;
-        oblank = document.querySelector("#iqxin-newTarget").selectedIndex;
-        ogbk = document.querySelector("#iqxin-newGBK").checked;
+        otitle = this.$("#iqxin-newTitle").value;
+        olink = this.$("#iqxin-newLink").value;
+        oimg = this.$("#iqxin-newIcon").value;
+        oblank = this.$("#iqxin-newTarget").selectedIndex;
+        ogbk = this.$("#iqxin-newGBK").checked;
 
         this.editTemp.dataset.iqxintitle = otitle;
         this.editTemp.lastChild.innerText = otitle; //文本节点
@@ -1745,7 +1881,7 @@
         var element = e.target.parentNode.firstChild;
         element.classList.remove("iqxin-pointer-events");
 
-        var flag = document.querySelector("#titleEdit");
+        var flag = this.$("#titleEdit");
         // 存在编辑的标题 && 之前的编辑的节点与点击的节点是同一个节点
         if (flag && flag.parentNode == element) {
           element.innerHTML = element.firstChild.value
@@ -1780,7 +1916,7 @@
         }
       }
       addTitleEditBoxRemove() {
-        var odiv = document.querySelector("#titleEdit");
+        var odiv = this.$("#titleEdit");
         if (odiv) {
           odiv.parentNode.innerHTML = odiv.value ? odiv.value : "空";
         }
@@ -1819,7 +1955,7 @@
         this.ele.appendChild(editbox);
       }
       editCodeBoxSave() {
-        var codevalue = document.querySelector(
+        var codevalue = this.$(
           "#iqxin-editCodeBox textarea"
         ).value;
         if (codevalue) {
@@ -1834,7 +1970,7 @@
         }
       }
       editCodeBoxClose() {
-        var box = document.querySelector("#iqxin-editCodeBox");
+        var box = this.$("#iqxin-editCodeBox");
         if (box) {
           box.parentNode.removeChild(box);
         }
@@ -1952,7 +2088,7 @@
 
         //  点击更多菜单
         if (targetid === "moreSet") {
-          document.querySelector("#btnEle2").classList.toggle("btnEle2active");
+          this.$("#btnEle2").classList.toggle("btnEle2active");
           // iqxin-btn-active
           e.target.classList.toggle("iqxin-btn-active");
         }
@@ -1986,12 +2122,12 @@
         this.addItemBoxRemove("#newSearchListBox"); // 添加新的搜索列表
         this.boxClose("#iqxin-sortBox"); // 搜索列表排序
         this.addItemBoxRemove("#importingBox"); //导入框
-        document.querySelector("#btnEle2").classList.remove("btnEle2active"); // 更多设置
+        this.$("#btnEle2").classList.remove("btnEle2active"); // 更多设置
       }
 
       // 窗口位置拖动
       setDragNode(ele) {
-        var node = document.querySelector("#dragDom");
+        var node = this.$("#dragDom");
 
         node.addEventListener("mousedown", function (event) {
           ele.style.transition = "null";
@@ -2100,7 +2236,7 @@
         return false;
       }
       domdropend() {
-        var dom = document.querySelector(".drop-over");
+        var dom = this.$(".drop-over");
         if (dom) {
           dom.classList.remove("drop-over");
         }
@@ -2129,7 +2265,8 @@
 
       // 重新加载工具
       reloadSet() {
-        var elems = document.querySelectorAll(
+        const shadowRoot = ShadowDOMManager.getRoot();
+        var elems = shadowRoot.querySelectorAll(
           "#sej-container, #settingLayerMask, sejspan.sej-drop-list"
         );
         if (!elems) return;
@@ -2146,12 +2283,12 @@
 
       // 设置按钮透明度设置
       rangeChange(bool) {
-        var odom = document.querySelector("#setBtnOpacityRange");
+        var odom = this.$("#setBtnOpacityRange");
         if (settingData.setBtnOpacity < 0) {
           odom.style.background =
             "-webkit-linear-gradient(left,#bdbdbd,#c6c7c7) no-repeat, #fff";
           odom.style.backgroundSize = odom.value * 100 + "% 100%";
-          document.querySelector(".iqxin-setBtnOpacityRangeValue").innerHTML =
+          this.$(".iqxin-setBtnOpacityRangeValue").innerHTML =
             "禁用";
           settingData.setBtnOpacity = -odom.value;
         } else {
@@ -2167,7 +2304,7 @@
           } else {
             valueStr = odom.value.toString().padEnd(4, "0");
           }
-          document.querySelector(".iqxin-setBtnOpacityRangeValue").innerHTML =
+          this.$(".iqxin-setBtnOpacityRangeValue").innerHTML =
             valueStr;
           settingData.setBtnOpacity = odom.value;
         }
@@ -2197,7 +2334,7 @@
         this.addTitleEditBoxRemove(); //标题栏处于编辑状态
 
         var obj = {};
-        var parentdiv = document.querySelectorAll("#settingLayer .iqxin-items");
+        var parentdiv = this.$$("#settingLayer .iqxin-items");
         for (let i = 0; i < parentdiv.length; i++) {
           var data = parentdiv[i].querySelectorAll(".sej-engine");
           var id = parentdiv[i].id;
@@ -2228,7 +2365,7 @@
         var engineDetails = [];
 
         // 分类排序
-        var odetails = document.querySelectorAll(".sejtitle");
+        var odetails = this.$$(".sejtitle");
         var odetailsLength = odetails.length;
         for (let i = 0; i < odetailsLength; i++) {
           engineDetails[i] = [];
@@ -2238,27 +2375,27 @@
         }
 
         // 新标签页全局设置
-        var onewtab = document.querySelector(
+        var onewtab = this.$(
           "#iqxin-globalNewtab"
         ).selectedIndex;
-        var foldlist = document.querySelector("#iqxin-foldlist").checked;
+        var foldlist = this.$("#iqxin-foldlist").checked;
 
         // 以防不测,重新获取本地配置文件
         var getData = GM_getValue("searchEngineJumpData");
         getData.newtab = onewtab;
         getData.foldlist = foldlist;
         getData.setBtnOpacity = settingData.setBtnOpacity;
-        getData.center = document.querySelector("#iqxin-center").selectedIndex;
-        getData.fixedTop = document.querySelector("#iqxin-fixedTop").checked;
-        getData.allOpen = document.querySelector("#iqxin-allOpen-item").checked;
-        getData.fixedTopUpward = document.querySelector(
+        getData.center = this.$("#iqxin-center").selectedIndex;
+        getData.fixedTop = this.$("#iqxin-fixedTop").checked;
+        getData.allOpen = this.$("#iqxin-allOpen-item").checked;
+        getData.fixedTopUpward = this.$(
           "#iqxin-fixedTopUpward-item"
         ).checked;
-        getData.transtion = document.querySelector("#iqxin-transtion").checked;
-        getData.HideTheSameLink = document.querySelector(
+        getData.transtion = this.$("#iqxin-transtion").checked;
+        getData.HideTheSameLink = this.$(
           "#iqxin-HideTheSameLink"
         ).checked;
-        getData.selectSearch = document.querySelector(
+        getData.selectSearch = this.$(
           "#iqxin-selectSearch"
         ).checked;
         getData.engineDetails = engineDetails;
@@ -2270,7 +2407,7 @@
       addGlobalStyle() {
         // 关闭设置菜单中的所有动画效果
         if (!settingData.transtion) {
-          GM_addStyle(
+          ShadowDOMManager.addStyle(
             "#settingLayer," +
               "#btnEle span," +
               "#btnEle2," +
@@ -2306,7 +2443,7 @@
       }
       show(text) {
         this.popUp.innerText = text;
-        document.body.appendChild(this.popUp);
+        ShadowDOMManager.getRoot().appendChild(this.popUp);
         this.popUp.style.opacity = 1;
       }
       destroy() {
@@ -2323,16 +2460,36 @@
       constructor() {
         this.globalStyle = GM_getResourceText("GLOBAL_STYLE");
         this.nonTransitionStyle = `.sej-engine,.sej-drop-list-trigger,.sej-drop-list{transition:none!important;}#sej-container{animation:none!important;}.sej-drop-list {backdrop-filter:none!important;}`;
+        
+        // 将全局样式注入到 Shadow DOM
         this.addStyle(this.globalStyle);
+        
         if (!settingData.transtion) {
           this.addStyle(this.nonTransitionStyle);
         }
+        
+        // 暗黑模式检测需要在主文档上
         if (this.isDarkMode()) {
-          document.body.setAttribute("qxintheme", "dark");
+          // 在 Shadow DOM 中设置暗黑模式样式
+          this.addStyle(`
+            :host {
+              --font-color-qxin: #bdc1bc;
+              --background-color-qxin: #202124f0;
+              --background-avtive-color-qxin: #424242;
+              --background-active-enable-qxin: #274144;
+              --background-active-disable-qxin: #583535;
+              --background-hover-color-qxin: #424242;
+              --trigger-shown-qxin: #424242 !important;
+              --background-btn-qxin: #292f36;
+              --background-setting-qxin: #202124;
+              --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
+              --border-color-sej: #3b4547;
+            }
+          `);
         }
       }
       addStyle(style) {
-        GM_addStyle(style);
+        ShadowDOMManager.addStyle(style);
       }
       isDarkMode() {
         function getContrastYIQ(rgbColor) {

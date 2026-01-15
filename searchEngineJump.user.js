@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.32.0
+// @version        5.32.1
 // @created        2011-07-02
 // @lastUpdated    2023-06-13
 
@@ -2468,47 +2468,208 @@
           this.addStyle(this.nonTransitionStyle);
         }
         
-        // 暗黑模式检测需要在主文档上
-        if (this.isDarkMode()) {
-          // 在 Shadow DOM 中设置暗黑模式样式
-          this.addStyle(`
-            :host {
-              --font-color-qxin: #bdc1bc;
-              --background-color-qxin: #202124f0;
-              --background-avtive-color-qxin: #424242;
-              --background-active-enable-qxin: #274144;
-              --background-active-disable-qxin: #583535;
-              --background-hover-color-qxin: #424242;
-              --trigger-shown-qxin: #424242 !important;
-              --background-btn-qxin: #292f36;
-              --background-setting-qxin: #202124;
-              --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
-              --border-color-sej: #3b4547;
-            }
-          `);
-        }
+        // 初始化深色模式
+        this.applyDarkModeIfNeeded();
+        
+        // 监听深色模式变化
+        this.watchDarkModeChanges();
       }
+      
       addStyle(style) {
         ShadowDOMManager.addStyle(style);
       }
+      
+      /**
+       * 应用深色模式样式（如果需要）
+       */
+      applyDarkModeIfNeeded() {
+        if (this.isDarkMode()) {
+          this.applyDarkModeStyles();
+        }
+      }
+      
+      /**
+       * 应用深色模式样式
+       */
+      applyDarkModeStyles() {
+        // 在 Shadow DOM 中设置暗黑模式样式
+        // 使用 :root 和 :host 确保在 Shadow DOM 中生效
+        this.addStyle(`
+          :root,
+          :host {
+            --font-color-qxin: #bdc1bc;
+            --background-color-qxin: #202124f0;
+            --background-avtive-color-qxin: #424242;
+            --background-active-enable-qxin: #274144;
+            --background-active-disable-qxin: #583535;
+            --background-hover-color-qxin: #424242;
+            --trigger-shown-qxin: #424242 !important;
+            --background-btn-qxin: #292f36;
+            --background-setting-qxin: #202124;
+            --box-shadow-color-sej: hsla(0, 0%, 70%, 10%);
+            --border-color-sej: #3b4547;
+          }
+        `);
+      }
+      
+      /**
+       * 监听深色模式变化
+       */
+      watchDarkModeChanges() {
+        // 1. 监听系统深色模式偏好变化（性能影响极小）
+        if (window.matchMedia) {
+          const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          
+          const handleChange = (e) => {
+            if (e.matches !== this.lastDarkModeState) {
+              this.lastDarkModeState = e.matches;
+              if (this.isDarkMode()) {
+                this.applyDarkModeStyles();
+              }
+            }
+          };
+          
+          if (darkModeQuery.addEventListener) {
+            darkModeQuery.addEventListener('change', handleChange);
+          } else if (darkModeQuery.addListener) {
+            darkModeQuery.addListener(handleChange);
+          }
+        }
+      }
+      
+      /**
+       * 检测是否为深色模式
+       * 使用多种方法综合判断
+       */
       isDarkMode() {
-        function getContrastYIQ(rgbColor) {
+        // 方法1: 检测系统深色模式偏好（最标准的方法）
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return true;
+        }
+        
+        // 方法2: 检测 meta 标签（修复原有的错误实现）
+        const metaTags = document.getElementsByTagName('meta');
+        for (let i = 0; i < metaTags.length; i++) {
+          const meta = metaTags[i];
+          if (meta.name === 'color-scheme' && meta.content.includes('dark')) {
+            return true;
+          }
+          // 某些网站使用 theme-color
+          if (meta.name === 'theme-color') {
+            const color = meta.content;
+            if (color && this.isColorDark(color)) {
+              return true;
+            }
+          }
+        }
+        
+        // 方法3: 检测 HTML/Body 的 data 属性和 class
+        const html = document.documentElement;
+        const body = document.body;
+        
+        // 检查常见的深色模式属性
+        const darkModeIndicators = [
+          // data 属性
+          html.getAttribute('data-theme'),
+          html.getAttribute('data-color-scheme'),
+          html.getAttribute('theme'),
+          body?.getAttribute('data-theme'),
+          body?.getAttribute('data-color-scheme'),
+          body?.getAttribute('theme'),
+          // class 名称
+          html.className,
+          body?.className
+        ];
+        
+        for (const indicator of darkModeIndicators) {
+          if (indicator && typeof indicator === 'string') {
+            const lower = indicator.toLowerCase();
+            if (lower.includes('dark') || lower.includes('night')) {
+              return true;
+            }
+          }
+        }
+        
+        // 方法4: 检测背景色（改进版，检测多个元素）
+        const elementsToCheck = [
+          document.body,
+          document.documentElement,
+          document.querySelector('main'),
+          document.querySelector('#app'),
+          document.querySelector('.app'),
+          document.querySelector('[role="main"]')
+        ];
+        
+        for (const element of elementsToCheck) {
+          if (element) {
+            try {
+              const bgColor = getComputedStyle(element).backgroundColor;
+              if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+                if (this.isBackgroundDark(bgColor)) {
+                  return true;
+                }
+              }
+            } catch (e) {
+              // 忽略错误，继续检测下一个元素
+            }
+          }
+        }
+        
+        return false;
+      }
+      
+      /**
+       * 判断背景色是否为深色
+       * @param {string} bgColor - CSS 颜色值
+       * @returns {boolean}
+       */
+      isBackgroundDark(bgColor) {
+        try {
           let r, g, b, a;
-          rgbColor = rgbColor.match(/rgba?\(([^)]+)\)/)[1];
-          rgbColor = rgbColor.split(/ *, */).map(Number);
-          [r, g, b, a] = rgbColor;
-          if (a < 0.5) {
+          
+          // 解析 rgb/rgba 颜色
+          const match = bgColor.match(/rgba?\\(([^)]+)\\)/);
+          if (!match) return false;
+          
+          const values = match[1].split(/\\s*,\\s*/).map(Number);
+          [r, g, b, a] = values;
+          
+          // 如果透明度太低，认为不是深色背景
+          if (a !== undefined && a < 0.5) {
             return false;
           }
+          
+          // 使用 YIQ 算法计算亮度
+          // YIQ < 128 表示深色
+          const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+          return yiq < 128;
+        } catch (e) {
+          return false;
+        }
+      }
+      
+      /**
+       * 判断颜色是否为深色（用于 meta theme-color）
+       * @param {string} color - CSS 颜色值
+       * @returns {boolean}
+       */
+      isColorDark(color) {
+        // 处理十六进制颜色
+        if (color.startsWith('#')) {
+          const hex = color.replace('#', '');
+          const r = parseInt(hex.substr(0, 2), 16);
+          const g = parseInt(hex.substr(2, 2), 16);
+          const b = parseInt(hex.substr(4, 2), 16);
           const yiq = (r * 299 + g * 587 + b * 114) / 1000;
           return yiq < 128;
         }
-
-        return (
-          document.getElementsByTagName("meta")?.["color-scheme"]?.content ===
-            "dark" ||
-          getContrastYIQ(getComputedStyle(document.body).backgroundColor)
-        );
+        
+        // 处理 rgb/rgba
+        if (color.startsWith('rgb')) {
+          return this.isBackgroundDark(color);
+        }
+        
+        return false;
       }
     }
 

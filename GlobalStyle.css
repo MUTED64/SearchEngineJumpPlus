@@ -478,6 +478,7 @@ span#setBtn:hover {
   transition: 0.4s;
 }
 /* 夜间模式 - 默认主题变量 */
+:root,
 :host,
 body {
   --font-color-qxin: #333;
@@ -493,6 +494,8 @@ body {
   --border-color-sej: #e1e6ea;
 }
 /* 暗黑模式变量 - 当主文档是暗黑模式时 */
+:root[qxintheme="dark"],
+:host[qxintheme="dark"],
 body[qxintheme="dark"] {
   --font-color-qxin: #bdc1bc;
   --background-color-qxin: #202124f0;

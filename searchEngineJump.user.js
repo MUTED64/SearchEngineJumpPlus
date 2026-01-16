@@ -3,7 +3,7 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.32.4
+// @version        5.32.5
 // @created        2011-07-02
 // @lastUpdated    2026-01-16
 
@@ -1055,7 +1055,7 @@ function listenUrlChange() {
           shadowHost.style.position = "fixed";
           shadowHost.style.top = fixedTop + "px";
           shadowHost.style.left = shadowHost.dataset.originalLeft + "px";
-          shadowHost.style.zIndex = "9999";
+          shadowHost.style.zIndex = "998";
           
           // container 的样式调整
           // 清除 container 的所有定位和布局样式，让它相对于 fixed 的 Shadow host 正常显示

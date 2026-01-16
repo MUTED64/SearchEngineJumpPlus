@@ -1291,10 +1291,9 @@ const shoppingRules = [
     url: /^https?:\/\/s\.taobao\.com\/search/,
     enabled: true,
     engineList: "shopping",
-    fixedTop: 56,
+    fixedTop: 124,
     style: `
       margin:1em auto 0;
-      width: 1446px !important;
       justify-content: center;
       z-index: 99999;
     `,
@@ -1310,7 +1309,7 @@ const shoppingRules = [
           }
         }
       },
-      target: "css;div.PageContent--contentWrap--mep7AEm",
+      target: "css;div#pageContent",
       where: "beforeBegin",
     },
   },
@@ -1355,13 +1354,14 @@ const shoppingRules = [
     url: /^https?:\/\/search\.jd\.com\/Search/,
     enabled: true,
     engineList: "shopping",
+    fixedTop: 90,
     style: `
-      text-align:center; 
+      text-align:center;
       margin: 1em auto -0.5em auto;
     `,
     insertIntoDoc: {
-      keyword: "css;#key",
-      target: "css;#J_searchWrap",
+      keyword: "css;.jd_pc_search_bar_react_search_input",
+      target: "css;#main_search_conter",
       where: "beforeBegin",
     },
   },

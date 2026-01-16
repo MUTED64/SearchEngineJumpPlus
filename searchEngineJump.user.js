@@ -3,15 +3,15 @@
 // @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
 // @contributor    MUTED64
 // @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.32.2
+// @version        5.32.3
 // @created        2011-07-02
-// @lastUpdated    2023-06-13
+// @lastUpdated    2026-01-16
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
 // @require        https://greasyfork.org/scripts/408009-togbk/code/toGBK.js?version=832799
 // @require        https://update.greasyfork.org/scripts/456710/1586958/SearchEngineJumpPlusEngineList.js
-// @require        https://update.greasyfork.org/scripts/456711/1735495/SearchEngineJumpPlusRules.js
+// @require        https://update.greasyfork.org/scripts/456711/1735536/SearchEngineJumpPlusRules.js
 // @resource       GLOBAL_STYLE https://greasyfork.org/scripts/455977-searchenginejumpplusglobalstyle/code/SearchEngineJumpPlusGlobalStyle.user.css
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
 // @license        MIT
@@ -157,25 +157,39 @@
   }
 
   // For SPA websites with javascript router
-  function listenUrlChange() {
-    if (window.onurlchange === null) {
-      let lastURL = decodeURI(location.href).replaceAll(" ", "+");
-      window.addEventListener("urlchange", (e) => {
-        const newURL = decodeURI(e.url).replaceAll(" ", "+");
-        if (lastURL === newURL) return;
-        lastURL = newURL;
-        // 清理 Shadow DOM 内容
-        const shadowHost = document.querySelector('#sej-shadow-host');
-        if (shadowHost) {
-          shadowHost.remove();
+function listenUrlChange() {
+  if (window.onurlchange === null) {
+    // 规范化 URL：移除不重要的参数
+    function normalizeURL(urlString) {
+      try {
+        const url = new URL(urlString);
+        
+        // Bilibili: 移除 vt 参数（时间戳）防止错误更新
+        if (url.hostname.includes('bilibili.com')) {
+          url.searchParams.delete('vt');
         }
-        // 重置 Shadow DOM 管理器
-        ShadowDOMManager.shadowHost = null;
-        ShadowDOMManager.shadowRoot = null;
-        startScript();
-      });
+        return url.toString();
+      } catch (e) {
+        return urlString;
+      }
     }
+    let lastURL = normalizeURL(decodeURI(location.href).replaceAll(" ", "+"));
+    window.addEventListener("urlchange", (e) => {
+      const newURL = normalizeURL(decodeURI(e.url).replaceAll(" ", "+"));
+      if (lastURL === newURL) return;
+      lastURL = newURL;
+      // 清理 Shadow DOM 内容
+      const shadowHost = document.querySelector('#sej-shadow-host');
+      if (shadowHost) {
+        shadowHost.remove();
+      }
+      // 重置 Shadow DOM 管理器
+      ShadowDOMManager.shadowHost = null;
+      ShadowDOMManager.shadowRoot = null;
+      startScript();
+    });
   }
+}
 
   function mainLogic() {
     const rules = searchEngineJumpPlusRules;
@@ -2542,28 +2556,41 @@
        * 使用多种方法综合判断
        */
       isDarkMode() {
-        // 方法1: 检测系统深色模式偏好（最标准的方法）
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return true;
-        }
-        
-        // 方法2: 检测 meta 标签（修复原有的错误实现）
+        // 检测 meta 标签
         const metaTags = document.getElementsByTagName('meta');
         for (let i = 0; i < metaTags.length; i++) {
           const meta = metaTags[i];
-          if (meta.name === 'color-scheme' && meta.content.includes('dark')) {
-            return true;
+          // 检查 dark 是否为第一个值(当前激活的模式)
+          if (meta.name === 'color-scheme') {
+            const schemes = meta.content.trim().split(/\s+/);
+            if (schemes[0] === 'dark') {
+              return true;
+            }
           }
           // 某些网站使用 theme-color
           if (meta.name === 'theme-color') {
-            const color = meta.content;
-            if (color && this.isColorDark(color)) {
-              return true;
+            // 检查 media 属性,只有匹配当前模式时才检测颜色
+            const mediaAttr = meta.getAttribute('media');
+            if (mediaAttr) {
+              // 如果有 media 属性,检查是否匹配
+              // 只有明确匹配 dark 模式的 media query 才检测
+              if (window.matchMedia && window.matchMedia(mediaAttr).matches) {
+                const color = meta.content;
+                if (color && this.isColorDark(color)) {
+                  return true;
+                }
+              }
+            } else {
+              // 没有 media 属性,直接检测颜色
+              const color = meta.content;
+              if (color && this.isColorDark(color)) {
+                return true;
+              }
             }
           }
         }
         
-        // 方法3: 检测 HTML/Body 的 data 属性和 class
+        // 检测 HTML/Body 的 data 属性和 class
         const html = document.documentElement;
         const body = document.body;
         
@@ -2590,7 +2617,7 @@
           }
         }
         
-        // 方法4: 检测背景色（改进版，检测多个元素）
+        // 检测背景色（改进版，检测多个元素）
         const elementsToCheck = [
           document.body,
           document.documentElement,
@@ -2614,6 +2641,11 @@
             }
           }
         }
+
+        // Fallback系统深色模式偏好
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return true;
+        }
         
         return false;
       }
@@ -2628,10 +2660,10 @@
           let r, g, b, a;
           
           // 解析 rgb/rgba 颜色
-          const match = bgColor.match(/rgba?\\(([^)]+)\\)/);
+          const match = bgColor.match(/rgba?\(([^)]+)\)/);
           if (!match) return false;
           
-          const values = match[1].split(/\\s*,\\s*/).map(Number);
+          const values = match[1].split(/\s*,\s*/).map(Number);
           [r, g, b, a] = values;
           
           // 如果透明度太低，认为不是深色背景

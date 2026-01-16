@@ -35,7 +35,7 @@ const webRules = [
     engineList: "web",
     class: "s6JM6d",
     wrapperClass: "YNk70c",
-    fixedTop: 52,
+    fixedTop: 56,
     style: `
       z-index: 100;
       margin-top:15px;
@@ -752,7 +752,7 @@ const videoRules = [
     url: /^https?:\/\/search\.bilibili\.com\/*/,
     enabled: true,
     engineList: "video",
-    fixedTop: 74,
+    fixedTop: 65,
     style: `
       width:980px;
       margin:10px auto 10px;
